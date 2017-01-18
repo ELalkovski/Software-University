@@ -1,0 +1,1 @@
+This program read an integer from the console and convert it into years, days, hours, minutes. 
