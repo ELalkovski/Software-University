@@ -14,7 +14,7 @@ namespace Special_Numbers
 
             for (int num = 0; num <= n; num++)
             {
-                 int sum = 0;
+                int sum = 0;
                 int digits = num;
 
                 while (digits > 0)

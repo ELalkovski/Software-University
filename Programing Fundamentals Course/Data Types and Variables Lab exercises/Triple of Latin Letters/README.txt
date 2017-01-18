@@ -1,0 +1,1 @@
+This program reads a number 'n' from the console and prints all triples of the first 'n' small Latin letters, ordered alphabetically.
