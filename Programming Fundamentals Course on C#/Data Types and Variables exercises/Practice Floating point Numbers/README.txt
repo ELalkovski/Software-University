@@ -1,1 +1,1 @@
-﻿This program assigns character and string values to variables.
+﻿This program assigns floating point values to variables.
