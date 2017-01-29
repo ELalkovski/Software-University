@@ -1,0 +1,1 @@
+﻿This program safely compares floating-point numbers (double) with precision eps = 0.000001.

@@ -1,0 +1,1 @@
+﻿This program assigns integer values to variables.

@@ -1,0 +1,1 @@
+﻿This program checks if given symbol is digit, vowel or any other symbol

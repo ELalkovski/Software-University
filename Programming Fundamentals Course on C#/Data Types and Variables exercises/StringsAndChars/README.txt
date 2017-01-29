@@ -1,0 +1,1 @@
+﻿This program prints strings and chars.

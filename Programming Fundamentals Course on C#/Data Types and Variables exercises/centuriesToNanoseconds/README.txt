@@ -1,0 +1,1 @@
+﻿This program reads an integer number of centuries and convert it to years, days, hours, minutes, seconds, milliseconds, microseconds, nanoseconds.

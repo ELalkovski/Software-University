@@ -1,0 +1,3 @@
+﻿You will receive the amount of pictures she had taken. Then the approximate time in seconds for every picture to be filtered. 
+Then a filter factor – a percentage (integer number) of the total photos (rounded to the nearest bigger integer value e.g. 5.01 -> 6) that are good enough to be given to her clients (Photoshop may do miracles but Thea does not).
+Approximate time for every picture to be uploaded will be given again in seconds. Your task is: based on this input to display total time needed for her to be ready with the pictures in given below format.

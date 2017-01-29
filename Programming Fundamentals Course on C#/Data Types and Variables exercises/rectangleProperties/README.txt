@@ -1,0 +1,1 @@
+﻿This program calculates rectangle’s perimeter, area and diagonal by given its width and height

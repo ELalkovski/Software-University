@@ -1,0 +1,1 @@
+﻿This program reads a number in hexadecimal format (0x##) converts it to decimal format and prints it.

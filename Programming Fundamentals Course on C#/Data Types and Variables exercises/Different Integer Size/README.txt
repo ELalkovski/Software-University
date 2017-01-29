@@ -1,0 +1,1 @@
+﻿Given an input integer, this program determine which primitive data types are capable of properly storing that input.

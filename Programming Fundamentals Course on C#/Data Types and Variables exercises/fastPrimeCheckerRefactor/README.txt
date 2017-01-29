@@ -1,0 +1,1 @@
+﻿This program checks if numbers in a given range [2...N] are prime. For each number is printed "{number} is prime -> {True or False}". 

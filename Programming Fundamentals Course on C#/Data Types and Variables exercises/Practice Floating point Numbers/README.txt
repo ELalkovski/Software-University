@@ -1,0 +1,1 @@
+﻿This program assigns character and string values to variables.
