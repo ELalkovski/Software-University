@@ -1,0 +1,1 @@
+This program counts the trailing zeroes of the factorial of a given number.

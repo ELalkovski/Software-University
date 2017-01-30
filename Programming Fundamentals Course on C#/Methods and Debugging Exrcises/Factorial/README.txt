@@ -1,0 +1,1 @@
+This program calculates and prints the n! for any n in the range [1…1000].
