@@ -1,0 +1,2 @@
+﻿This program reads a sequence of strings, each on a new line, until it receives the “stop” command. The first string is the name of a person. The second is their email.
+The program collect their names and emails, and removes emails whose domain ends with "us" or "uk" (case insensitive)and prints the rest.

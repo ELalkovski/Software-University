@@ -1,0 +1,1 @@
+﻿This program add functionality to the phonebook from the previous task to prints all contacts ordered lexicographically when receives the command “ListAll”.
