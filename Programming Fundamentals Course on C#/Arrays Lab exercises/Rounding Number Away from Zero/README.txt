@@ -1,0 +1,1 @@
+﻿This program reads an array of real numbers (space separated values), rounds them to the nearest integer in “away from 0” style and prints the output as in the examples below.

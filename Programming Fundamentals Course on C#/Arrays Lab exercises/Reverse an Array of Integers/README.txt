@@ -1,0 +1,1 @@
+﻿This program reads an array of integers, reverses it and prints its elements. The input consists of a number n (the number of elements) + n integers, each as a separate line. Prints the output on a single line (space separated).

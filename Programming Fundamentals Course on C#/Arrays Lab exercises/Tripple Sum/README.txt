@@ -1,0 +1,1 @@
+﻿This program reads an array of integers and finds all triples of elements a, b and c, such that a + b == c (where a stays left from b). Prints “No” if no such triples exist.

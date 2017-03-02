@@ -1,0 +1,1 @@
+﻿This program uses a method to extract the middle 1, 2 or 3 elements from array of n integers and prints them.

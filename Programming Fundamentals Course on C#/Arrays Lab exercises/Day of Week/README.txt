@@ -1,0 +1,1 @@
+﻿This program enters a day number [1…7] and prints the day name (in English) or “Invalid Day!”
