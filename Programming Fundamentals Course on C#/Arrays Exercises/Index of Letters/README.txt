@@ -1,0 +1,1 @@
+﻿This program reads a lowercase word from the console and prints the index of each of its letters in the letters array.

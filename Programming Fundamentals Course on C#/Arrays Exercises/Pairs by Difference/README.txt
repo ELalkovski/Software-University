@@ -1,0 +1,1 @@
+﻿This program counts the number of pairs in given array which difference is equal to given number.

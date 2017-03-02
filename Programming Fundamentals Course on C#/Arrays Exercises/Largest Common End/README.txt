@@ -1,0 +1,1 @@
+﻿This program reads two arrays of words and find the length of the largest common end (left or right).

@@ -1,0 +1,1 @@
+﻿This program finds all prime numbers in range [1…n]. Implements the algorithm called “Sieve of Eratosthenes”: 

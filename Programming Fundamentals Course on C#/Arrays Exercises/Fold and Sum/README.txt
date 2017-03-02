@@ -1,0 +1,1 @@
+﻿This program reads an array of 4*k integers, folds it and prints the sum of the upper and lower two rows (each holding 2 * k integers):

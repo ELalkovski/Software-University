@@ -1,0 +1,2 @@
+﻿This program finds the longest increasing subsequence in an array of integers. The longest increasing subsequence is a portion of the array (subsequence) that is strongly increasing and has the longest possible length. 
+If several such subsequences exist, finds the left most of them.
