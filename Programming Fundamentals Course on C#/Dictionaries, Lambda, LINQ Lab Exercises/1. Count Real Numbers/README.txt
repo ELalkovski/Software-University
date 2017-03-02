@@ -1,0 +1,1 @@
+﻿This program reads a list of real numbers and prints them in ascending order along with their number of occurrences.
