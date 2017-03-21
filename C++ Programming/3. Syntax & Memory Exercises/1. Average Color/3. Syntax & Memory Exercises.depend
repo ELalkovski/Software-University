@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1489699520 source:c:\temp\c++ programming\3. syntax & memory exercises\1.average-color.cpp
+	<iostream>
+	<string>
+	<sstream>
+

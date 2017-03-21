@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1490102170 source:c:\temp\c++ programming\4.named operations\4.named-operations.cpp
+	<iostream>
+	<string>
+	<sstream>
+	<vector>
+
