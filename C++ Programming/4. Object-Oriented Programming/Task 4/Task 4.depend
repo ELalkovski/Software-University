@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1490732900 source:c:\temp\c++ programming\task 4\task4.cpp
+	<iostream>
+	<string>
+	<sstream>
+	<fstream>
+	<vector>
+
