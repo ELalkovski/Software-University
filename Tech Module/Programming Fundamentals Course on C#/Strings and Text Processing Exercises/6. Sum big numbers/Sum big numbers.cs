@@ -1,51 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace _6.Sum_big_numbers
+namespace _07.Sum_Big_Numbers
 {
-    public class SumBigNums
+    public class SumBigNumbers
     {
-        public static string GetResult (string firstNum, string multiplier)
-        {
-            var sum = 0;
-            var numInMind = 0;
-            var remainder = 0;
-            StringBuilder result = new StringBuilder();
-
-            for (int i = firstNum.Length - 1; i >= 0; i--)
-            {
-                sum = int.Parse(firstNum[i].ToString()) * int.Parse(multiplier.ToString()) + numInMind;
-                numInMind = sum / 10;
-                remainder = sum % 10;
-                result.Append(remainder);
-
-                if (i == 0 && numInMind != 0)
-                {
-                    result.Append(numInMind);
-                }
-            }
-            var arrResult = result.ToString().ToCharArray();
-            Array.Reverse(arrResult);
-
-            return string.Join("", arrResult);
-
-        }
-
         public static void Main()
         {
-            var firstNum = Console.ReadLine().TrimStart(new char[] { '0' });
-            var multiplier = Console.ReadLine();
+            var firstNum = Console.ReadLine();
+            var secondNum = Console.ReadLine();
+            int numInMind = 0;
+            int remainder = 0;
+            var sb = new StringBuilder();
 
-            if (multiplier != "0")
+            var longestNum = Math.Max(firstNum.Length, secondNum.Length);
+
+            var formatedFirstNum = string.Format("{0}", firstNum.PadLeft(longestNum, '0'));
+            var formatedSecondNum = string.Format("{0}", secondNum.PadLeft(longestNum, '0'));
+
+            for (int i = longestNum - 1; i >= 0; i--)
             {
-                Console.WriteLine(GetResult(firstNum, multiplier));
+
+                var sum = int.Parse(formatedFirstNum[i].ToString()) + int.Parse(formatedSecondNum[i].ToString()) + numInMind;
+                numInMind = sum / 10;
+                remainder = sum % 10;
+                sb.Append(remainder);
+
+                if (numInMind > 0 && i == 0)
+                {
+                    sb.Append(numInMind);
+
+                }
             }
-            else
-            {
-                Console.WriteLine("0");
-            }
+
+            var result = sb.ToString().TrimEnd('0').ToCharArray();
+            Array.Reverse(result);
+            Console.WriteLine(result);
         }
     }
 }
