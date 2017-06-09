@@ -2,48 +2,52 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace _7.Multiply_big_number
+namespace _08.Multiply_Big_Numbers
 {
     public class MultiplyBigNums
     {
-        public static string GetResult(string firstNum, string secondNum)
+        public static void Main()
         {
-            if (firstNum.Length > secondNum.Length)
+            var firstNum = Console.ReadLine();
+            var multiplier = int.Parse(Console.ReadLine());
+
+            if (multiplier > 0)
             {
-                secondNum = secondNum.PadLeft(firstNum.Length, '0');
+                var result = MultiplyNumbers(firstNum, multiplier).TrimEnd('0').ToCharArray();
+                Array.Reverse(result);
+                Console.WriteLine(result);
+
+
             }
             else
             {
-                firstNum = firstNum.PadLeft(secondNum.Length, '0');
+                Console.WriteLine(0);
             }
+        }
 
-            var sum = 0;
+        private static string MultiplyNumbers(string firstNum, int multiplier)
+        {
             var numInMind = 0;
             var remainder = 0;
-            StringBuilder result = new StringBuilder();
+            var sb = new StringBuilder();
 
             for (int i = firstNum.Length - 1; i >= 0; i--)
             {
-                sum = int.Parse(firstNum[i].ToString()) + int.Parse(secondNum[i].ToString()) + numInMind;
-                numInMind = sum / 10;
-                remainder = sum % 10;
-                result.Append(remainder);
+                var currDigit = int.Parse(firstNum[i].ToString());
+                var currMultiplication = currDigit * multiplier + numInMind;
+                numInMind = currMultiplication / 10;
+                remainder = currMultiplication % 10;
+                sb.Append(remainder);
 
-                if (i == 0 && numInMind != 0)
+                if (numInMind != 0 && i == 0)
                 {
-                    result.Append(numInMind);
+                    sb.Append(numInMind);
                 }
             }
-            var arrResult = result.ToString().ToCharArray();
-            Array.Reverse(arrResult);
 
-            return string.Join("", arrResult);
-        }
-
-        public static void Main()
-        {
-
+            return sb.ToString();
         }
     }
 }
