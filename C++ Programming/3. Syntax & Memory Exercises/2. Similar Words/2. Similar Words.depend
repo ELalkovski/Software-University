@@ -1,9 +1,0 @@
-# depslib dependency file v1.0
-1489854008 source:c:\temp\c++ programming\2. similar words\2.similar-words.cpp
-	<iostream>
-	<string>
-	<sstream>
-	<vector>
-	<stdlib.h>
-	<cctype>
-
