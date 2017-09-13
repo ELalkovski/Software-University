@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excellent Result", "GreaterNumber\Excellent Result.csproj", "{EB7E3CE3-1F04-4A71-8B9A-DE1D7D450E9E}"
 EndProject
@@ -32,8 +32,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Time+15Minutes", "Time+15Minutes\Time+15Minutes.csproj", "{31A1D23D-2FF3-440F-B4E2-B9A22FACACBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3EqualNumbers", "3EqualNumbers\3EqualNumbers.csproj", "{FD07256A-FE94-44B0-A01D-3EA2487B33F9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Number0...100ToText", "Number0...100ToText\Number0...100ToText.csproj", "{A8165D91-A8BF-48E9-96D9-2C423DF8D293}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceOfTransport - TEST 2", "PriceOfTransport - TEST 2\PriceOfTransport - TEST 2.csproj", "{AB5DCCBF-65EB-437A-B844-510294425462}"
 EndProject
@@ -109,10 +107,6 @@ Global
 		{FD07256A-FE94-44B0-A01D-3EA2487B33F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD07256A-FE94-44B0-A01D-3EA2487B33F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD07256A-FE94-44B0-A01D-3EA2487B33F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8165D91-A8BF-48E9-96D9-2C423DF8D293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8165D91-A8BF-48E9-96D9-2C423DF8D293}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8165D91-A8BF-48E9-96D9-2C423DF8D293}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8165D91-A8BF-48E9-96D9-2C423DF8D293}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB5DCCBF-65EB-437A-B844-510294425462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB5DCCBF-65EB-437A-B844-510294425462}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB5DCCBF-65EB-437A-B844-510294425462}.Release|Any CPU.ActiveCfg = Release|Any CPU
