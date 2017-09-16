@@ -1,47 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _9.Teamwork_projects
+﻿namespace _9.Teamwork_projects
 {
-    class TeamworkProjects
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class TeamworkProjects
     {
         public static void Main()
         {
             /* ------------- Team part working properly --------------*/
 
-            var teamsForRegister = int.Parse(Console.ReadLine());
-            var allTeams = new List<Team>();
+            int teamsForRegister = int.Parse(Console.ReadLine());
+            List<Team> allTeams = new List<Team>();
 
             for (int i = 0; i < teamsForRegister; i++)
             {
-                var inputTeams = Console.ReadLine().Split('-');
-                var creator = inputTeams[0];
-                var teamName = inputTeams[1];
+                string[] inputTeams = Console.ReadLine().Split('-');
+                string creator = inputTeams[0];
+                string teamName = inputTeams[1];
+
                 if (allTeams.Any(x => x.Name == teamName))
                 {
                     Console.WriteLine("Team {0} was already created!", teamName);
-                    continue;
-                    
                 }
-
                 else if (allTeams.Any(x => x.Creator == creator))
                 {
                     Console.WriteLine("{0} cannot create another team!", creator);
-                    continue;
                 }
-
                 else
                 {
-                    var currTeam = new Team() { Name = teamName, Creator = creator };
+                    Team currTeam = new Team() { Name = teamName, Creator = creator };
                     allTeams.Add(currTeam);
+
                     Console.WriteLine("Team {0} has been created by {1}!", teamName, creator);
                 }
-
             }
-
             /* ------------- Team part working properly --------------*/
-
             
 
             while (true)
@@ -53,27 +47,25 @@ namespace _9.Teamwork_projects
                     break; 
                 }
 
-                var membersData = inputMembers.Split("->".ToArray(),StringSplitOptions.RemoveEmptyEntries);
+                string[] membersData = inputMembers
+                    .Split("->".ToArray(),StringSplitOptions.RemoveEmptyEntries);
                 string  member = membersData[0];
                 string preferedTeamName = membersData[1];
 
-                var members = new List<string>() { member};
+                List<string> members = new List<string>() { member};
 
                 if (allTeams.All(x => x.Name != preferedTeamName))
                 {
                     Console.WriteLine("Team {0} does not exist!", preferedTeamName);
-                    continue;
                 }
-                if (allTeams.Any(x => x.Members.Contains(member)) || allTeams.Any(x => x.Creator == member))
+                else if (allTeams.Any(x => x.Members.Contains(member)) || allTeams.Any(x => x.Creator == member))
                 {
-                    Console.WriteLine("Member {0} cannot join team {1}!", member, preferedTeamName);
-                    continue;              
+                    Console.WriteLine("Member {0} cannot join team {1}!", member, preferedTeamName);            
                 }
 
                 int index = allTeams.FindIndex(x => x.Name == preferedTeamName);
-                allTeams[index].Members.Add(member);
 
-                
+                allTeams[index].Members.Add(member);
             }
 
             foreach (var team in allTeams.OrderByDescending(x => x.Members.Count).ThenBy(x => x.Name))
@@ -91,6 +83,7 @@ namespace _9.Teamwork_projects
             }
 
             Console.WriteLine("Teams to disband:");
+
             foreach (var team in allTeams.OrderBy(x => x.Name))
             {
                 if (team.Members.Count == 0)

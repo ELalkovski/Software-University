@@ -9,24 +9,24 @@
     {
         public static void Main()
         {
-            var pattern = @"(\D+)(\d+)";
-            var input = Console.ReadLine();
+            string pattern = @"(\D+)(\d+)";
+            string input = Console.ReadLine();
 
-            var regex = new Regex(pattern);
+            Regex regex = new Regex(pattern);
             MatchCollection matches = regex.Matches(input);
             StringBuilder output = new StringBuilder();
-
-
+            
             foreach (Match group in matches)
             {
-                var uniqueSymbols = group.Groups[1].Value.ToUpper();
-                var repeat = int.Parse(group.Groups[2].Value);
+                string uniqueSymbols = group.Groups[1].Value.ToUpper();
+                int repeat = int.Parse(group.Groups[2].Value);
 
                 for (int i = 0; i < repeat; i++)
                 {
                     output.Append(uniqueSymbols);
                 }
             }
+
             Console.WriteLine("Unique symbols used: {0}",output.ToString().Distinct().Count());
             Console.WriteLine(output);
         }

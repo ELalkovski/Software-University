@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace _3.Intersection_of_Circles
+﻿namespace _3.Intersection_of_Circles
 {
+    using System;
+
     public class Point
     {
         public int X { get; set; }

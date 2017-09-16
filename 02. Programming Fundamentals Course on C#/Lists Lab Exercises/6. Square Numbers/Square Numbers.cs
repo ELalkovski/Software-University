@@ -1,16 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _6.Square_Numbers
+﻿namespace _6.Square_Numbers
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class SquareNumbers
     {
-        public static List<double> GetSquareRootNums(List<double> inputNums)
+        public static void Main()
         {
-            var squareNums = new List<double>();
+            List<double> inputNums = Console.ReadLine()
+                .Split(' ')
+                .Select(double.Parse)
+                .ToList();
+
+            Console.WriteLine(string.Join(" ", GetSquareRootNums(inputNums)));
+        }
+
+        private static List<double> GetSquareRootNums(List<double> inputNums)
+        {
+            List<double> squareNums = new List<double>();
 
             foreach (var currNum in inputNums)
             {
@@ -23,13 +31,6 @@ namespace _6.Square_Numbers
             squareNums.Sort((a, b) => b.CompareTo(a));
 
             return squareNums;
-        }
-
-        static void Main(string[] args)
-        {
-            var inputNums = Console.ReadLine().Split(' ').Select(double.Parse).ToList();
-
-            Console.WriteLine(string.Join(" ", GetSquareRootNums(inputNums)));
         }
     }
 }

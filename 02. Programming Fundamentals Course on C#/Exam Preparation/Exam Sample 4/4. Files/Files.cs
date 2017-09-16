@@ -8,18 +8,18 @@
     {
         public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var allFiles = new Dictionary<string, Dictionary<string, long>>();
+            int lineCount = int.Parse(Console.ReadLine());
+            Dictionary<string, Dictionary<string, long>> allFiles = new Dictionary<string, Dictionary<string, long>>();
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < lineCount; i++)
             {
-                var input = Console.ReadLine().Split('\\');
-                var fileData = input[input.Length - 1].Split(';');
+                string[] input = Console.ReadLine().Split('\\');
+                string[] fileData = input[input.Length - 1].Split(';');
 
-                var root = input[0];
-                var fileName = fileData[0];
-                var sizeOfFile = long.Parse(fileData[1]);
-                var eachFile = new Dictionary<string, long>();
+                string root = input[0];
+                string fileName = fileData[0];
+                long sizeOfFile = long.Parse(fileData[1]);
+                Dictionary<string, long> eachFile = new Dictionary<string, long>();
 
                 if (!allFiles.ContainsKey(root))
                 {
@@ -39,9 +39,9 @@
                 }              
             }
 
-            var query = Console.ReadLine().Split(' ');
-            var extension = "." + query[0];
-            var mainFolder = query[2];
+            string[] query = Console.ReadLine().Split(' ');
+            string extension = "." + query[0];
+            string mainFolder = query[2];
 
             bool isPrinted = false;
 

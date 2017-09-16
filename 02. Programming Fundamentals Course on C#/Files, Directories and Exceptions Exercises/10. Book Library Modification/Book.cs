@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _10.Book_Library_Modification
+﻿namespace _10.Book_Library_Modification
 {
+    using System;
+
     public class Book
     {
         public string Title { get; set; }

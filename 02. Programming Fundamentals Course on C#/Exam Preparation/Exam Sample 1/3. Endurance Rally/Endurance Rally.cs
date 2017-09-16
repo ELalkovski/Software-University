@@ -1,32 +1,30 @@
 ﻿namespace _3.Endurance_Rally
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-
 
     public class EnduranceRally
     {
         public static void Main()
         {
-            var participants = Console.ReadLine()
+            string[] participants = Console.ReadLine()
                 .Split(' ');
 
-            var trackLayout = Console.ReadLine()
+            double[] trackLayout = Console.ReadLine()
                 .Split(' ')
                 .Select(double.Parse)
                 .ToArray();
 
-            var checkpoints = Console.ReadLine()
+            int[] checkpoints = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
             foreach (var participant in participants)
             {
-                var startingFuel = (int)(participant[0]);
+                int startingFuel = (int)(participant[0]);
                 double leftFuel = startingFuel;
-                var checkpointCount = 0;
+                int checkpointCount = 0;
 
                 for (int i = 0; i < trackLayout.Length; i++)
                 {

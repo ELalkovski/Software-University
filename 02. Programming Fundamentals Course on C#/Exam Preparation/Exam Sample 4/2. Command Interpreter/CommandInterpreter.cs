@@ -6,68 +6,18 @@
 
     public class CommandInterpreter
     {
-        public static bool IsValid(List<string> array, string[] data)
-        {
-            bool isValid = false;
-
-            if (data.Length > 3)
-            {
-                var startIndex = int.Parse(data[2]);
-                var count = int.Parse(data[4]);
-                var length = startIndex + count;
-
-                if (startIndex >= 0 && startIndex < array.Count
-                && count >= 0 && length <= array.Count)
-                {
-                    return isValid = true;
-                }
-                else
-                {
-                    return isValid;
-                }
-            }
-            else
-            {
-                var count = int.Parse(data[1]);
-                if (count >= 0)
-                {
-                    return isValid = true;
-                }
-                else
-                {
-                    return isValid;
-                }
-            }
-        }
-
-        private static List<string> RollLeft(List<string> array)
-        {
-            var firstElement = array[0];
-            array.Add(firstElement);
-            array.RemoveAt(0);
-            return array;
-        }
-
-        private static List<string> RollRight(List<string> array)
-        {
-            var lastElement = array[array.Count - 1];
-            array.Insert(0, lastElement);
-            array.RemoveAt(array.Count - 1);
-            return array;
-        }
-
         public static void Main()
         {
-            var array = Console.ReadLine()
+            List<string> array = Console.ReadLine()
                 .Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "end")
             {
-                var data = input.Split();
-                var command = data[0];
+                string[] data = input.Split();
+                string command = data[0];
 
                 if (IsValid(array, data))
                 {
@@ -112,9 +62,53 @@
 
                 input = Console.ReadLine();
             }
+
             Console.WriteLine("[{0}]",string.Join(", ", array));
         }
 
-        
+        private static bool IsValid(List<string> array, string[] data)
+        {
+            bool isValid = false;
+
+            if (data.Length > 3)
+            {
+                int startIndex = int.Parse(data[2]);
+                int count = int.Parse(data[4]);
+                int length = startIndex + count;
+
+                if (startIndex >= 0 && startIndex < array.Count
+                    && count >= 0 && length <= array.Count)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            else
+            {
+                int count = int.Parse(data[1]);
+
+                if (count >= 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        private static void RollLeft(List<string> array)
+        {
+            string firstElement = array[0];
+            array.Add(firstElement);
+            array.RemoveAt(0);
+        }
+
+        private static void RollRight(List<string> array)
+        {
+            string lastElement = array[array.Count - 1];
+            array.Insert(0, lastElement);
+            array.RemoveAt(array.Count - 1);
+        }
     }
 }

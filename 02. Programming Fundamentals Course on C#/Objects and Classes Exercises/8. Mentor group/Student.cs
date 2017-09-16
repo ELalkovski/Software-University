@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _8.Mentor_group
+﻿namespace _8.Mentor_group
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Student
     {
         public string Name { get; set; }

@@ -5,12 +5,11 @@ namespace _4.Largest_3_Numbers
     using System.Collections.Generic;
     using System.Linq;
 
-
-    class Largest3Numbers
+    public class Largest3Numbers
     {
         public static void Main()
         {
-            var inputNums = Console.ReadLine()
+            IEnumerable<double> inputNums = Console.ReadLine()
                 .Split(' ')
                 .Select(double.Parse)
                 .ToList()

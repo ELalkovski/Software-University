@@ -1,17 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace _04.Character_Multiplier
+﻿namespace _04.Character_Multiplier
 {
+    using System;
+
     public class CharacterMultiplier
     {
-
-        public static int CharMultiplier (string firstStr, string secondStr)
+        public static void Main()
         {
-            var longestLength = Math.Max(firstStr.Length, secondStr.Length);
-            var sum = 0;
+            string[] input = Console.ReadLine().Split(' ');
+            string firstStr = input[0];
+            string secondStr = input[1];
+
+            Console.WriteLine(CharMultiplier(firstStr, secondStr));
+        }
+
+        private static int CharMultiplier(string firstStr, string secondStr)
+        {
+            int longestLength = Math.Max(firstStr.Length, secondStr.Length);
+            int sum = 0;
 
             for (int i = 0; i < longestLength; i++)
             {
@@ -44,17 +49,9 @@ namespace _04.Character_Multiplier
                         }
                     }
                 }
-                
             }
-            return sum;
-        }
 
-        public static void Main()
-        {
-            var input = Console.ReadLine().Split(' ');
-            var firstStr = input[0];
-            var secondStr = input[1];
-            Console.WriteLine(CharMultiplier(firstStr, secondStr));
+            return sum;
         }
     }
 }

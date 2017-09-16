@@ -1,9 +1,6 @@
 ﻿namespace _1.Sweet_Dessert
 {
     using System;
-    using System.Collections.Generic;
-    using System.Numerics;
-
 
     public class SweetDessert
     {
@@ -32,7 +29,6 @@
             {
                 Console.WriteLine($"Ivancho will have to withdraw money - he will need {Math.Abs(productsCost - amountOfCash):f2}lv more.");
             }
-
         }
     }
 }

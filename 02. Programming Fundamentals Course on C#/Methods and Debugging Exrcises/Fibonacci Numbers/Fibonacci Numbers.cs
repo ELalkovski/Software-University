@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fibonacci_Numbers
+﻿namespace Fibonacci_Numbers
 {
-    class Program
+    using System;
+
+    public class FibonacciNumbers
     {
-        public static int FibonacciNum (int n)
+        public static void Main()
+        {
+            int number = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(FibonacciNum(number));
+        }
+
+        private static int FibonacciNum(int n)
         {
             int firstNum = 0;
             int secondNum = 1;
@@ -19,15 +22,10 @@ namespace Fibonacci_Numbers
                 nextNum = firstNum + secondNum;
                 firstNum = secondNum;
                 secondNum = nextNum;
-                
-            }
-            return nextNum;
-        }
 
-        static void Main(string[] args)
-        {
-            int n = int.Parse(Console.ReadLine());
-            Console.WriteLine(FibonacciNum(n));
+            }
+
+            return nextNum;
         }
     }
 }

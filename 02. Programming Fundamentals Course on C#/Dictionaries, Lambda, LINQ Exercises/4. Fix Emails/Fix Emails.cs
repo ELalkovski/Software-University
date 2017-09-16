@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
-namespace _4.Fix_Emails
+﻿namespace _4.Fix_Emails
 {
-    class FixEmails
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class FixEmails
     {
+        public static void Main()
+        {
+            Dictionary<string, string> emails = new Dictionary<string, string>();
+
+            string inputName = Console.ReadLine();
+
+            AddEmails(emails, inputName);
+            PrintMails(emails);
+        }
 
         public static void AddEmails(Dictionary<string, string> emails, string inputName)
         {
@@ -31,23 +39,13 @@ namespace _4.Fix_Emails
         {
             foreach (var item in emails)
             {
-                var domain = item.Value.Split('.').ToList();
+                List<string> domain = item.Value.Split('.').ToList();
 
                 if (domain[1] != "us" && domain[1] != "uk")
                 {
                     Console.WriteLine("{0} -> {1}", item.Key, item.Value);
                 }
             }
-        }
-
-        public static void Main()
-        {
-            Dictionary<string, string> emails = new Dictionary<string, string>();
-
-            var inputName = Console.ReadLine();
-
-            AddEmails(emails, inputName);
-            PrintMails(emails);
         }
     }
 }

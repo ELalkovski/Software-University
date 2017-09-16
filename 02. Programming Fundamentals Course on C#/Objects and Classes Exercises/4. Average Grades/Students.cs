@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _4.Average_Grades
+﻿namespace _4.Average_Grades
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Student
     {
         public string Name { get; set; }
@@ -14,8 +13,5 @@ namespace _4.Average_Grades
         {
             return Grades.Average();
         }
-
     }
-
-    
 }

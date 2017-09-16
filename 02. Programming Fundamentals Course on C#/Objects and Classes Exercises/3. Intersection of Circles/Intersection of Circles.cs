@@ -1,20 +1,18 @@
 ﻿namespace _3.Intersection_of_Circles
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-
-
-    class IntersectionOfCircles
+    
+    public class IntersectionOfCircles
     {
         public static void Main()
         {
-            var firstData = Console.ReadLine()
+            int[] firstData = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var secondData = Console.ReadLine()
+            int[] secondData = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
@@ -41,7 +39,7 @@
                 Radius = secondData[2]
             };
 
-            var distance = Point.CalculateDistance(c1.Center, c2.Center);
+            int distance = Point.CalculateDistance(c1.Center, c2.Center);
 
             if (distance <= (c1.Radius + c2.Radius))
             {

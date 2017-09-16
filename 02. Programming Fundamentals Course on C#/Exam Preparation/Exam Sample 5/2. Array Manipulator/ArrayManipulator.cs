@@ -7,11 +7,65 @@
 
     public class ArrayManipulator
     {
-        public static int[] Exchange(int[] array, int splitIndex)
+        public static void Main()
         {
-            var arrFirstPart = new List<int>();
-            var arrSecondPart = new List<int>();
-            var exchangedArr = new List<int>();
+            int[] array = Console.ReadLine()
+                .Split(' ')
+                .Select(int.Parse)
+                .ToArray();
+
+            string input = Console.ReadLine();
+
+            while (input != "end")
+            {
+                List<string> data = input
+                    .Split(' ')
+                    .ToList();
+
+                string command = data[0];
+
+                if (command == "exchange")
+                {
+                    int splitIndex = int.Parse(data[1]);
+                    Exchange(array, splitIndex);
+                }
+                else if (command == "max")
+                {
+                    string evenOrOdd = data[1];
+                    MaxEvenOdd(array, evenOrOdd);
+                }
+                else if (command == "min")
+                {
+                    string evenOrOdd = data[1];
+                    MinEvenOdd(array, evenOrOdd);
+                }
+                else if (command == "first")
+                {
+                    int count = int.Parse(data[1]);
+                    string evenOrOdd = data[2];
+                    FirstEvenOdd(array, count, evenOrOdd);
+                }
+                else if (command == "last")
+                {
+                    int count = int.Parse(data[1]);
+                    string evenOrOdd = data[2];
+                    LastEvenOdd(array, count, evenOrOdd);
+                }
+
+                input = Console.ReadLine();
+            }
+
+            Console.Write("[");
+            Console.Write(string.Join(", ", array));
+            Console.Write("]");
+            Console.WriteLine();
+        }
+
+        private static int[] Exchange(int[] array, int splitIndex)
+        {
+            List<int> arrFirstPart = new List<int>();
+            List<int> arrSecondPart = new List<int>();
+            List<int> exchangedArr = new List<int>();
 
             if (splitIndex >= 0 && splitIndex < array.Length)
             {
@@ -38,14 +92,15 @@
             {
                 Console.WriteLine("Invalid index");
             }
+
             return array;
         }
 
-        public static void MaxEvenOdd(int[] array, string evenOrOdd)
+        private static void MaxEvenOdd(int[] array, string evenOrOdd)
         {
             if (evenOrOdd == "even")
             {
-                var filteredArr = array.Where(n => n % 2 == 0).ToArray();
+                int[] filteredArr = array.Where(n => n % 2 == 0).ToArray();
 
                 if (!array.Any(n => n % 2 == 0))
                 {
@@ -59,7 +114,7 @@
 
             else if (evenOrOdd == "odd")
             {
-                var filteredArr = array.Where(n => n % 2 != 0).ToArray();
+                int[] filteredArr = array.Where(n => n % 2 != 0).ToArray();
 
                 if (!array.Any(n => n % 2 != 0))
                 {
@@ -72,11 +127,11 @@
             }
         }
 
-        public static void MinEvenOdd(int[] array, string evenOrOdd)
+        private static void MinEvenOdd(int[] array, string evenOrOdd)
         {
             if (evenOrOdd == "even")
             {
-                var filteredArr = array.Where(n => n % 2 == 0).ToArray();
+                int[] filteredArr = array.Where(n => n % 2 == 0).ToArray();
 
                 if (!array.Any(n => n % 2 == 0))
                 {
@@ -90,7 +145,8 @@
 
             else if (evenOrOdd == "odd")
             {
-                var filteredArr = array.Where(n => n % 2 != 0).ToArray();
+                int[] filteredArr = array.Where(n => n % 2 != 0).ToArray();
+
                 if (!array.Any(n => n % 2 != 0))
                 {
                     Console.WriteLine("No matches");
@@ -102,7 +158,7 @@
             }
         }
 
-        public static void FirstEvenOdd(int[] array, int count, string evenOrOdd)
+        private static void FirstEvenOdd(int[] array, int count, string evenOrOdd)
         {
             if (evenOrOdd == "even")
             {
@@ -115,9 +171,9 @@
                     var printArray = array
                         .Where(n => n % 2 == 0)
                         .ToArray();
-                    
+
                     Console.Write("[");
-                    Console.Write(string.Join(", ",printArray.Take(count)));
+                    Console.Write(string.Join(", ", printArray.Take(count)));
                     Console.Write("]");
                     Console.WriteLine();
                 }
@@ -148,10 +204,9 @@
                     Console.WriteLine("Invalid count");
                 }
             }
-
         }
 
-        public static void LastEvenOdd(int[] array, int count, string evenOrOdd)
+        private static void LastEvenOdd(int[] array, int count, string evenOrOdd)
         {
             if (evenOrOdd == "even")
             {
@@ -161,11 +216,13 @@
                 }
                 else if ((count > 0) && (count <= array.Length))
                 {
-                    var printArray = array
+                    int[] printArray = array
                         .Reverse()
                         .Where(n => n % 2 == 0)
                         .ToArray();
-                    var wantedArr = printArray.Take(count).Reverse();
+
+                    IEnumerable<int> wantedArr = printArray.Take(count).Reverse();
+
                     Console.Write("[");
                     Console.Write(string.Join(", ", wantedArr));
                     Console.Write("]");
@@ -185,11 +242,13 @@
                 }
                 else if ((count > 0) && (count <= array.Length))
                 {
-                    var printArray = array
+                    int[] printArray = array
                         .Reverse()
                         .Where(n => n % 2 != 0)
                         .ToArray();
-                    var wantedArr = printArray.Take(count).Reverse();
+
+                    IEnumerable<int> wantedArr = printArray.Take(count).Reverse();
+
                     Console.Write("[");
                     Console.Write(string.Join(", ", wantedArr));
                     Console.Write("]");
@@ -200,59 +259,6 @@
                     Console.WriteLine("Invalid count");
                 }
             }
-        }
-
-        public static void Main()
-        {
-            var array = Console.ReadLine()
-                .Split(' ')
-                .Select(int.Parse)
-                .ToArray();
-
-            var input = Console.ReadLine();
-
-            while (input != "end")
-            {
-                var data = input
-                    .Split(' ')
-                    .ToList();
-
-                var command = data[0];
-
-                if (command == "exchange")
-                {
-                    var splitIndex = int.Parse(data[1]);
-                    Exchange(array, splitIndex);
-                }
-                else if (command == "max")
-                {
-                    var evenOrOdd = data[1];
-                    MaxEvenOdd(array, evenOrOdd);
-                }
-                else if (command == "min")
-                {
-                    var evenOrOdd = data[1];
-                    MinEvenOdd(array, evenOrOdd);
-                }
-                else if (command == "first")
-                {
-                    var count = int.Parse(data[1]);
-                    var evenOrOdd = data[2];
-                    FirstEvenOdd(array, count, evenOrOdd);
-                }
-                else if (command == "last")
-                {
-                    var count = int.Parse(data[1]);
-                    var evenOrOdd = data[2];
-                    LastEvenOdd(array, count, evenOrOdd);
-                }
-
-                input = Console.ReadLine();
-            }
-            Console.Write("[");
-            Console.Write(string.Join(", ", array));
-            Console.Write("]");
-            Console.WriteLine();
         }
     }
 }

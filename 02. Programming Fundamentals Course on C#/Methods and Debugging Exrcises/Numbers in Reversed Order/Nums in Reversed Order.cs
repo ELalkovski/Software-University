@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Numbers_in_Reversed_Order
+﻿namespace Numbers_in_Reversed_Order
 {
-    class NumsInRevOrder
+    using System;
+
+    public class NumsInRevOrder
     {
-        public static void ReverseNumbers (string number)
+        public static void Main()
+        {
+            string number = Console.ReadLine();
+
+            ReverseNumbers(number);
+        }
+
+        private static void ReverseNumbers(string number)
         {
             for (int i = number.Length - 1; i >= 0; i--)
             {
@@ -16,14 +19,6 @@ namespace Numbers_in_Reversed_Order
             }
 
             Console.WriteLine();
-        }
-
-
-        static void Main(string[] args)
-        {
-            string number = Console.ReadLine();
-            ReverseNumbers(number);
-            
         }
     }
 }

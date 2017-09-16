@@ -1,14 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _3.Sum_Adjacent_Equal_Numbers
+﻿namespace _3.Sum_Adjacent_Equal_Numbers
 {
-    class SumAdjacentEqualNumbers
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class SumAdjacentEqualNumbers
     {
-        public static void SumAdjacentEquals ( List<double> inputList)
+        public static void Main()
+        {
+            List<double> inputList = Console.ReadLine()
+                .Split(' ')
+                .Select(double.Parse)
+                .ToList();
+
+            SumAdjacentEquals(inputList);
+
+            Console.WriteLine(string.Join(" ", inputList));
+        }
+
+        private static void SumAdjacentEquals(List<double> inputList)
         {
             for (int i = 0; i < inputList.Count - 1;)
             {
@@ -28,16 +38,6 @@ namespace _3.Sum_Adjacent_Equal_Numbers
                     i++;
                 }
             }
-
-            
-        }
-
-        static void Main(string[] args)
-        {
-            var inputList = Console.ReadLine().Split(' ').Select(double.Parse).ToList();
-            SumAdjacentEquals(inputList);
-
-            Console.WriteLine(string.Join(" ", inputList));
         }
     }
 }

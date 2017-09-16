@@ -1,15 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Numerics;
-
-namespace Factorial
+﻿namespace Factorial
 {
-    class Factorial
+    using System;
+    using System.Numerics;
+
+    public class Factorial
     {
-        public static BigInteger CalculateFactorial(long input)
+        public static void Main()
+        {
+            long input = long.Parse(Console.ReadLine());
+            Console.WriteLine(CalculateFactorial(input));
+        }
+
+        private static BigInteger CalculateFactorial(long input)
         {
             BigInteger factorial = 1;
 
@@ -19,13 +21,6 @@ namespace Factorial
             }
 
             return factorial;
-        }
-
-
-        static void Main(string[] args)
-        {
-            long input = long.Parse(Console.ReadLine());
-            Console.WriteLine(CalculateFactorial(input));
         }
     }
 }

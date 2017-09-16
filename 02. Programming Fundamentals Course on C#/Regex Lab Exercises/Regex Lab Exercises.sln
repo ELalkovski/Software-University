@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Match full name", "1. Match full name\1. Match full name.csproj", "{9BA81802-D952-4CE5-AB6B-518777776738}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Match phone number", "2. Match phone number\2. Match phone number.csproj", "{8598A2EA-0A5F-4C9E-BF69-7E97A056523D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7. Replace a Tag", "7. Replace a Tag\7. Replace a Tag.csproj", "{E20CDAA2-F52B-48BD-82CB-DCD91ABA3CFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Replace a Tag", "3. Replace a Tag\3. Replace a Tag.csproj", "{E20CDAA2-F52B-48BD-82CB-DCD91ABA3CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

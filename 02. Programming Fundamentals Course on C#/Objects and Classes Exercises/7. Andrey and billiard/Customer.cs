@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _7.Andrey_and_billiard
+﻿namespace _7.Andrey_and_billiard
 {
+    using System.Collections.Generic;
+
     public class Customer
     {
         public string Name { get; set; }

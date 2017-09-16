@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace English_Name_of_Last_Digit
+﻿namespace English_Name_of_Last_Digit
 {
-    class EnglishNameOfLastDigit
+    using System;
+
+    public class EnglishNameOfLastDigit
     {
-        
-        public static void PrintNameOfDigit (double lastDigit)
+        public static void Main()
+        {
+            long number = long.Parse(Console.ReadLine());
+            double lastDigit = Math.Abs(number % 10);
+            
+            PrintNameOfDigit(lastDigit);
+        }
+
+        private static void PrintNameOfDigit(double lastDigit)
         {
             string nameOfDigit = "";
+
             if (lastDigit == 0)
             {
                 nameOfDigit = "zero";
@@ -62,16 +66,6 @@ namespace English_Name_of_Last_Digit
                 nameOfDigit = "nine";
                 Console.WriteLine(nameOfDigit);
             }
-        }
-
-        static void Main(string[] args)
-        {
-            long number = long.Parse(Console.ReadLine());
-            double lastDigit = Math.Abs(number % 10);
-            
-            PrintNameOfDigit(lastDigit);
-
-
         }
     }
 }

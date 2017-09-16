@@ -1,8 +1,6 @@
 ﻿namespace _5.Book_Library
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
     public class Book
     {

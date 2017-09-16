@@ -2,34 +2,33 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
     using System.Linq;
 
     public class Karaoke
     {
         public static void Main()
         {
-            var participants = Console.ReadLine()
+            List<string> participants = Console.ReadLine()
                 .Split(new[] { ", " },StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            var availableSongs = Console.ReadLine()
+            List<string> availableSongs = Console.ReadLine()
                 .Split(new[] { ", "},StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            var rewardedParticipants = new Dictionary<string, HashSet<string>>();
+            Dictionary<string, HashSet<string>> rewardedParticipants = new Dictionary<string, HashSet<string>>();
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "dawn")
             {
-                var performanceData = input.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
+                List<string> performanceData = input.Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
                     .ToList();
 
-                var performer = performanceData[0];
-                var song = performanceData[1];
-                var reward = performanceData[2];
-                var rewardsList = new HashSet<string>();
+                string performer = performanceData[0];
+                string song = performanceData[1];
+                string reward = performanceData[2];
+                HashSet<string> rewardsList = new HashSet<string>();
 
                 if (participants.Contains(performer) && availableSongs.Contains(song))
                 {
@@ -43,6 +42,7 @@
                         rewardedParticipants[performer].Add(reward);
                     }
                 }
+
                 input = Console.ReadLine();
             }
 
@@ -55,6 +55,7 @@
                 foreach (var participant in rewardedParticipants.OrderByDescending(p => p.Value.Count).ThenBy(p => p.Key))
                 {
                     Console.WriteLine($"{participant.Key}: {participant.Value.Count} awards");
+
                     foreach (var reward in participant.Value.OrderBy(r => r))
                     {
                         Console.WriteLine($"--{reward}");

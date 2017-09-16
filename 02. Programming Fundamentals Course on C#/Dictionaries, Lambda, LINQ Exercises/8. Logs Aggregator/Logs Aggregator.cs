@@ -4,20 +4,21 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class LogsAggregator
+    public class LogsAggregator
     {
         public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var logsDict = new SortedDictionary<string, SortedDictionary<string, int>>();
-            var totalCount = 0;
+            int linesCount = int.Parse(Console.ReadLine());
+            SortedDictionary<string, SortedDictionary<string, int>> logsDict = new SortedDictionary<string, SortedDictionary<string, int>>();
 
-            for (int i = 0; i < n; i++)
+            int totalCount = 0;
+
+            for (int i = 0; i < linesCount; i++)
             {
-                var input = Console.ReadLine().Split(' ');
-                var username = input[1];
-                var duration = int.Parse(input[2]);
-                var ipAdress = input[0];
+                string[] input = Console.ReadLine().Split(' ');
+                string username = input[1];
+                int duration = int.Parse(input[2]);
+                string ipAdress = input[0];
 
                 if (!logsDict.ContainsKey(username))
                 {
@@ -36,6 +37,7 @@
             foreach (var outerPair in logsDict)
             {
                 var sum = outerPair.Value.Values.Sum();
+
                 Console.Write("{0}: {1} ", outerPair.Key, sum);
                 Console.Write("[");
                 Console.Write(string.Join(", ", outerPair.Value.Keys.Distinct()));

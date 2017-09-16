@@ -5,13 +5,13 @@ namespace _5.Short_Words_Sorted
     using System.Collections.Generic;
     using System.Linq;
 
-    class ShortWordsSorted
+    public class ShortWordsSorted
     {
         public static void Main()
         {
             char[] separators = { '.', ',', ':', ';', '(', ')', '[', ']', '"', '\'', '\\', '/', '!', '?', ' '};
 
-            var inputWords = Console.ReadLine()
+            List<string> inputWords = Console.ReadLine()
                 .ToLower()
                 .Split(separators, StringSplitOptions.RemoveEmptyEntries)
                 .Where(w => w.Length < 5)

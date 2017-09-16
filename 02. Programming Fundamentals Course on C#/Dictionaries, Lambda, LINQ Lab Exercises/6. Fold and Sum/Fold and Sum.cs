@@ -4,29 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class FoldAndSum
+    public class FoldAndSum
     {
-        public static List<int> SplitIntoTwoRowsAndSumThem(List<int> inputNums)
-        {
-            var k = inputNums.Count / 4;
-
-            var secondRow = inputNums.Skip(k).Take(2 * k).ToList();
-            var firstRowLeft = inputNums.Take(k).ToList();
-            firstRowLeft.Reverse();
-            inputNums.Reverse();
-            var firstRowRight = inputNums.Take(k).ToList();
-            var firstRow = firstRowLeft.Concat(firstRowRight).ToList();
-
-            var sumRow = new List<int>();
-
-            for (int i = 0; i < secondRow.Count; i++)
-            {
-                sumRow.Add(firstRow[i] + secondRow[i]);
-            }
-
-            return sumRow;
-        }
-
         public static void Main()
         {
             var inputNums = Console.ReadLine()
@@ -35,6 +14,29 @@
                 .ToList();
 
             Console.WriteLine(string.Join(" ", SplitIntoTwoRowsAndSumThem(inputNums)));
+        }
+
+        public static List<int> SplitIntoTwoRowsAndSumThem(List<int> inputNums)
+        {
+            int k = inputNums.Count / 4;
+
+            List<int> secondRow = inputNums.Skip(k).Take(2 * k).ToList();
+            List<int> firstRowLeft = inputNums.Take(k).ToList();
+
+            firstRowLeft.Reverse();
+            inputNums.Reverse();
+
+            List<int> firstRowRight = inputNums.Take(k).ToList();
+            List<int> firstRow = firstRowLeft.Concat(firstRowRight).ToList();
+
+            List<int> sumRow = new List<int>();
+
+            for (int i = 0; i < secondRow.Count; i++)
+            {
+                sumRow.Add(firstRow[i] + secondRow[i]);
+            }
+
+            return sumRow;
         }
     }
 }

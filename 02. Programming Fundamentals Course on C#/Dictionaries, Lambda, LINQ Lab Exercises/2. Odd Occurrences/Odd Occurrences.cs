@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _2.Odd_Occurrences
+﻿namespace _2.Odd_Occurrences
 {
+    using System;
+    using System.Collections.Generic;
 
-
-    class OddOccurrences
+    public class OddOccurrences
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            var input = Console.ReadLine().ToLower().Split(' ');
+            string[] input = Console.ReadLine()
+                .ToLower()
+                .Split(' ');
 
-            var words = new Dictionary<string, int>();
+            Dictionary<string, int> words = new Dictionary<string, int>();
 
             foreach (var word in input)
             {
@@ -24,7 +23,7 @@ namespace _2.Odd_Occurrences
                 words[word]++;
             }
 
-            var oddWords = new List<string>();
+            List<string> oddWords = new List<string>();
 
             foreach (var word in words.Keys)
             {
@@ -32,8 +31,8 @@ namespace _2.Odd_Occurrences
                 {
                     oddWords.Add(word);
                 }
- 
             }
+
             Console.WriteLine(string.Join(", ",oddWords));
         }
     }

@@ -1,44 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-
-namespace _6.User_Logs
+﻿namespace _6.User_Logs
 {
-    class UserLogs
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class UserLogs
     {
         public static void Main()
         {
-
-            var users = new SortedDictionary<string, List<string>>();
+            SortedDictionary<string, List<string>> users = new SortedDictionary<string, List<string>>();
             string command = "";
+
             while (true)
             {
-                List<string> entry = Console.ReadLine().Split().ToList();
+                List<string> entry = Console.ReadLine()
+                    .Split()
+                    .ToList();
+
                 command = entry[0];
-                if (command == "end") break;
+
+                if (command == "end")
+                {
+                    break;
+                }
+
                 int indexOfIP = command.IndexOf('=') + 1;
                 string ip = command.Substring(indexOfIP);
                 int indexOfUser = entry[2].LastIndexOf('=') + 1;
                 string user = entry[2].Substring(indexOfUser);
-                List<string> IPs = new List<string>();
-                IPs.Add(ip);
+
+                List<string> allIps = new List<string>();
+                allIps.Add(ip);
+
                 if (!users.ContainsKey(user))
                 {
-                    users[user] = IPs;
+                    users[user] = allIps;
                 }
                 else
                 {
-                    users[user].AddRange(IPs);
+                    users[user].AddRange(allIps);
                 }
             }
 
             foreach (var user in users)
             {
                 Console.WriteLine(user.Key + ": ");
-                List<string> IPs = user.Value;
+                List<string> ips = user.Value;
                 Dictionary<string, int> numberOfIPs = new Dictionary<string, int>();
-                foreach (var ip in IPs)
+
+                foreach (var ip in ips)
                 {
                     if (!numberOfIPs.ContainsKey(ip))
                     {
@@ -51,9 +61,11 @@ namespace _6.User_Logs
                 }
 
                 int count = numberOfIPs.Count;
+
                 foreach (var ip in numberOfIPs)
                 {
                     count--;
+
                     if (count > 0)
                     {
                         Console.Write(ip.Key + " => " + ip.Value + ", ");
@@ -63,10 +75,9 @@ namespace _6.User_Logs
                         Console.Write(ip.Key + " => " + ip.Value + ". ");
                     }
                 }
-                Console.WriteLine();
 
+                Console.WriteLine();
             }
         }
-
     }
 }

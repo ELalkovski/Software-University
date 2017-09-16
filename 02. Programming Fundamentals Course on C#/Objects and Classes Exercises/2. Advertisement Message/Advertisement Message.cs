@@ -1,14 +1,12 @@
 ﻿namespace _2.Advertisement_Message
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
 
-    class AdvMessage
+    public class AdvMessage
     {
         public static void Main()
         {
-            var messageCount = int.Parse(Console.ReadLine());
+            int messageCount = int.Parse(Console.ReadLine());
 
             string[] phrases = { "Excellent product.", "Such a great product.", "I always use that product."
                     , "Best product of its category.", "Exceptional product.", "I can’t live without this product."};
@@ -21,19 +19,18 @@
 
             string[] city = {"Burgas", "Sofia", "Plovdiv", "Varna", "Ruse"};
 
-            var random = new Random();
+            Random random = new Random();
 
             for (int i = 0; i < messageCount; i++)
             {
-                var phraseIndex = random.Next(0, phrases.Length);
-                var eventsIndex = random.Next(0, events.Length);
-                var authorIndex = random.Next(0, author.Length);
-                var cityIndex = random.Next(0, city.Length);
+                int phraseIndex = random.Next(0, phrases.Length);
+                int eventsIndex = random.Next(0, events.Length);
+                int authorIndex = random.Next(0, author.Length);
+                int cityIndex = random.Next(0, city.Length);
 
                 Console.WriteLine("{0} {1} {2} - {3}", phrases[phraseIndex], events[eventsIndex]
                     , author[authorIndex], city[cityIndex]);
             }
-
         }
     }
 }

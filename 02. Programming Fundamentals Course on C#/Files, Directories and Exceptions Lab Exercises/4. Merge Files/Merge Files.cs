@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-
-namespace _4.Merge_Files
+﻿namespace _4.Merge_Files
 {
-    class MergeFiles
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+
+    public class MergeFiles
     {
         public static void Main()
         {
-            var firstInput = File.ReadAllLines("firstInput.txt");
-            var secondInput = File.ReadAllLines("secondInput.txt");
+            string[] firstInput = File.ReadAllLines("firstInput.txt");
+            string[] secondInput = File.ReadAllLines("secondInput.txt");
 
-            var output = new List<string>();
+            List<string> output = new List<string>();
 
             for (int i = 0; i < firstInput.Length; i++)
             {
                 output.Add(firstInput[i]);
             }
+
             for (int i = 0; i < secondInput.Length; i++)
             {
                 output.Add(secondInput[i]);

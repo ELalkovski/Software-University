@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Prime_Checker
+﻿namespace Prime_Checker
 {
-    class PrimeChecker
+    using System;
+
+    public class PrimeChecker
     {
-        public static bool IsPrime(double numberToCheck)
+        public static void Main()
+        {
+            double numberToCheck = double.Parse(Console.ReadLine());
+            
+            Console.WriteLine(IsPrime(numberToCheck));
+        }
+
+        private static bool IsPrime(double numberToCheck)
         {
             bool isPrime = true;
 
@@ -25,23 +28,13 @@ namespace Prime_Checker
             {
                 isPrime = false;
             }
+
             if (numberToCheck == 1)
             {
                 isPrime = false;
-            }       
+            }
 
             return isPrime;
-        }
-
-        static void Main(string[] args)
-        {
-            double numberToCheck = double.Parse(Console.ReadLine());
-            //bool answer = IsPrime(numberToCheck);
-            //string convertedString = Convert.ToString(answer);
-
-            //Console.WriteLine(convertedString.ToLower());
-            Console.WriteLine(IsPrime(numberToCheck));
-
         }
     }
 }

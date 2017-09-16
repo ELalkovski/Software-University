@@ -1,9 +1,5 @@
 ﻿namespace _6.Rectangle_Position
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-     
     public class Rectangle
     {
         public int Left { get; set; }
@@ -19,6 +15,5 @@
         public int Bottom => Top - Height;
 
         public int Right => Left + Width;
- 
     }
 }

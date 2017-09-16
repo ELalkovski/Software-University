@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using System.Globalization;
-
-namespace _10.Book_Library_Modification
+﻿namespace _10.Book_Library_Modification
 {
-    class BookLibraryModified
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.IO;
+    using System.Globalization;
+
+    public class BookLibraryModified
     {
         public static void Main()
         {
-            var input = File.ReadAllLines("Input.txt");
-            var inputLinesQuantity = int.Parse(input[0]);
-            var startDate = DateTime.ParseExact(input[6], "dd.MM.yyyy", CultureInfo.InvariantCulture);
+            string[] input = File.ReadAllLines("Input.txt");
+            int inputLinesQuantity = int.Parse(input[0]);
+            DateTime startDate = DateTime.ParseExact(input[6], "dd.MM.yyyy", CultureInfo.InvariantCulture);
 
-            var allBooks = new Library();
-            var listOfBooks = new List<Book>();
+            Library allBooks = new Library();
+            List<Book> listOfBooks = new List<Book>();
 
             for (int i = 1; i <= inputLinesQuantity; i++)
             {
-                var book = new Book();
-                var currInput = input[i]
+                Book book = new Book();
+                List<string> currInput = input[i]
                     .Split(' ')
                     .ToList();
 
@@ -34,10 +34,11 @@ namespace _10.Book_Library_Modification
                 listOfBooks.Add(book);
 
             }
+
             allBooks.Name = "Library";
             allBooks.Books = listOfBooks;
 
-            var titleByReleaseDate = new Dictionary<string, DateTime>();
+            Dictionary<string, DateTime> titleByReleaseDate = new Dictionary<string, DateTime>();
 
             foreach (var title in listOfBooks)
             {
@@ -54,6 +55,7 @@ namespace _10.Book_Library_Modification
                 }
                 
             }
+
             foreach (var title in titleByReleaseDate.OrderBy(x => x.Value).ThenBy(x => x.Key))
             {
                 Console.WriteLine("{0} -> {1}", title.Key, title.Value.ToString("dd.MM.yyyy"));

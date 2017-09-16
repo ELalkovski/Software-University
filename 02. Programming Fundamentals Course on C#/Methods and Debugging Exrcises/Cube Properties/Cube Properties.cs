@@ -1,34 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Cube_Properties
+﻿namespace Cube_Properties
 {
-    class Program
+    using System;
+
+    public class CubeProperties
     {
-        public static double CalculateFaceOfCube(double edgeOfSide)
+        public static void Main()
+        {
+            double edgeOfSide = double.Parse(Console.ReadLine());
+            string parameter = Console.ReadLine();
+
+            PrintResult(edgeOfSide, parameter);
+        }
+
+        private static double CalculateFaceOfCube(double edgeOfSide)
         {
             return Math.Sqrt(2 * Math.Pow(edgeOfSide, 2));
         }
 
-        public static double CalculateSpaceOfCube(double edgeOfSide)
+        private static double CalculateSpaceOfCube(double edgeOfSide)
         {
             return Math.Sqrt(3 * Math.Pow(edgeOfSide, 2));
         }
 
-        public static double CalculateVolumeOfCube(double edgeOfSide)
+        private static double CalculateVolumeOfCube(double edgeOfSide)
         {
             return Math.Pow(edgeOfSide, 3);
         }
 
-        public static double CalculateAreaOfCube(double edgeOfSide)
+        private static double CalculateAreaOfCube(double edgeOfSide)
         {
             return Math.Pow(edgeOfSide, 2) * 6;
         }
 
-        public static void PrintResult(double edgeOfSide, string parameter)
+        private static void PrintResult(double edgeOfSide, string parameter)
         {
             if (parameter == "face")
             {
@@ -40,20 +44,12 @@ namespace Cube_Properties
             }
             else if (parameter == "volume")
             {
-                Console.WriteLine("{0:f2}", CalculateVolumeOfCube(edgeOfSide)); 
+                Console.WriteLine("{0:f2}", CalculateVolumeOfCube(edgeOfSide));
             }
             else if (parameter == "area")
             {
                 Console.WriteLine("{0:f2}", CalculateAreaOfCube(edgeOfSide));
             }
-        }
-
-        public static void Main(string[] args)
-        {
-            double edgeOfSide = double.Parse(Console.ReadLine());
-            string parameter = Console.ReadLine();
-
-            PrintResult(edgeOfSide, parameter);
         }
     }
 }

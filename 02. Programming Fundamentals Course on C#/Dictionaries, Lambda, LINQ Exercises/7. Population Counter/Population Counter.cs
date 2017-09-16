@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _7.Population_Counter
+﻿namespace _7.Population_Counter
 {
-    class PopulationCounter
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class PopulationCounter
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var countryPopulations = new Dictionary<string, Dictionary<string, long>>();
+            string input = Console.ReadLine();
+            Dictionary<string, Dictionary<string, long>> countryPopulations = new Dictionary<string, Dictionary<string, long>>();
 
             while (input != "report")
             {
-                var pieces = input.Split('|').ToList();
-                var city = pieces[0];
-                var country = pieces[1];
-                var peopleCount = long.Parse(pieces[2]);
-                var cityPopulation = new Dictionary<string, long>();
+                List<string> pieces = input.Split('|').ToList();
+                string city = pieces[0];
+                string country = pieces[1];
+                long peopleCount = long.Parse(pieces[2]);
+                Dictionary<string, long> cityPopulation = new Dictionary<string, long>();
 
                 if (!countryPopulations.ContainsKey(country))
                 {
@@ -46,8 +46,7 @@ namespace _7.Population_Counter
                 List<long> sumOfTowns = state.Value.Select(x => x.Value).ToList();
 
                 Console.WriteLine("{0} (total population: {1})", state.Key, sumOfTowns.Sum());
-                Console.Write($"=>{string.Join("=>", state.Value.OrderByDescending(x => x.Value).Select(x => $"{x.Key}: {x.Value}\r\n"))}");
-
+                Console.Write($"=>{string.Join("=>", state.Value.OrderByDescending(x => x.Value).Select(x => $"{x.Key}: {x.Value}" + Environment.NewLine))}");
             }
         }
     }

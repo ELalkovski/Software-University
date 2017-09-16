@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _9.Teamwork_projects
+﻿namespace _9.Teamwork_projects
 {
+    using System.Collections.Generic;
+
     public class Team
     {
         public string Name { get; set; }

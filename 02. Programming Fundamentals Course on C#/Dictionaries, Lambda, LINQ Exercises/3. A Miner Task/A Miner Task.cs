@@ -2,14 +2,20 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
-    class MinerTask
+    public class MinerTask
     {
+        public static void Main()
+        {
+            Dictionary<string, int> resources = new Dictionary<string, int>();
+            string resourceKind = Console.ReadLine();
+            
+            AddResources(resources, resourceKind);
+            PrintResources(resources);
+        }
+
         public static void AddResources(Dictionary<string, int> resources, string resourceKind)
         {
-
-
             while (!resourceKind.Equals("stop"))
             {
                 int quantity = int.Parse(Console.ReadLine());
@@ -22,8 +28,8 @@
                 {
                     resources.Add(resourceKind, quantity);
                 }
-                resourceKind = Console.ReadLine();
 
+                resourceKind = Console.ReadLine();
             }
         }
 
@@ -33,15 +39,6 @@
             {
                 Console.WriteLine("{0} -> {1}", resource.Key, resource.Value);
             }
-        }
-
-        public static void Main()
-        {
-            Dictionary<string, int> resources = new Dictionary<string, int>();
-            string resourceKind = Console.ReadLine();
-            
-            AddResources(resources, resourceKind);
-            PrintResources(resources);
         }
     }
 }

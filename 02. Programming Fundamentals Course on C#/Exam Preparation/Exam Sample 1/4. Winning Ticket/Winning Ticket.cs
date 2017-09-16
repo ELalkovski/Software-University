@@ -1,40 +1,37 @@
 ﻿namespace _4.Winning_Ticket
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text.RegularExpressions;
-
 
     public class WinningTicket
     {
         public static void Main()
         {
-            var input = Console.ReadLine().Split(',');
-            var regex = new Regex(@"\${6,10}|@{6,10}|\^{6,10}|#{6,10}");
+            string[] input = Console.ReadLine().Split(',');
+            Regex regex = new Regex(@"\${6,10}|@{6,10}|\^{6,10}|#{6,10}");
 
             foreach (var item in input)
             {
-                var currTicket = item.Trim();
+                string currTicket = item.Trim();
 
                 if (currTicket.Length == 20)
                 {
-                    var leftHalf = currTicket.Substring(0,10);
-                    var rightHalf = currTicket.Substring(10, 10);
+                    string leftHalf = currTicket.Substring(0,10);
+                    string rightHalf = currTicket.Substring(10, 10);
 
                     if (regex.IsMatch(leftHalf) && regex.IsMatch(rightHalf))
                     {
-                        var minLength = Math.Min(regex.Match(leftHalf).Length, regex.Match(rightHalf).Length);
-                        var singleMatch = regex.Match(currTicket);
+                        int minLength = Math.Min(regex.Match(leftHalf).Length, regex.Match(rightHalf).Length);
+                        Match singleMatch = regex.Match(currTicket);
 
                         if (minLength >= 6 && minLength <= 9)
                         {
-                            var symbol = singleMatch.ToString().Substring(0, 1);
+                            string symbol = singleMatch.ToString().Substring(0, 1);
                             Console.WriteLine($"ticket \"{currTicket}\" - {minLength}{symbol}");
                         }
                         else if (minLength == 10)
                         {
-                            var symbol = singleMatch.ToString().Substring(0, 1);
+                            string symbol = singleMatch.ToString().Substring(0, 1);
                             Console.WriteLine($"ticket \"{currTicket}\" - {minLength}{symbol} Jackpot!");
                         }
                     }
@@ -47,7 +44,6 @@
                 {
                     Console.WriteLine("invalid ticket");
                 }
-
             }
         }
     }

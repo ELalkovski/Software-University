@@ -1,15 +1,19 @@
-﻿
-
-
-namespace _3.Sum__Min__Max__Average
+﻿namespace _3.Sum__Min__Max__Average
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    class SumMinMaxAv
+    public class SumMinMaxAv
     {
-        public static void PrintResults (int n)
+        public static void Main()
+        {
+            int number = int.Parse(Console.ReadLine());
+
+            PrintResults(number);
+        }
+
+        public static void PrintResults(int n)
         {
             var inputNums = new List<int>();
 
@@ -23,13 +27,6 @@ namespace _3.Sum__Min__Max__Average
             Console.WriteLine("Min = {0}", inputNums.Min());
             Console.WriteLine("Max = {0}", inputNums.Max());
             Console.WriteLine("Average = {0}", inputNums.Average());
-        }
-        static void Main(string[] args)
-        {
-            int n = int.Parse(Console.ReadLine());
-            PrintResults(n);
-
-
         }
     }
 }

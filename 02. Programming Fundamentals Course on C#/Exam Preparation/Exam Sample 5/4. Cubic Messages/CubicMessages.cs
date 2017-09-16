@@ -9,21 +9,19 @@
     {
         public static void Main()
         {
-            var inputMessage = Console.ReadLine();
-            
-
-            var validfMessages = new Dictionary<string, string>();
+            string inputMessage = Console.ReadLine();
+            Dictionary<string, string> validfMessages = new Dictionary<string, string>();
 
             while (inputMessage != "Over!")
             {
-                var num = int.Parse(Console.ReadLine());
-                var regex = new Regex(@"^(\d+)([a-zA-Z]{" + num + @"})([^a-zA-Z]*)$");
-                var message = new StringBuilder();
-                var indices = new StringBuilder();
+                int num = int.Parse(Console.ReadLine());
+                Regex regex = new Regex(@"^(\d+)([a-zA-Z]{" + num + @"})([^a-zA-Z]*)$");
+                StringBuilder message = new StringBuilder();
+                StringBuilder indices = new StringBuilder();
 
                 if (regex.IsMatch(inputMessage))
                 {
-                    var match = regex.Match(inputMessage);
+                    Match match = regex.Match(inputMessage);
                     indices.Append(match.Groups[1].Value);
                     message.Append(match.Groups[2].Value);
                     indices.Append(match.Groups[3].Value);
@@ -32,12 +30,13 @@
 
                 inputMessage = Console.ReadLine();              
             }
-            var digitReg = new Regex(@"[0-9]");
+
+            Regex digitReg = new Regex(@"[0-9]");
 
             foreach (var message in validfMessages)
             {
-                var length = message.Key.Length - 1;
-                var results = new StringBuilder();
+                int length = message.Key.Length - 1;
+                StringBuilder results = new StringBuilder();
                
                 Console.Write($"{message.Key} == ");
 

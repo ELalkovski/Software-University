@@ -1,34 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Geometry_Calculator
+﻿namespace Geometry_Calculator
 {
-    class Program
+    using System;
+
+    public class GeometryCalculator
     {
-        public static double GetTriangleArea(double side, double height)
+        public static void Main()
+        {
+            string parameter = Console.ReadLine();
+            double result = PrintResult(parameter);
+
+            Console.WriteLine("{0:f2}",result);
+        }
+
+        private static double GetTriangleArea(double side, double height)
         {
             return (side * height) / 2;
         }
 
-        public static double GetSquareArea(double side)
+        private static double GetSquareArea(double side)
         {
             return Math.Pow(side, 2);
         }
 
-        public static double GetRectangleArea(double width, double height)
+        private static double GetRectangleArea(double width, double height)
         {
             return (width * height);
         }
 
-        public static double GetCircleArea(double radius)
+        private static double GetCircleArea(double radius)
         {
             return (Math.PI * Math.Pow(radius, 2));
         }
 
-        public static double PrintResult(string parameter)
+        private static double PrintResult(string parameter)
         {
             double result = 0;
 
@@ -56,14 +60,6 @@ namespace Geometry_Calculator
             }
 
             return result;
-        }
-
-        static void Main(string[] args)
-        {
-            string parameter = Console.ReadLine();
-            double result = PrintResult(parameter);
-
-            Console.WriteLine("{0:f2}",result);
         }
     }
 }

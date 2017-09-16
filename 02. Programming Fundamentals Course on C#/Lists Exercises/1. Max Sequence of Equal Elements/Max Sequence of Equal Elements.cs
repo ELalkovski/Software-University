@@ -4,9 +4,17 @@ namespace _1.Max_Sequence_of_Equal_Elements
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    class MaxSequenceOfEqualNums
+
+    public class MaxSequenceOfEqualNums
     {
-        public static List<int> GetLongestSequence(List<int> inputNums)
+        public static void Main()
+        {
+            List<int> inputNums = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+
+            Console.WriteLine(string.Join(" ", GetLongestSequence(inputNums)));
+        }
+
+        private static List<int> GetLongestSequence(List<int> inputNums)
         {
             List<int> currentSequence = new List<int>();
             List<int> longestSequence = new List<int>();
@@ -39,13 +47,6 @@ namespace _1.Max_Sequence_of_Equal_Elements
             }
 
             return longestSequence;
-        }
-
-        static void Main(string[] args)
-        {
-            var inputNums = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
-
-            Console.WriteLine(string.Join(" ", GetLongestSequence(inputNums)));
         }
     }
 }

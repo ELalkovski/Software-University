@@ -5,19 +5,29 @@
     using System.Globalization;
     using System.Linq;
 
-    class BookLibrary
+    public class BookLibrary
     {
-
-        public static List<Book> GetBooksList(int n)
+        public static void Main()
         {
-            var bookLibrary = new List<Book>();
+            int booksCount = int.Parse(Console.ReadLine());
+            Library bookByAuthor = new Library();
+            bookByAuthor.Books = GetBooksList(booksCount);
+
+            Dictionary<string, double> pricePerAuthor = AddValuesToDict(bookByAuthor);
+
+            PrintResults(pricePerAuthor);
+        }
+
+        private static List<Book> GetBooksList(int n)
+        {
+            List<Book> bookLibrary = new List<Book>();
 
             for (int i = 0; i < n; i++)
             {
-                var input = Console.ReadLine()
+                string[] input = Console.ReadLine()
                     .Split(' ');
 
-                var book = new Book();
+                Book book = new Book();
 
                 book.Title = input[0];
                 book.Author = input[1];
@@ -32,9 +42,9 @@
             return bookLibrary;
         }
 
-        public static Dictionary<string, double> AddValuesToDict(Library booksByAuthor)
+        private static Dictionary<string, double> AddValuesToDict(Library booksByAuthor)
         {
-            var pricePerAuthor = new Dictionary<string, double>();
+            Dictionary<string, double> pricePerAuthor = new Dictionary<string, double>();
 
             for (int i = 0; i < booksByAuthor.Books.Count; i++)
             {
@@ -49,22 +59,12 @@
             return pricePerAuthor;
         }
 
-        public static void PrintResults(Dictionary<string, double> pricePerAuthor)
+        private static void PrintResults(Dictionary<string, double> pricePerAuthor)
         {
             foreach (var author in pricePerAuthor.OrderByDescending(x => x.Value).ThenBy(y => y.Key))
             {
                 Console.WriteLine("{0} -> {1:f2}", author.Key, author.Value);
             }
-        }
-
-        public static void Main()
-        {
-            var n = int.Parse(Console.ReadLine());
-            var bookByAuthor = new Library();
-            bookByAuthor.Books = GetBooksList(n);
-
-            var pricePerAuthor = AddValuesToDict(bookByAuthor);
-            PrintResults(pricePerAuthor);
         }
     }
 }
