@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Paw_Inc.Core
+﻿namespace Paw_Inc.Core
 {
+    using System;
+
     public class Engine
     {
         private CenterManager manager;
@@ -13,12 +13,12 @@ namespace Paw_Inc.Core
 
         public void Run()
         {
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "Paw Paw Pawah")
             {
-                var data = input.Split(new []{' ', '|'}, StringSplitOptions.RemoveEmptyEntries);
-                var command = data[0];
+                string[] data = input.Split(new []{' ', '|'}, StringSplitOptions.RemoveEmptyEntries);
+                string command = data[0];
 
                 switch (command)
                 {
@@ -44,17 +44,13 @@ namespace Paw_Inc.Core
                         this.manager.Adopt(data[1]);
                         break;
                 }
+
                 input = Console.ReadLine();
             }
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(manager.ToString());
-            Console.ResetColor();
-            
-        }
 
-        public void ExecuteCommand()
-        {
-            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(this.manager.ToString());
+            Console.ResetColor();
         }
     }
 }

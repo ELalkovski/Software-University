@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _04.Opinion_Poll
+﻿namespace _04.Opinion_Poll
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var people = new List<Person>();
+            int loopsCount = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+            List<Person> people = new List<Person>();
+
+            for (int i = 0; i < loopsCount; i++)
             {
-                var inputTokens = Console.ReadLine()
+                string[] inputTokens = Console.ReadLine()
                     .Split(' ');
-                var name = inputTokens[0];
-                var age = int.Parse(inputTokens[1]);
 
-                var currPerson = new Person(name, age);
+                string name = inputTokens[0];
+                int age = int.Parse(inputTokens[1]);
+
+                Person currPerson = new Person(name, age);
                 people.Add(currPerson);
             }
 

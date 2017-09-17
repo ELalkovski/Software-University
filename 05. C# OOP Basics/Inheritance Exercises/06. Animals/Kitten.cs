@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace _06.Animals
+﻿namespace _06.Animals
 {
     public class Kitten : Cat
     {
@@ -13,8 +10,10 @@ namespace _06.Animals
 
         public override string Gender
         {
-            get { return base.Gender; }
-
+            get
+            {
+                return base.Gender;
+            }
             set
             {
                 base.Gender = "Female";

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Inheritance_Lab
+﻿namespace Inheritance_Lab
 {
+    using System;
+
     public class Dog : Animal
     {
         public void Bark()
@@ -9,6 +9,5 @@ namespace Inheritance_Lab
             Console.WriteLine("barking...");
         }
     }
-
 }
 

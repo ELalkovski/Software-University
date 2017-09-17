@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _02.Book_Shop
+﻿namespace _02.Book_Shop
 {
+    using System;
+    using System.Text;
+
     public class Book
     {
         private string title;
@@ -22,13 +22,13 @@ namespace _02.Book_Shop
             {
                 return this.price;
             }
-
             set
             {
                 if (value <= 0)
                 {
                     throw new ArgumentException("Price not valid!");
                 }
+
                 this.price = value;
             }
         }   
@@ -41,7 +41,7 @@ namespace _02.Book_Shop
             }
             set
             {
-                var nameTokens = value.Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
+                string[] nameTokens = value.Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 
                 if (nameTokens.Length > 1)
                 {
@@ -51,6 +51,7 @@ namespace _02.Book_Shop
                     }
                     
                 }
+
                 this.author = value;
             }
         }
@@ -67,13 +68,14 @@ namespace _02.Book_Shop
                 {
                     throw new ArgumentException("Title not valid!");
                 }
+
                 this.title = value;
             }
         }
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("Type: ").AppendLine($"{this.GetType().Name}");
             sb.Append("Title: ").AppendLine($"{this.Title}");
             sb.Append("Author: ").AppendLine($"{this.Author}");

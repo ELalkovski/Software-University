@@ -6,9 +6,9 @@
     using System.Reflection;
     using AnimalFarm.Models;
 
-    public class Program
+    public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             Type chickenType = typeof(Chicken);
             FieldInfo[] fields = chickenType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
@@ -22,6 +22,7 @@
             try
             {
                 Chicken chicken = new Chicken(name, age);
+
                 Console.WriteLine(
                     "Chicken {0} (age {1}) can produce {2} eggs per day.",
                     chicken.Name,

@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _03.Mankind
+﻿namespace _03.Mankind
 {
+    using System;
+
     public class Human
     {
         private string firstName;
@@ -25,6 +25,7 @@ namespace _03.Mankind
                 {
                     throw new ArgumentException("Expected upper case letter! Argument: lastName");
                 }
+
                 if (value.Length < 3)
                 {
                     throw new ArgumentException("Expected length at least 3 symbols! Argument: lastName");
@@ -40,13 +41,13 @@ namespace _03.Mankind
             {
                 return this.firstName;
             }
-
             protected set
             {
                 if (!char.IsUpper(value[0]))
                 {
                     throw new ArgumentException("Expected upper case letter! Argument: firstName");
                 }
+
                 if (value.Length < 4)
                 {
                     throw new ArgumentException("Expected length at least 4 symbols! Argument: firstName");
@@ -55,7 +56,5 @@ namespace _03.Mankind
                 this.firstName = value;
             }
         }
-
-        
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace _06.Animals
+﻿namespace _06.Animals
 {
     public class Frog : Animal
     {

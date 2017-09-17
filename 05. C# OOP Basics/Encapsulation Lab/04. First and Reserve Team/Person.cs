@@ -42,8 +42,10 @@ public class Person
             throw new ArgumentException("First name cannot be less than 3 symbols");
 
         }
+
         this.firstName = firstName;
     }
+
     public void SetLastName(string lastName)
     {
         if (lastName.Length < 3)
@@ -51,8 +53,10 @@ public class Person
             throw new ArgumentException("Last name cannot be less than 3 symbols");
 
         }
+
         this.lastName = lastName;
     }
+
     public void SetAge(int age)
     {
         if (age < 1)
@@ -60,8 +64,10 @@ public class Person
             throw new ArgumentException("Age cannot be zero or negative integer");
 
         }
+
         this.age = age;
     }
+
     public void SetSalary(double salary)
     {
         if (salary < 460.0)
@@ -69,6 +75,7 @@ public class Person
             throw new ArgumentException("Salary cannot be less than 460 leva");
 
         }
+
         this.salary = salary;
     }
 

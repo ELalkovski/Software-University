@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _02.Class_Box_Data_Validation
+﻿namespace _02.Class_Box_Data_Validation
 {
+    using System;
+    using System.Text;
+
     public class Box
     {
         private double length;
@@ -22,7 +22,7 @@ namespace _02.Class_Box_Data_Validation
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException($"{nameof(Length)} cannot be zero or negative.");
+                    throw new ArgumentException($"{nameof(this.Length)} cannot be zero or negative.");
                 }
 
                 this.length = value;
@@ -35,7 +35,7 @@ namespace _02.Class_Box_Data_Validation
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException($"{nameof(Width)} cannot be zero or negative.");
+                    throw new ArgumentException($"{nameof(this.Width)} cannot be zero or negative.");
                 }
 
                 this.width = value;
@@ -48,7 +48,7 @@ namespace _02.Class_Box_Data_Validation
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException($"{nameof(Height)} cannot be zero or negative.");
+                    throw new ArgumentException($"{nameof(this.Height)} cannot be zero or negative.");
                 }
 
                 this.height = value;
@@ -72,7 +72,7 @@ namespace _02.Class_Box_Data_Validation
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Surface Area - {SurfaceArea():f2}");
             sb.AppendLine($"Lateral Surface Area - {LateralSurfaceArea():f2}");
             sb.AppendLine($"Volume - {Volume():f2}");

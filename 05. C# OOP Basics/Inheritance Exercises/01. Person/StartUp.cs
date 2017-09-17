@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _01.Person
+﻿namespace _01.Person
 {
+    using System;
+
     public class StartUp
     {
         public static void Main()
@@ -18,7 +18,6 @@ namespace _01.Person
             {
                 Console.WriteLine(ae.Message);
             }
-
         }
     }
 }

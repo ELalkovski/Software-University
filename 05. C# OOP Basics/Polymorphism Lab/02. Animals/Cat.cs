@@ -8,9 +8,10 @@ public class Cat : Animal
 
     public override string ExplainMyself()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.AppendLine($"I am {base.Name} and my fovourite food is {base.FavouriteFood}");
         sb.Append("MEEOW");
+
         return sb.ToString();
     }
 }

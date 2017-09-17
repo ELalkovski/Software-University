@@ -14,7 +14,6 @@
         public string GetMood
         {
             get { return this.mood; }
-
         }
 
         private void SetMood()

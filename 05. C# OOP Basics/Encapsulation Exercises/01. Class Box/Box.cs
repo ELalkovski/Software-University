@@ -1,7 +1,7 @@
-﻿using System.Text;
-
-namespace _01.Class_Box
+﻿namespace _01.Class_Box
 {
+    using System.Text;
+
     public class Box
     {
         private double length;
@@ -32,7 +32,7 @@ namespace _01.Class_Box
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Surface Area - {SurfaceArea():f2}");
             sb.AppendLine($"Lateral Surface Area - {LateralSurfaceArea():f2}");
             sb.AppendLine($"Volume - {Volume():f2}");

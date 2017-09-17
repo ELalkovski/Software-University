@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _13.Family_Tree
+﻿namespace _13.Family_Tree
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static string parentName;
@@ -15,14 +13,15 @@ namespace _13.Family_Tree
 
         public static void Main()
         {
-            var personNeeded = Console.ReadLine();
-            var input = Console.ReadLine();
-            var people = new List<Person>();
-            var peopleInfo = new List<string>();
+            string personNeeded = Console.ReadLine();
+            string input = Console.ReadLine();
+
+            List<Person> people = new List<Person>();
+            List<string> peopleInfo = new List<string>();
 
             while (input != "End")
             {
-                var currPerson = new Person();
+                Person currPerson = new Person();
 
                 if (input.Contains('-'))  // Adding Parent Child info
                 {
@@ -30,9 +29,10 @@ namespace _13.Family_Tree
                 }
                 else
                 {
-                    var personData = input.Split(' ');                    
-                    var name = $"{personData[0]} {personData[1]}";
-                    var birthday = personData[2];
+                    string[] personData = input.Split(' ');                    
+                    string name = $"{personData[0]} {personData[1]}";
+                    string birthday = personData[2];
+
                     currPerson.Name = name;
                     currPerson.Birthday = birthday;
                     people.Add(currPerson);              // Adding Person with name and birthdate
@@ -43,9 +43,10 @@ namespace _13.Family_Tree
 
             foreach (var line in peopleInfo)
             {
-                var tokens = line.Split(new []{" - "}, StringSplitOptions.RemoveEmptyEntries);
-                var parent = new Person();
-                var child = new Person();
+                string[] tokens = line
+                    .Split(new []{" - "}, StringSplitOptions.RemoveEmptyEntries);
+                Person parent = new Person();
+                Person child = new Person();
 
                 if (tokens[0].Contains('/') && tokens[1].Contains('/')) // Two Tokens are dates
                 {
@@ -90,7 +91,8 @@ namespace _13.Family_Tree
                 }
             }
 
-            var personToPrint = new Person();
+            Person personToPrint;
+
             if (personNeeded.Contains('/'))
             {
                 personToPrint = people.First(p => p.Birthday.Equals(personNeeded));
@@ -107,11 +109,14 @@ namespace _13.Family_Tree
         {
             Console.WriteLine($"{personToPrint.Name} {personToPrint.Birthday}");
             Console.WriteLine("Parents:");
+
             foreach (var parent in personToPrint.Parents)
             {
                 Console.WriteLine($"{parent.Name} {parent.Birthday}");
             }
+
             Console.WriteLine("Children:");
+
             foreach (var child in personToPrint.Children)
             {
                 Console.WriteLine($"{child.Name} {child.Birthday}");

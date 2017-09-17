@@ -16,6 +16,7 @@
             get { return this.name; }
             set { this.name = value; }
         }
+
         public string Type
         {
             get { return this.type; }

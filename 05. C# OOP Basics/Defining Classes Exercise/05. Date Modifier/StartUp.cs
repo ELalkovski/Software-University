@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _05.Date_Modifier
+﻿namespace _05.Date_Modifier
 {
+    using System;
+
     public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var firstDate = Console.ReadLine();
-            var secondDate = Console.ReadLine();
-            var dateModifier = new DateModifier(firstDate, secondDate);
+            string firstDate = Console.ReadLine();
+            string secondDate = Console.ReadLine();
+
+            DateModifier dateModifier = new DateModifier(firstDate, secondDate);
 
             Console.WriteLine(dateModifier.CalculateDays());
         }

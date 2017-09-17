@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _06.Football_Team_Generator
+﻿namespace _06.Football_Team_Generator
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             string command = Console.ReadLine();
+
             List<Team> teams = new List<Team>();
+
             while (command != "END")
             {
                 string[] tokens = command.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
                 switch (tokens[0])
                 {
-                    case "Team": teams.Add(new Team(tokens[1])); break;
+                    case "Team": teams.Add(new Team(tokens[1]));
+                        break;
                     case "Add":
                         string teamName = tokens[1];
                         string playerName = tokens[2];
@@ -26,9 +28,10 @@ namespace _06.Football_Team_Generator
                         int dribble = int.Parse(tokens[5]);
                         int passing = int.Parse(tokens[6]);
                         int shooting = int.Parse(tokens[7]);
-
                         bool teamExists = teams.Any(t => t.Name == teamName);
+
                         Team team;
+
                         if (!teamExists)
                         {
                             Console.WriteLine("Team {0} does not exist.", teamName);
@@ -51,6 +54,7 @@ namespace _06.Football_Team_Generator
                         teamName = tokens[1];
                         team = teams.Where(t => t.Name == teamName).First();
                         playerName = tokens[2];
+
                         try
                         {
                             team.RemovePlayer(playerName);
@@ -63,6 +67,7 @@ namespace _06.Football_Team_Generator
                     case "Rating":
                         teamName = tokens[1];
                         teamExists = teams.Any(t => t.Name == teamName);
+
                         if (!teamExists)
                         {
                             Console.WriteLine("Team {0} does not exist.", teamName);

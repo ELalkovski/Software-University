@@ -5,15 +5,15 @@ public class StartUp
 {
     public static void Main()
     {
-        var bankAccounts = new Dictionary<int, BankAccount>();
+        string input = Console.ReadLine();
 
-        var input = Console.ReadLine();
+        Dictionary<int, BankAccount> bankAccounts = new Dictionary<int, BankAccount>();
 
         while (input != "End")
         {
-            var tokens = input.Split(' ');
-            var command = tokens[0];
-            var id = int.Parse(tokens[1]);
+            string[] tokens = input.Split(' ');
+            string command = tokens[0];
+            int id = int.Parse(tokens[1]);
 
             switch (command)
             {
@@ -27,6 +27,7 @@ public class StartUp
                     {
                         Console.WriteLine("Account already exists");
                     }
+
                     break;
                 case "Deposit":
                     if (bankAccounts.ContainsKey(id))
@@ -38,11 +39,13 @@ public class StartUp
                     {
                         Console.WriteLine("Account does not exist");
                     }
+
                     break;
                 case "Withdraw":
                     if (bankAccounts.ContainsKey(id))
                     {
-                        var withdrawAmount = double.Parse(tokens[2]);
+                        double withdrawAmount = double.Parse(tokens[2]);
+
                         if (withdrawAmount > bankAccounts[id].Balance)
                         {
                             Console.WriteLine("Insufficient balance");
@@ -50,12 +53,13 @@ public class StartUp
                         else
                         {
                             bankAccounts[id].Withdraw(withdrawAmount);
-                        }     
+                        }
                     }
                     else
                     {
                         Console.WriteLine("Account does not exist");
                     }
+
                     break;
                 case "Print":
                     if (bankAccounts.ContainsKey(id))
@@ -66,6 +70,7 @@ public class StartUp
                     {
                         Console.WriteLine("Account does not exist");
                     }
+
                     break;
             }
 

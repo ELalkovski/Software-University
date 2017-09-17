@@ -1,39 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _07.Speed_Racing
+﻿namespace _07.Speed_Racing
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class SpeedRacing
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var cars = new List<Car>();
+            int linesCount = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+            List<Car> cars = new List<Car>();
+
+            for (int i = 0; i < linesCount; i++)
             {
-                var carInfo = Console.ReadLine()
+                string[] carInfo = Console.ReadLine()
                     .Split(' ');
 
-                var model = carInfo[0];
-                var fuelAmount = int.Parse(carInfo[1]);
-                var fuelConsumption = double.Parse(carInfo[2]);
-                var currCar = new Car(model, fuelAmount, fuelConsumption);
+                string model = carInfo[0];
+                int fuelAmount = int.Parse(carInfo[1]);
+                double fuelConsumption = double.Parse(carInfo[2]);
+                Car currCar = new Car(model, fuelAmount, fuelConsumption);
+
                 cars.Add(currCar);
             }
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "End")
             {
-                var tokens = input
+                string[] tokens = input
                     .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
                     .ToArray();
-                var model = tokens[1];
-                var distanceToTravel = int.Parse(tokens[2]);
+                string model = tokens[1];
+                int distanceToTravel = int.Parse(tokens[2]);
 
                 cars.Find(c => c.Model == model).TravelDistance(distanceToTravel);
+
                 input = Console.ReadLine();
             }
 

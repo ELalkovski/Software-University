@@ -10,8 +10,11 @@
             this.model = model;
             this.speed = speed;
         }
+
         public Car()
-        { }
+        {
+            
+        }
 
         public string Model
         {

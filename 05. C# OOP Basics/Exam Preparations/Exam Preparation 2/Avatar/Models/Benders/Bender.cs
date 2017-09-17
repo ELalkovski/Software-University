@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-public abstract class Bender
+﻿public abstract class Bender
 {
     private string name;
     private int power;

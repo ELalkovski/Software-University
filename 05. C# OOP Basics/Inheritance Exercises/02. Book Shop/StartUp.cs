@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _02.Book_Shop
+﻿namespace _02.Book_Shop
 {
+    using System;
+
     public class StartUp
     {
         public static void Main()
@@ -22,7 +22,6 @@ namespace _02.Book_Shop
             {
                 Console.WriteLine(ae.Message);
             }
-
         }
     }
 }

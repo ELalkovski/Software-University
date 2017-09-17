@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _06.Animals
+﻿namespace _06.Animals
 {
+    using System;
+    using System.Text;
+
     public abstract class Animal
     {
         private string name;
@@ -29,12 +29,11 @@ namespace _06.Animals
                 {
                     throw new ArgumentException("Invalid input!");
                 }
+
                 this.gender = value;
             }
         }
-
         
-
         public virtual int Age
         {
             get
@@ -47,12 +46,11 @@ namespace _06.Animals
                 {
                     throw new ArgumentException("Invalid input!");
                 }
+
                 this.age = value;
             }
         }
-
         
-
         public virtual string Name
         {
             get
@@ -65,6 +63,7 @@ namespace _06.Animals
                 {
                     throw new ArgumentException("Invalid input!");
                 }
+
                 this.name = value;
             }
         }
@@ -76,8 +75,8 @@ namespace _06.Animals
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.AppendLine($"{GetType().Name}");
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"{this.GetType().Name}");
             sb.AppendLine($"{this.name} {this.age} {this.gender}");
             sb.Append($"{this.ProduceSound()}");
 

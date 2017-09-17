@@ -1,36 +1,33 @@
-﻿using System;
-using System.Runtime.Remoting.Messaging;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
+    using System;
+
     public class StartUp
     {
         public static void Main()
         {
-            var carInfo = Console.ReadLine()
+            string[] carInfo = Console.ReadLine()
                 .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
-            var truckInfo = Console.ReadLine()
+            string[] truckInfo = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            var busInfo = Console.ReadLine()
+            string[] busInfo = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             Vehicle car = new Car(double.Parse(carInfo[1]), double.Parse(carInfo[2]), double.Parse(carInfo[3]));
             Vehicle truck = new Truck(double.Parse(truckInfo[1]), double.Parse(truckInfo[2]), double.Parse(truckInfo[3]));
             Vehicle bus = new Bus(double.Parse(busInfo[1]), double.Parse(busInfo[2]), double.Parse(busInfo[3]));
 
-            var commandCount = int.Parse(Console.ReadLine());
-
+            int commandCount = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < commandCount; i++)
             {
                 try
                 {
-                    var commandTokens = Console.ReadLine()
+                    string[] commandTokens = Console.ReadLine()
                         .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                    var action = commandTokens[0];
-                    var vehicle = commandTokens[1];
-                    var distanceOrLitersQuantity = double.Parse(commandTokens[2]);
+                    string action = commandTokens[0];
+                    string vehicle = commandTokens[1];
+                    double distanceOrLitersQuantity = double.Parse(commandTokens[2]);
 
                     if (action.Equals("Drive") || action.Equals("DriveEmpty"))
                     {
@@ -71,7 +68,6 @@ namespace _01.Vehicles
 
         private static void ExecuteDrive(string vehicle, double distance, string condition, Vehicle car, Vehicle truck, Vehicle bus)
         {
-
             switch (vehicle)
             {
                 case "Car":

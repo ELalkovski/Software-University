@@ -17,8 +17,9 @@ public class EarthMonument : Monument
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Earth Monument: {this.Name}, Earth Affinity: {this.earthAffinity}");
+
         return sb.ToString();
     }
 }

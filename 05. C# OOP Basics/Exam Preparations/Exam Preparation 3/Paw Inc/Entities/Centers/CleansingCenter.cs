@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Paw_Inc.Entities.Animals;
-
-namespace Paw_Inc.Entities.Centers
+﻿namespace Paw_Inc.Entities.Centers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Paw_Inc.Entities.Animals;
+
     public class CleansingCenter : Center
     {
         private Dictionary<string, List<Animal>> recievedAnimals;
@@ -32,6 +32,7 @@ namespace Paw_Inc.Entities.Centers
             {
                 this.recievedAnimals.Add(name, new List<Animal>());
             }
+
             this.recievedAnimals[name].Add(animal);
         }
 

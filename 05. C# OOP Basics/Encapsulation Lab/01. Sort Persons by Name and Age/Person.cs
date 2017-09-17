@@ -1,4 +1,4 @@
-﻿class Person
+﻿public class Person
 {
     private string firstName;
     private string lastName;

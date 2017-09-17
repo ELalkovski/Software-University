@@ -42,6 +42,7 @@ public class Person
             throw new ArgumentException("First name cannot be less than 3 symbols");
 
         }
+
         this.firstName = firstName;
     }
     public void SetLastName(string lastName)
@@ -51,6 +52,7 @@ public class Person
             throw new ArgumentException("Last name cannot be less than 3 symbols");
 
         }
+
         this.lastName = lastName;
     }
     public void SetAge(int age)
@@ -60,6 +62,7 @@ public class Person
             throw new ArgumentException("Age cannot be zero or negative integer");
 
         }
+
         this.age = age;
     }
     public void SetSalary(double salary)
@@ -69,6 +72,7 @@ public class Person
             throw new ArgumentException("Salary cannot be less than 460 leva");
 
         }
+
         this.salary = salary;
     }
 
@@ -81,6 +85,5 @@ public class Person
     {
         return $"{this.FirstName} {this.LastName} get {this.Salary} leva";
     }
-
 }
 

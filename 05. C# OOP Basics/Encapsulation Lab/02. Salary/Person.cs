@@ -1,6 +1,5 @@
 ﻿public class Person
 {
-    
     private string firstName;
     private string lastName;
     private int age;
@@ -47,6 +46,5 @@
     {
         return $"{this.FirstName} {this.LastName} get {this.Salary} leva";
     }
-
 }
 

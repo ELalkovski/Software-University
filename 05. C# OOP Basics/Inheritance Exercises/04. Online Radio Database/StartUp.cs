@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _04.Online_Radio_Database
+﻿namespace _04.Online_Radio_Database
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static void Main()
         {
-            var inputLinesCount = int.Parse(Console.ReadLine());
-            var songs = new List<Song>();
+            int inputLinesCount = int.Parse(Console.ReadLine());
+            List<Song> songs = new List<Song>();
 
             for (int i = 0; i < inputLinesCount; i++)
             {
                 try
                 {
-                    var input = Console.ReadLine();
-                    var songInfo = input.Split(new []{';', ':'}, StringSplitOptions.RemoveEmptyEntries);
-                    var artist = songInfo[0];
-                    var name = songInfo[1];
+                    string input = Console.ReadLine();
+                    string[] songInfo = input.Split(new []{';', ':'}, StringSplitOptions.RemoveEmptyEntries);
+                    string artist = songInfo[0];
+                    string name = songInfo[1];
                     int minutes;
                     int seconds;
 
@@ -26,8 +26,9 @@ namespace _04.Online_Radio_Database
                     {
                         minutes = int.Parse(songInfo[2]);
                         seconds = int.Parse(songInfo[3]);
-                        var currSong = new Song(artist, name, minutes, seconds);
+                        Song currSong = new Song(artist, name, minutes, seconds);
                         songs.Add(currSong);
+
                         Console.WriteLine("Song added.");
                     }
                     else
@@ -41,9 +42,8 @@ namespace _04.Online_Radio_Database
                 }
             }
 
-            var totalTimeInSecs = songs.Sum(s => s.Minutes) * 60 + songs.Sum(s => s.Seconds);
-
-            var time = TimeSpan.FromSeconds(totalTimeInSecs);
+            int totalTimeInSecs = songs.Sum(s => s.Minutes) * 60 + songs.Sum(s => s.Seconds);
+            TimeSpan time = TimeSpan.FromSeconds(totalTimeInSecs);
 
             Console.WriteLine($"Songs added: {songs.Count}");
             Console.WriteLine($"Playlist length: {time.Hours}h {time.Minutes}m {time.Seconds}s");

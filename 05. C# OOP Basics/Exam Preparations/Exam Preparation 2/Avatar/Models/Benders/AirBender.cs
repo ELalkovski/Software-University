@@ -2,7 +2,6 @@
 
 public class AirBender : Bender
 {
-
     private double aerialIntegrity;
 
     public AirBender(string name, int power, double aerialIntegrity) 
@@ -18,9 +17,9 @@ public class AirBender : Bender
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Air Bender: {this.Name}, Power: {this.Power}, Aerial Integrity: {this.aerialIntegrity:f2}");
+
         return sb.ToString();
     }
-
 }

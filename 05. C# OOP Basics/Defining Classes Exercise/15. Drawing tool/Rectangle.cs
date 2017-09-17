@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _15.Drawing_tool
+﻿namespace _15.Drawing_tool
 {
+    using System;
+
     public class Rectangle : CorDraw
     {
         private int height;
@@ -14,7 +14,6 @@ namespace _15.Drawing_tool
 
         public void Draw()
         {
-            
             for (int i = 0; i < this.height; i++)
             {
                 if (i == 0 || i == this.height - 1)
@@ -25,7 +24,6 @@ namespace _15.Drawing_tool
                 {
                     Console.WriteLine($"|{string.Join(" ", new string(' ', this.width))}|");
                 }
-                
             }
         }
     }

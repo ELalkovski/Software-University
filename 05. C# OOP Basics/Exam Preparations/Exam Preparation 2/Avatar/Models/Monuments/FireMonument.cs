@@ -17,8 +17,9 @@ public class FireMonument : Monument
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Fire Monument: {this.Name}, Fire Affinity: {this.fireAffinity}");
+
         return sb.ToString();
     }
 }

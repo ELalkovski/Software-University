@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _12.Google
+﻿namespace _12.Google
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var people = new List<Person>();
+            string input = Console.ReadLine();
+
+            List<Person> people = new List<Person>();
 
             while (input != "End")
             {
-                var tokens = input.Split(' ').ToList();
+                List<string> tokens = input
+                    .Split(' ')
+                    .ToList();
 
                 if (tokens.Contains("company"))
                 {
-                    var personName = tokens[0];
-                    var companyName = tokens[2];
-                    var department = tokens[3];
-                    var salary = double.Parse(tokens[4]);
-
-                    var company = new Company(companyName, department, salary);
+                    string personName = tokens[0];
+                    string companyName = tokens[2];
+                    string department = tokens[3];
+                    double salary = double.Parse(tokens[4]);
+                    Company company = new Company(companyName, department, salary);
 
                     if (people.Any(p => p.Name == personName))
                     {
@@ -30,18 +32,17 @@ namespace _12.Google
                     }
                     else
                     {
-                        var person = new Person(personName);
+                        Person person = new Person(personName);
                         person.Company = company;
                         people.Add(person);
                     }
-
                 }
                 else if (tokens.Contains("pokemon"))
                 {
-                    var personName = tokens[0];
-                    var pokemonName = tokens[2];
-                    var type = tokens[3];
-                    var pokemon = new Pokemon(pokemonName, type);
+                    string personName = tokens[0];
+                    string pokemonName = tokens[2];
+                    string type = tokens[3];
+                    Pokemon pokemon = new Pokemon(pokemonName, type);
 
                     if (people.Any(p => p.Name == personName))
                     {
@@ -49,17 +50,17 @@ namespace _12.Google
                     }
                     else
                     {
-                        var person = new Person(personName);
+                        Person person = new Person(personName);
                         person.Pokemons.Add(pokemon);
                         people.Add(person);
                     }
                 }
                 else if (tokens.Contains("parents"))
                 {
-                    var personName = tokens[0];
-                    var parentName = tokens[2];
-                    var birthday = tokens[3];
-                    var parent = new Parent(parentName, birthday);
+                    string personName = tokens[0];
+                    string parentName = tokens[2];
+                    string birthday = tokens[3];
+                    Parent parent = new Parent(parentName, birthday);
 
                     if (people.Any(p => p.Name == personName))
                     {
@@ -67,17 +68,17 @@ namespace _12.Google
                     }
                     else
                     {
-                        var person = new Person(personName);
+                        Person person = new Person(personName);
                         person.Parents.Add(parent);
                         people.Add(person);
                     }
                 }
                 else if (tokens.Contains("children"))
                 {
-                    var personName = tokens[0];
-                    var childName = tokens[2];
-                    var birthday = tokens[3];
-                    var child = new Child(childName, birthday);
+                    string personName = tokens[0];
+                    string childName = tokens[2];
+                    string birthday = tokens[3];
+                    Child child = new Child(childName, birthday);
 
                     if (people.Any(p => p.Name == personName))
                     {
@@ -85,17 +86,17 @@ namespace _12.Google
                     }
                     else
                     {
-                        var person = new Person(personName);
+                        Person person = new Person(personName);
                         person.Children.Add(child);
                         people.Add(person);
                     }
                 }
                 else if (tokens.Contains("car"))
                 {
-                    var personName = tokens[0];
-                    var model = tokens[2];
-                    var speed = double.Parse(tokens[3]);
-                    var currCar = new Car(model, speed);
+                    string personName = tokens[0];
+                    string model = tokens[2];
+                    double speed = double.Parse(tokens[3]);
+                    Car currCar = new Car(model, speed);
 
                     if (people.Any(p => p.Name == personName))
                     {
@@ -103,19 +104,21 @@ namespace _12.Google
                     }
                     else
                     {
-                        var person = new Person(personName);
+                        Person person = new Person(personName);
                         person.Car = currCar;
                         people.Add(person);
                     }
                 }
+
                 input = Console.ReadLine();
             }
 
-            var wantedName = Console.ReadLine();
+            string wantedName = Console.ReadLine();
 
             if (people.Any(p => p.Name == wantedName))
             {
                 Person pesronNeeded = people.Find(p => p.Name == wantedName);
+
                 Console.WriteLine(pesronNeeded.ToString().Trim());
             }      
         }

@@ -5,7 +5,6 @@ using System.Text;
 public class NationsBuilder
 {
     private int warsCount = 1;
-
     private Nation fireNation;
     private Nation waterNation;
     private Nation airNation;
@@ -23,10 +22,10 @@ public class NationsBuilder
 
     public void AssignBender(List<string> benderArgs)
     {
-        var type = benderArgs[1];
-        var name = benderArgs[2];
-        var power = int.Parse(benderArgs[3]);
-        var secondaryParameter = double.Parse(benderArgs[4]);
+        string type = benderArgs[1];
+        string name = benderArgs[2];
+        int power = int.Parse(benderArgs[3]);
+        double secondaryParameter = double.Parse(benderArgs[4]);
         Bender bender;
 
         if (type.Equals("Air"))
@@ -50,11 +49,12 @@ public class NationsBuilder
             this.earthNation.AddBender(bender);
         }
     }
+
     public void AssignMonument(List<string> monumentArgs)
     {
-        var type = monumentArgs[1];
-        var name = monumentArgs[2];
-        var affinity = int.Parse(monumentArgs[3]);
+        string type = monumentArgs[1];
+        string name = monumentArgs[2];
+        int affinity = int.Parse(monumentArgs[3]);
 
         Monument monument;
 
@@ -79,9 +79,11 @@ public class NationsBuilder
             this.earthNation.AddMonument(monument);
         }
     }
+
     public string GetStatus(string nationsType)
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+
         sb.AppendLine($"{nationsType} Nation");
 
         if (nationsType.Equals("Air"))
@@ -109,7 +111,8 @@ public class NationsBuilder
         this.initiatedWars.Add($"War {this.warsCount} issued by {nationsType}");
         this.warsCount++;
 
-        var nations = new List<Nation>();
+        List<Nation> nations = new List<Nation>();
+
         nations.Add(fireNation);
         nations.Add(waterNation);
         nations.Add(airNation);
@@ -121,9 +124,10 @@ public class NationsBuilder
             nation.Monuments.Clear();
         }
     }
+
     public string GetWarsRecord()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         foreach (var war in this.initiatedWars)
         {
@@ -132,5 +136,4 @@ public class NationsBuilder
 
         return sb.ToString().Trim();
     }
-
 }

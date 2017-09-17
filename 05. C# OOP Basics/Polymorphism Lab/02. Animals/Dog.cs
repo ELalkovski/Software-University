@@ -8,9 +8,10 @@ public class Dog : Animal
 
     public override string ExplainMyself()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.AppendLine(base.ExplainMyself());
         sb.Append("DJAAF");
+
         return sb.ToString();
     }
 }

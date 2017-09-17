@@ -22,11 +22,13 @@
         {
             get { return this.engine; }
         }
+
         public string Weight
         {
             get { return this.weight; }
             set { this.weight = value; }
         }
+
         public string Color
         {
             get { return this.color; }

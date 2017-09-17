@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _10.Car_Salesman
+﻿namespace _10.Car_Salesman
 {
+    using System;
+    using System.Collections.Generic;
+
     public class StartUp
     {
         public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var engines = new List<Engine>();
+            int linesCount = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+            List<Engine> engines = new List<Engine>();
+
+            for (int i = 0; i < linesCount; i++)
             {
-                var engineInfo = Console.ReadLine()
+                string[] engineInfo = Console.ReadLine()
                     .Split(' ');
 
-                var model = engineInfo[0];
-                var power = engineInfo[1];
-                var displacement = "";
-                var efficiency = "";
+                string model = engineInfo[0];
+                string power = engineInfo[1];
+                string displacement = "";
+                string efficiency = "";
+
                 if (engineInfo.Length == 3)
                 {
                     if (char.IsDigit(engineInfo[2][0]))
@@ -45,24 +47,25 @@ namespace _10.Car_Salesman
                 }
 
 
-                var currEngine = new Engine(model, power);
+                Engine currEngine = new Engine(model, power);
                 currEngine.Displacement = displacement;
                 currEngine.Efficiency = efficiency;
                 engines.Add(currEngine);
             }
 
-            var carsInputLines = int.Parse(Console.ReadLine());
-            var cars = new List<Car>();
+            int carsInputLines = int.Parse(Console.ReadLine());
+
+            List<Car> cars = new List<Car>();
 
             for (int i = 0; i < carsInputLines; i++)
             {
-                var carsInfo = Console.ReadLine()
+                string[] carsInfo = Console.ReadLine()
                     .Split(' ');
 
-                var model = carsInfo[0];
-                var engine = carsInfo[1];
-                var weight = "";
-                var color = "";
+                string model = carsInfo[0];
+                string engine = carsInfo[1];
+                string weight = "";
+                string color = "";
 
                 if (carsInfo.Length == 3)
                 {
@@ -89,7 +92,7 @@ namespace _10.Car_Salesman
                     }
                 }
 
-                var currCar = new Car(model, engines.Find(e => e.Model == engine));
+                Car currCar = new Car(model, engines.Find(e => e.Model == engine));
                 currCar.Weight = weight;
                 currCar.Color = color;
                 cars.Add(currCar);
@@ -100,6 +103,7 @@ namespace _10.Car_Salesman
                 Console.WriteLine($"{car.Model}:");
                 Console.WriteLine($"  {car.Engine.Model}:");
                 Console.WriteLine($"    Power: {car.Engine.Power}");
+
                 if (!string.IsNullOrEmpty(car.Engine.Displacement))
                 {
                     Console.WriteLine($"    Displacement: {car.Engine.Displacement}");
@@ -108,6 +112,7 @@ namespace _10.Car_Salesman
                 {
                     Console.WriteLine("    Displacement: n/a");
                 }
+
                 if (!string.IsNullOrEmpty(car.Engine.Efficiency))
                 {
                     Console.WriteLine($"    Efficiency: {car.Engine.Efficiency}");
@@ -116,6 +121,7 @@ namespace _10.Car_Salesman
                 {
                     Console.WriteLine($"    Efficiency: n/a");
                 }
+
                 if (!string.IsNullOrEmpty(car.Weight))
                 {
                     Console.WriteLine($"    Weight: {car.Weight}");
@@ -124,6 +130,7 @@ namespace _10.Car_Salesman
                 {
                     Console.WriteLine($"    Weight: n/a");
                 }
+
                 if (!string.IsNullOrEmpty(car.Color))
                 {
                     Console.WriteLine($"    Color: {car.Color}");

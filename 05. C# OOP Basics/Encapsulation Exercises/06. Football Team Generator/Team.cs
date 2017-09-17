@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _06.Football_Team_Generator
+﻿namespace _06.Football_Team_Generator
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Team
     {
         private string name;
@@ -23,13 +21,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.name;
             }
-
             set
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("A name should not be empty.");
                 }
+
                 this.name = value;
             }
         }
@@ -40,6 +38,7 @@ namespace _06.Football_Team_Generator
             {
                 return 0;
             }
+
             return (int)Math.Round(this.players.Select(p => p.Skill()).Sum() / (double)this.players.Count);
         }
 
@@ -51,10 +50,12 @@ namespace _06.Football_Team_Generator
         public void RemovePlayer(string playerName)
         {
             bool containsPlayer = this.players.Any(p => p.Name == playerName);
+
             if (!containsPlayer)
             {
                 throw new ArgumentException(string.Format("Player {0} is not in {1} team.", playerName, this.Name));
             }
+
             Player player = this.players.Where(p => p.Name == playerName).First();
             this.players.Remove(player);
         }

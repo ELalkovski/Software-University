@@ -1,29 +1,29 @@
-﻿using System;
-
-namespace _03.Mankind
+﻿namespace _03.Mankind
 {
+    using System;
+
     public class StartUp
     {
         public static void Main()
         {
             try
             {
-                var studentInfo = Console.ReadLine()
+                string[] studentInfo = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                var studentFirstName = studentInfo[0];
-                var studentLastName = studentInfo[1];
-                var facultyNum = studentInfo[2];
-                var student = new Student(studentFirstName, studentLastName, facultyNum);
 
-                var workerInfo = Console.ReadLine()
+                string studentFirstName = studentInfo[0];
+                string studentLastName = studentInfo[1];
+                string facultyNum = studentInfo[2];
+                Student student = new Student(studentFirstName, studentLastName, facultyNum);
+
+                string[] workerInfo = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                var workerFirstName = workerInfo[0];
-                var workerLastName = workerInfo[1];
-                var weekSalary = decimal.Parse(workerInfo[2]);
-                var hoursPerWeek = decimal.Parse(workerInfo[3]);
-                var worker = new Worker(workerFirstName, workerLastName, weekSalary, hoursPerWeek);
 
-
+                string workerFirstName = workerInfo[0];
+                string workerLastName = workerInfo[1];
+                decimal weekSalary = decimal.Parse(workerInfo[2]);
+                decimal hoursPerWeek = decimal.Parse(workerInfo[3]);
+                Worker worker = new Worker(workerFirstName, workerLastName, weekSalary, hoursPerWeek);
 
                 Console.WriteLine(student);
                 Console.WriteLine();

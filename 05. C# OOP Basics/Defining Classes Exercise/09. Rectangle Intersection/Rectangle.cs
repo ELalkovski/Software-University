@@ -31,10 +31,12 @@
         {
             get { return this.leftCornerY; }
         }
+
         public double Height
         {
             get { return this.height; }
         }
+
         public double Width
         {
             get { return this.width; }
@@ -49,10 +51,8 @@
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }

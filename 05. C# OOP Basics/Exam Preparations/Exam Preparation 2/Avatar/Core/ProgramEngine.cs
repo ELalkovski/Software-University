@@ -13,19 +13,22 @@ public class ProgramEngine
 
     public void Run()
     {
-        var input = Console.ReadLine();
+        string input = Console.ReadLine();
 
         while (true)
         {
-            var data = input
+            List<string> data = input
                 .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
-            var command = data[0];
+            string command = data[0];
+
             ExecuteCommand(command, data);
+
             if (input == "Quit")
             {
                 break;
             }
+
             input = Console.ReadLine();
         }
     }

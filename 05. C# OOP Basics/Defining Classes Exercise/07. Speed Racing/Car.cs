@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _07.Speed_Racing
+﻿namespace _07.Speed_Racing
 {
+    using System;
+
     public class Car
     {
         private string model;
@@ -21,16 +21,19 @@ namespace _07.Speed_Racing
             get { return this.model; }
             set { this.model = value; }
         }
+
         public double FuelAmount
         {
             get { return this.fuelAmount; }
             set { this.fuelAmount = value; }
         }
+
         public double FuelConsumption
         {
             get { return this.fuelConsumptionPerKm; }
             set { this.fuelConsumptionPerKm = value; }
         }
+
         public int DistanceTravelled
         {
             get { return this.distanceTravelled; }
@@ -39,7 +42,7 @@ namespace _07.Speed_Racing
 
         public void TravelDistance(int distanceToTravel)
         {
-            var fuelNeeded = distanceToTravel * this.fuelConsumptionPerKm;
+            double fuelNeeded = distanceToTravel * this.fuelConsumptionPerKm;
 
             if (fuelNeeded <= this.fuelAmount)
             {

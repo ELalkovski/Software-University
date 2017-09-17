@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
+    using System;
+
     public class Car : Vehicle
     {
         private const double AcConsumptionMod = 0.9;
@@ -22,6 +22,7 @@ namespace _01.Vehicles
             {
                 throw new ArgumentException("Cannot fit fuel in tank");
             }
+
             this.FuelQuantity += liters;
         }
     }

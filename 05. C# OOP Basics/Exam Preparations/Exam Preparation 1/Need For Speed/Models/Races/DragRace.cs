@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 public class DragRace : Race
@@ -11,19 +13,20 @@ public class DragRace : Race
 
     public override string GetWinners()
     {
-        var winners = this.Participants
+        List<Car> winners = this.Participants
             .OrderByDescending(p => p.GetDragOverallPoints())
             .Take(3)
             .ToList();
 
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.AppendLine($"{this.Route} - {this.Length}");
-        var counter = 1;
+        int counter = 1;
 
         foreach (var winner in winners)
         {
             sb.Append(
                 $"{counter}. {winner.Brand} {winner.Model} {winner.GetDragOverallPoints()}PP - $");
+
             if (counter == 1)
             {
                 sb.Append(this.PrizePool * 50 / 100);
@@ -36,7 +39,8 @@ public class DragRace : Race
             {
                 sb.Append(this.PrizePool * 20 / 100);
             }
-            sb.Append("\n");
+
+            sb.Append(Environment.NewLine);
             counter++;
         }
 

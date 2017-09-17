@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _04.Shopping_Spree
+﻿namespace _04.Shopping_Spree
 {
+    using System;
+
     public class Product
     {
         private string name;
@@ -15,8 +15,10 @@ namespace _04.Shopping_Spree
 
         public string Name
         {
-            get { return this.name; }
-
+            get
+            {
+                return this.name;
+            }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -30,8 +32,10 @@ namespace _04.Shopping_Spree
 
         public decimal Price
         {
-            get { return this.price; }
-
+            get
+            {
+                return this.price;
+            }
             set
             {
                 if (value < 0)

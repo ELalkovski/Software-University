@@ -18,7 +18,8 @@ public class StackOfStrings
 
     public string Pop()
     {
-        var poppedString = this.data[this.data.Count - 1];
+        string poppedString = this.data[this.data.Count - 1];
+
         if (this.data.Count > 0)
         {
             this.data.RemoveAt(this.data.Count - 1);

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _06.Football_Team_Generator
+﻿namespace _06.Football_Team_Generator
 {
+    using System;
+
     public class Player
     {
         private string name;
@@ -31,13 +27,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.name;
             }
-
             set
             {
                 if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("A name should not be empty.");
                 }
+
                 this.name = value;
             }
         }
@@ -48,13 +44,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.endurance;
             }
-
             private set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentException("Endurance should be between 0 and 100.");
                 }
+
                 this.endurance = value;
             }
         }
@@ -65,13 +61,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.sprint;
             }
-
             private set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentException("Sprint should be between 0 and 100.");
                 }
+
                 this.sprint = value;
             }
         }
@@ -82,13 +78,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.dribble;
             }
-
             private set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentException("Dribble should be between 0 and 100.");
                 }
+
                 this.dribble = value;
             }
         }
@@ -99,13 +95,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.passing;
             }
-
             private set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentException("Passing should be between 0 and 100.");
                 }
+
                 this.passing = value;
             }
         }
@@ -116,13 +112,13 @@ namespace _06.Football_Team_Generator
             {
                 return this.shooting;
             }
-
             private set
             {
                 if (value < 0 || value > 100)
                 {
                     throw new ArgumentException("Shooting should be between 0 and 100.");
                 }
+
                 this.shooting = value;
             }
         }

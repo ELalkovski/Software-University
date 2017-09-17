@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Paw_Inc.Entities.Animals;
-
-namespace Paw_Inc.Entities.Centers
+﻿namespace Paw_Inc.Entities.Centers
 {
+    using System.Collections.Generic;
+    using Paw_Inc.Entities.Animals;
+
     public abstract class Center
     {
         private string name;

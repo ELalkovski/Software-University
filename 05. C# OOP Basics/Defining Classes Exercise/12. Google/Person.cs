@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace _12.Google
+﻿namespace _12.Google
 {
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Person
     {
         private string name;
@@ -57,29 +57,38 @@ namespace _12.Google
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine(this.name);
             sb.AppendLine("Company:");
+
             if (!string.IsNullOrEmpty(this.Company.CompanyName))
             {
                 sb.AppendLine($"{this.Company.CompanyName} {this.Company.Department} {this.Company.Salary:f2}");
             }
+
             sb.AppendLine("Car:");
+
             if (!string.IsNullOrEmpty(this.Car.Model))
             {
                 sb.AppendLine($"{this.Car.Model} {this.Car.Speed}");
             }
+
             sb.AppendLine("Pokemon:");
+
             foreach (var pokemon in this.Pokemons)
             {
                 sb.AppendLine($"{pokemon.Name} {pokemon.Type}");
             }
+
             sb.AppendLine("Parents:");
+
             foreach (var parent in this.Parents)
             {
                 sb.AppendLine($"{parent.Name} {parent.Birthday}");
             }
+
             sb.AppendLine("Children:");
+
             foreach (var child in this.Children)
             {
                 sb.AppendLine($"{child.Name} {child.Birthday}");

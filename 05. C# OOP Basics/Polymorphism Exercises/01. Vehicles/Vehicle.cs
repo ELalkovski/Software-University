@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
+    using System;
+
     public abstract class Vehicle
     {
         private const double BusAirConditioner = 1.4;
@@ -31,7 +31,10 @@ namespace _01.Vehicles
 
         private double ConsumptionPerKm
         {
-            get { return this.consumptionPerKm; }
+            get
+            {
+                return this.consumptionPerKm;
+            }
             set
             {
                 this.consumptionPerKm = value;
@@ -56,6 +59,7 @@ namespace _01.Vehicles
             {
                 return false;
             }
+
             return true;
         }
 
@@ -65,18 +69,21 @@ namespace _01.Vehicles
             {
                 throw new ArgumentException("Fuel must be a positive number");
             }
+
             this.FuelQuantity += liters;
         }
 
         private bool TryToDrive(double distance)
         {
-            var fuelNeeded = this.consumptionPerKm * distance;
+            double fuelNeeded = this.consumptionPerKm * distance;
 
             if (fuelNeeded <= this.fuelQuantity)
             {
                 this.FuelQuantity -= fuelNeeded;
+
                 return true;
             }
+
             return false;
         }
 
@@ -108,8 +115,10 @@ namespace _01.Vehicles
             if (fuelNeeded <= this.FuelQuantity)
             {
                 this.FuelQuantity -= fuelNeeded;
+
                 return true;
             }
+
             return false;
         }
 

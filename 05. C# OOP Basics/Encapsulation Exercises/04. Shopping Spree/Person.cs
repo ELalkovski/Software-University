@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _04.Shopping_Spree
+﻿namespace _04.Shopping_Spree
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Person
     {
         private string name;
@@ -18,8 +18,10 @@ namespace _04.Shopping_Spree
 
         public string Name
         {
-            get { return this.name; }
-
+            get
+            {
+                return this.name;
+            }
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
@@ -33,8 +35,10 @@ namespace _04.Shopping_Spree
 
         public decimal Money
         {
-            get { return this.money; }
-
+            get
+            {
+                return this.money;
+            }
             set
             {
                 if (value < 0)
@@ -56,6 +60,7 @@ namespace _04.Shopping_Spree
             if (this.money - product.Price >= 0)
             {
                 Console.WriteLine($"{this.Name} bought {product.Name}");
+
                 this.products.Add(product);
                 this.Money -= product.Price;
             }

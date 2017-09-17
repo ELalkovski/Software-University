@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Single Inheritance", "01. Single Inheritance\01. Single Inheritance.csproj", "{46E8C7AE-BB51-4CA5-8BE8-F4156E6D6781}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Multiple Inheritance", "02. Multiple Inheritance\02. Multiple Inheritance.csproj", "{07F3F144-D466-4CAE-BC7F-E817C5F9496C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Hierarchical Inheritance", "03. Hierarchical Inheritance\03. Hierarchical Inheritance.csproj", "{99EAB8CE-24E1-4D87-A243-50BBDD9A6288}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Random List", "04. Random List\04. Random List.csproj", "{2FF6761F-0140-41A7-88E5-B817404C8BCC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Stack of Strings", "05. Stack of Strings\05. Stack of Strings.csproj", "{92D3C41C-6EC7-487D-B0DB-D2BFA962265D}"
 EndProject
@@ -31,10 +29,6 @@ Global
 		{99EAB8CE-24E1-4D87-A243-50BBDD9A6288}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99EAB8CE-24E1-4D87-A243-50BBDD9A6288}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99EAB8CE-24E1-4D87-A243-50BBDD9A6288}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2FF6761F-0140-41A7-88E5-B817404C8BCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FF6761F-0140-41A7-88E5-B817404C8BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FF6761F-0140-41A7-88E5-B817404C8BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FF6761F-0140-41A7-88E5-B817404C8BCC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92D3C41C-6EC7-487D-B0DB-D2BFA962265D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92D3C41C-6EC7-487D-B0DB-D2BFA962265D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92D3C41C-6EC7-487D-B0DB-D2BFA962265D}.Release|Any CPU.ActiveCfg = Release|Any CPU

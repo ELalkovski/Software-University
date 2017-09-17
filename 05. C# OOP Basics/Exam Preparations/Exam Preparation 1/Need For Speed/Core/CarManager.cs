@@ -36,7 +36,8 @@ public class CarManager
 
     public string Check(int id)
     {
-        var carToPrint = this.cars[id];
+        Car carToPrint = this.cars[id];
+
         return carToPrint.ToString();
     }
 
@@ -67,13 +68,13 @@ public class CarManager
 
         if (type.Equals("TimeLimit"))
         {
-            var goldTime = specialParameter;
+            int goldTime = specialParameter;
             race = new TimeLimitRace(length, route, prizePool, goldTime);
             this.races.Add(id, race);
         }
         else
         {
-            var laps = specialParameter;
+            int laps = specialParameter;
             race = new CircuitRace(length, route, prizePool, laps);
             this.races.Add(id, race);
         }
@@ -83,7 +84,7 @@ public class CarManager
     {
         if (!this.parkedCarsIds.Contains(carId))
         {
-            var participant = this.cars[carId];
+            Car participant = this.cars[carId];
 
             if (this.raceParticipants.ContainsKey(raceId))
             {
@@ -105,14 +106,16 @@ public class CarManager
         {
             return "Cannot start the race with zero participants.";
         }
-        var startedRace = this.races[id];
+
+        Race startedRace = this.races[id];
         this.raceParticipants.Remove(id);
+
         return startedRace.GetWinners();
     }
 
     public void Park(int id)
     {
-        var car = this.cars[id];
+        Car car = this.cars[id];
 
         foreach (var participants in this.raceParticipants.Values)
         {
@@ -120,7 +123,8 @@ public class CarManager
             {
                 return;
             }
-        }      
+        }
+        
         this.garage.ParkCar(id, car);
         this.parkedCarsIds.Add(id);
     }
@@ -135,5 +139,4 @@ public class CarManager
     {
         this.garage.TuneCars(tuneIndex, addOn);
     }
-
 }

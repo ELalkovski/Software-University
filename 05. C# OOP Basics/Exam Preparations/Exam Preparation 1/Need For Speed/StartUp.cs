@@ -2,8 +2,9 @@
 {
     public static void Main()
     {
-        var manager = new CarManager();
-        var engine = new Engine(manager);
+        CarManager manager = new CarManager();
+        Engine engine = new Engine(manager);
+
         engine.Run();
     }
 }

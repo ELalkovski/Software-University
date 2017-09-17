@@ -1,47 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _09.Rectangle_Intersection
+﻿namespace _09.Rectangle_Intersection
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static void Main()
         {
-            var input = Console.ReadLine()
+            int[] input = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var rectanglesCount = input[0];
-            var checksCount = input[1];
-            var rectangles = new List<Rectangle>();
+            int rectanglesCount = input[0];
+            int checksCount = input[1];
+            List<Rectangle> rectangles = new List<Rectangle>();
 
             for (int i = 0; i < rectanglesCount; i++)
             {
-                var rectangleInfo = Console.ReadLine()
+                string[] rectangleInfo = Console.ReadLine()
                     .Split(' ');
 
-                var rectId = rectangleInfo[0];
-                var height = double.Parse(rectangleInfo[1]);
-                var width = double.Parse(rectangleInfo[2]);
-                var leftX = double.Parse(rectangleInfo[3]);
-                var leftY = double.Parse(rectangleInfo[4]);
+                string rectId = rectangleInfo[0];
+                double height = double.Parse(rectangleInfo[1]);
+                double width = double.Parse(rectangleInfo[2]);
+                double leftX = double.Parse(rectangleInfo[3]);
+                double leftY = double.Parse(rectangleInfo[4]);
 
-                var currRectangle = new Rectangle(rectId, width, height, leftX, leftY);
+                Rectangle currRectangle = new Rectangle(rectId, width, height, leftX, leftY);
                 rectangles.Add(currRectangle);
             }
 
             for (int i = 0; i < checksCount; i++)
             {
-                var checkTokens = Console.ReadLine()
+                string[] checkTokens = Console.ReadLine()
                     .Split(' ');
 
-                var firstRectId = checkTokens[0];
-                var secondRectId = checkTokens[1];
+                string firstRectId = checkTokens[0];
+                string secondRectId = checkTokens[1];
+                Rectangle firstRect = rectangles.Find(r => r.Id == firstRectId);
+                Rectangle secondRect = rectangles.Find(r => r.Id == secondRectId);
 
-                var firstRect = rectangles.Find(r => r.Id == firstRectId);
-                var secondRect = rectangles.Find(r => r.Id == secondRectId);
                 if (firstRect.IsIntersected(secondRect))
                 {
                     Console.WriteLine("true");

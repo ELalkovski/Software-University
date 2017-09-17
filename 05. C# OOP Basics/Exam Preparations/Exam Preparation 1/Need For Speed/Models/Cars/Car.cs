@@ -51,7 +51,7 @@ public abstract class Car
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"{this.brand} {this.model} {this.yearOfProduction}");
         sb.Append("\n");
         sb.Append($"{this.horsePower} HP, 100 m/h in {this.acceleration} s");

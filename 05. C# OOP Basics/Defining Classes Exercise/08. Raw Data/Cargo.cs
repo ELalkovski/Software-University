@@ -5,7 +5,6 @@
         private int cargoWeight;
         private string cargoType;
 
-
         public int CargoWeight
         {
             get { return this.cargoWeight; }

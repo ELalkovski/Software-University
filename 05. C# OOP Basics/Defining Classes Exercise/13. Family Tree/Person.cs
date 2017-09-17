@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace _13.Family_Tree
+﻿namespace _13.Family_Tree
 {
+    using System.Collections.Generic;
+
     public class Person
     {
         private string name;
@@ -14,11 +14,13 @@ namespace _13.Family_Tree
             get { return this.name; }
             set { this.name = value; }
         }
+
         public string Birthday
         {
             get { return this.birthday; }
             set { this.birthday = value; }
         }
+
         public List<Person> Parents
         {
             get { return this.parents; }

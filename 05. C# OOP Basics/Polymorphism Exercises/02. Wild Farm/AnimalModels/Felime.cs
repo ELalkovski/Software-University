@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _02.Wild_Farm
+﻿namespace _02.Wild_Farm
 {
     public abstract class Felime : Mammal
     {
@@ -9,17 +7,5 @@ namespace _02.Wild_Farm
         {
 
         }
-
-        //public override void Eat(Food food)
-        //{
-        //    if (food.GetType().Equals("Meat"))
-        //    {
-        //        base.FoodEaten += food.Quantity;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine($"{base.Type}s are not eating that type of food!");
-        //    }
-        //}
     }
 }

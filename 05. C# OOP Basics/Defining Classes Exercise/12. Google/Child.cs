@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-
-namespace _12.Google
+﻿namespace _12.Google
 {
     public class Child
     {

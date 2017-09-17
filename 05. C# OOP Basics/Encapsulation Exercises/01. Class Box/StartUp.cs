@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-
-namespace _01.Class_Box
+﻿namespace _01.Class_Box
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     public class StartUp
     {
         public static void Main()
@@ -12,11 +12,12 @@ namespace _01.Class_Box
             FieldInfo[] fields = boxType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
             Console.WriteLine(fields.Count());
 
-            var length = double.Parse(Console.ReadLine());
-            var width = double.Parse(Console.ReadLine());
-            var height = double.Parse(Console.ReadLine());
+            double length = double.Parse(Console.ReadLine());
+            double width = double.Parse(Console.ReadLine());
+            double height = double.Parse(Console.ReadLine());
 
-            var box = new Box(length, width, height);
+            Box box = new Box(length, width, height);
+
             Console.Write(box.ToString());
         }
     }

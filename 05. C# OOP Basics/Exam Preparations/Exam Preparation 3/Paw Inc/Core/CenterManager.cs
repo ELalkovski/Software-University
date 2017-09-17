@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Paw_Inc.Entities.Animals;
-using Paw_Inc.Entities.Centers;
-
-namespace Paw_Inc.Core
+﻿namespace Paw_Inc.Core
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Paw_Inc.Entities.Animals;
+    using Paw_Inc.Entities.Centers;
+
     public class CenterManager
     {
         private Dictionary<string, AdoptionCenter> adoptionCenters;
@@ -22,6 +21,7 @@ namespace Paw_Inc.Core
         {
             this.cleansingCenters.Add(name, new CleansingCenter(name));
         }
+
         public void RegisterAdoptionCenter(string name)
         {
             this.adoptionCenters.Add(name, new AdoptionCenter(name));
@@ -41,13 +41,14 @@ namespace Paw_Inc.Core
 
         public void SendForCleansing(string adoptionCenterName, string cleansingCenterName)
         {
-            var adoptionCenter = this.adoptionCenters[adoptionCenterName];
-            var name = adoptionCenter.Name;
+            AdoptionCenter adoptionCenter = this.adoptionCenters[adoptionCenterName];
+            string name = adoptionCenter.Name;
 
             foreach (var animal in adoptionCenter.StoredAnimals)
             {
                 this.cleansingCenters[cleansingCenterName].AddAnimal(name, animal);
             }
+
             this.adoptionCenters[adoptionCenterName].SendAnimalsForCleansing();
         }
 
@@ -70,14 +71,15 @@ namespace Paw_Inc.Core
 
         public string GetAdoptionAndCleansingResults()
         {
-            var adoptedNames = new List<string>();
-            var cleansedNames = new List<string>();
-            var sb = new StringBuilder();
+            List<string> adoptedNames = new List<string>();
+            List<string> cleansedNames = new List<string>();
+            StringBuilder sb = new StringBuilder();
 
             foreach (var center in this.adoptionCenters.Values)
             {
                 adoptedNames.AddRange(center.AdoptionStatistic);
             }
+
             if (adoptedNames.Count > 0)
             {
                 sb.AppendLine($"Adopted Animals: {string.Join(", ", adoptedNames.OrderBy(n => n))}");
@@ -91,6 +93,7 @@ namespace Paw_Inc.Core
             {
                 cleansedNames.AddRange(center.CleansedAnimalStatistic);
             }
+
             if (cleansedNames.Count > 0)
             {
                 sb.AppendLine($"Cleansed Animals: {string.Join(", ", cleansedNames.OrderBy(n => n))}");
@@ -105,14 +108,14 @@ namespace Paw_Inc.Core
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine("Paw Incorporative Regular Statistics");
             sb.AppendLine($"Adoption Centers: {this.adoptionCenters.Count}");
             sb.AppendLine($"Cleansing Centers: {this.cleansingCenters.Count}");
             sb.Append(this.GetAdoptionAndCleansingResults());
 
-            var animalsAwaitingAdoption = this.adoptionCenters.Sum(a => a.Value.GetCleansedAnimalsCount());
-            var animalsAwaitingCleansing = this.cleansingCenters.Sum(c => c.Value.GetUncleansedAnimals());
+            int animalsAwaitingAdoption = this.adoptionCenters.Sum(a => a.Value.GetCleansedAnimalsCount());
+            int animalsAwaitingCleansing = this.cleansingCenters.Sum(c => c.Value.GetUncleansedAnimals());
 
             sb.AppendLine($"Animals Awaiting Adoption: {animalsAwaitingAdoption}");
             sb.AppendLine($"Animals Awaiting Cleansing: {animalsAwaitingCleansing}");

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Program
+public class StartUp
 {
     public static void Main()
     {
@@ -9,6 +9,5 @@ public class Program
 
         Console.WriteLine(cat.ExplainMyself());
         Console.WriteLine(dog.ExplainMyself());
-
     }
 }

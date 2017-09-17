@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-
-namespace _02.Class_Box_Data_Validation
+﻿namespace _02.Class_Box_Data_Validation
 {
+    using System;
+    using System.Linq;
+    using System.Reflection;
+
     public class StartUp
     {
         public static void Main()
@@ -14,11 +14,12 @@ namespace _02.Class_Box_Data_Validation
                 FieldInfo[] fields = boxType.GetFields(BindingFlags.NonPublic | BindingFlags.Instance);
                 Console.WriteLine(fields.Count());
 
-                var length = double.Parse(Console.ReadLine());
-                var width = double.Parse(Console.ReadLine());
-                var height = double.Parse(Console.ReadLine());
+                double length = double.Parse(Console.ReadLine());
+                double width = double.Parse(Console.ReadLine());
+                double height = double.Parse(Console.ReadLine());
 
-                var box = new Box(length, width, height);
+                Box box = new Box(length, width, height);
+
                 Console.Write(box.ToString());
             }
             catch (Exception e)

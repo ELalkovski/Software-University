@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
+    using System;
+
     public class Bus : Vehicle
     {
         public Bus(double fuel, double consumption, double tankCapacity)
@@ -9,6 +9,7 @@ namespace _01.Vehicles
         {
 
         }
+
         public override void Refuell(double liters)
         {
             if (liters <= 0)
@@ -22,6 +23,5 @@ namespace _01.Vehicles
 
             this.FuelQuantity += liters;
         }
-        
     }
 }

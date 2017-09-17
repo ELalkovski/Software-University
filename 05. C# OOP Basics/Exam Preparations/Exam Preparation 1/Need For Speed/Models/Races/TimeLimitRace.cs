@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Text;
+﻿using System.Text;
 
 public class TimeLimitRace : Race
 {
@@ -21,9 +20,10 @@ public class TimeLimitRace : Race
 
     public override string GetWinners()
     {
-        var winner = this.Participants[0];
-        var time = this.Length * winner.GetTimeOverall();
-        var sb = new StringBuilder();
+        Car winner = this.Participants[0];
+        int time = this.Length * winner.GetTimeOverall();
+        StringBuilder sb = new StringBuilder();
+
         sb.AppendLine($"{this.Route} - {this.Length}");
         sb.AppendLine($"{winner.Brand} {winner.Model} - {time} s.");
 
@@ -40,6 +40,6 @@ public class TimeLimitRace : Race
             sb.Append($"Bronze Time, ${(this.PrizePool * 30) / 100}.");
         }
 
-        return sb.ToString(); // may have incorrect lines ..
+        return sb.ToString();
     }
 }

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _01.Person
+﻿namespace _01.Person
 {
+    using System;
+    using System.Text;
+
     public class Person
     {
         protected string name;
@@ -26,6 +26,7 @@ namespace _01.Person
                 {
                     throw new ArgumentException("Age must be positive!");
                 }
+
                 this.age = value;
             }
         }   
@@ -42,13 +43,14 @@ namespace _01.Person
                 {
                     throw new ArgumentException("Name's length should not be less than 3 symbols!");
                 }
+
                 this.name = value;
             }
         }
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append(String.Format("Name: {0}, Age: {1}", this.Name, this.Age));
 
             return sb.ToString();

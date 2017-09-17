@@ -1,30 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _06.Company_Roster
+﻿namespace _06.Company_Roster
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
-            var employees = new List<Employee>();
+            int linesCount = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+           List<Employee> employees = new List<Employee>();
+
+            for (int i = 0; i < linesCount; i++)
             {
-                var input = Console.ReadLine()
+                string[] input = Console.ReadLine()
                     .Split(' ');
 
-                var name = input[0];
-                var salary = double.Parse(input[1]);
-                var position = input[2];
-                var department = input[3];
-                var currEmployee = new Employee(name, salary, position, department);
+                string name = input[0];
+                double salary = double.Parse(input[1]);
+                string position = input[2];
+                string department = input[3];
+                Employee currEmployee = new Employee(name, salary, position, department);
 
                 if (input.Length == 5)
                 {
-                    var age = -1;
+                    int age = -1;
+
                     try
                     {
                         age = int.Parse(input[4]);
@@ -33,6 +35,7 @@ namespace _06.Company_Roster
                     {
                         
                     }
+
                     if (age != -1)
                     {
                         currEmployee.Age = age;

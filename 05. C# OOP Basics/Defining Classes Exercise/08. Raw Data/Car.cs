@@ -1,8 +1,7 @@
-﻿
-using System.Collections.Generic;
-
-namespace _08.Raw_Data
+﻿namespace _08.Raw_Data
 {
+    using System.Collections.Generic;
+
     public class Car
     {
         private string model;
@@ -54,9 +53,9 @@ namespace _08.Raw_Data
                             return true;
                         }
                     }
-                }                
+                }  
+                
                 return false;
-
             }
         }
 
@@ -68,8 +67,8 @@ namespace _08.Raw_Data
                 {
                     return true;
                 }
-                return false;
 
+                return false;
             }
         }
     }

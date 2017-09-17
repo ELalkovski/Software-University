@@ -17,8 +17,9 @@ public class FireBender : Bender
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Fire Bender: {this.Name}, Power: {this.Power}, Heat Aggression: {this.heatAggression:f2}");
+
         return sb.ToString();
     }
 }

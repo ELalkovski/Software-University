@@ -18,7 +18,7 @@ public class PerformanceCar : Car
 
     public override string ToString()
     {
-        var sb = new StringBuilder(base.ToString());
+        StringBuilder sb = new StringBuilder(base.ToString());
 
         if (this.addOns.Count == 0)
         {

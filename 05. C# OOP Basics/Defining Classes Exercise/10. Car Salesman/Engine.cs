@@ -17,15 +17,18 @@
         {
             get { return this.model; }
         }
+
         public string Power
         {
             get { return this.power; }
         }
+
         public string Displacement
         {
             get { return this.displacement; }
             set { this.displacement = value; }
         }
+
         public string Efficiency
         {
             get { return this.efficiency; }

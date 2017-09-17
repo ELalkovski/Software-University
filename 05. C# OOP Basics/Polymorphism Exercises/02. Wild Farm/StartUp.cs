@@ -1,32 +1,34 @@
-﻿using System;
-
-namespace _02.Wild_Farm
+﻿namespace _02.Wild_Farm
 {
+    using System;
+
     public class StartUp
     {
         public static void Main()
         {
-            var animalInfo = Console.ReadLine();
+            string animalInfo = Console.ReadLine();
 
             while (animalInfo != "End")
             {
-                var foodInfo = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries); 
-                var infoTokens = animalInfo.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);              
+                string[] foodInfo = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries); 
+                string[] infoTokens = animalInfo.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);              
 
-                var type = infoTokens[0];
-                var name = infoTokens[1];
-                var weight = double.Parse(infoTokens[2]);
-                var livingRegion = infoTokens[3];
-                var breed = "";
+                string type = infoTokens[0];
+                string name = infoTokens[1];
+                double weight = double.Parse(infoTokens[2]);
+                string livingRegion = infoTokens[3];
+                string breed = "";\
+
                 try
                 {
                     breed = infoTokens[4];
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                 }
-                var foodType = foodInfo[0];
-                var quantity = int.Parse(foodInfo[1]);
+
+                string foodType = foodInfo[0];
+                int quantity = int.Parse(foodInfo[1]);
                 Food currFood;
                 Animal currAnimal;
                 
@@ -37,6 +39,7 @@ namespace _02.Wild_Farm
                         currAnimal = CreateAnimal(type, name, weight, livingRegion, breed);
                         currAnimal.MakeSound();
                         currAnimal.Eat(currFood);
+
                         Console.WriteLine(currAnimal.ToString());
                         break;
                     case "Meat":
@@ -44,6 +47,7 @@ namespace _02.Wild_Farm
                         currAnimal = CreateAnimal(type, name, weight, livingRegion, breed);
                         currAnimal.MakeSound();
                         currAnimal.Eat(currFood);
+
                         Console.WriteLine(currAnimal.ToString());
                         break;
                 }

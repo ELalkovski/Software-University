@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _03.Mankind
+﻿namespace _03.Mankind
 {
+    using System;
+    using System.Text;
+
     public class Worker : Human
     {
         private decimal weekSalary;
@@ -27,6 +27,7 @@ namespace _03.Mankind
                 {
                     throw new ArgumentException("Expected value mismatch! Argument: workHoursPerDay");
                 }
+
                 this.workHoursPerDay = value;
             }
         }
@@ -43,6 +44,7 @@ namespace _03.Mankind
                 {
                     throw new ArgumentException("Expected value mismatch! Argument: weekSalary");
                 }
+
                 this.weekSalary = value;
             }
         }
@@ -54,7 +56,7 @@ namespace _03.Mankind
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.AppendLine($"First Name: {base.FirstName}");
             sb.AppendLine($"Last Name: {base.LastName}");
             sb.AppendLine($"Week Salary: {this.WeekSalary:f2}");

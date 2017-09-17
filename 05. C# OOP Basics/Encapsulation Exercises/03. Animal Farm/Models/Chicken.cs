@@ -29,6 +29,7 @@
                 {
                     throw new ArgumentException("Name cannot be empty.");
                 }
+
                 this.name = value;
             }
         }
@@ -46,6 +47,7 @@
                 {
                     throw new ArgumentException("Age should be between 0 and 15.");
                 }
+
                 this.age = value;
             }
         }

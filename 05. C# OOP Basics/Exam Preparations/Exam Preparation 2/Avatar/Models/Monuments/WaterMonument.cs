@@ -17,8 +17,9 @@ public class WaterMonument : Monument
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Water Monument: {this.Name}, Water Affinity: {this.waterAffinity}");
+
         return sb.ToString();
     }
 }

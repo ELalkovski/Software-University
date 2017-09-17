@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Inheritance_Lab
+﻿namespace Inheritance_Lab
 {
+    using System;
+
     public class Animal
     {
         public void Eat()
@@ -9,6 +9,5 @@ namespace Inheritance_Lab
             Console.WriteLine("eating...");
         }
     }
-
 }
 

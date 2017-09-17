@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -35,7 +36,8 @@ public class Nation
 
     public double GetTotalPower()
     {
-        var increaseFactor = (this.GetBendersPower() / 100) * this.GetMonumentsPower();
+        double increaseFactor = (this.GetBendersPower() / 100) * this.GetMonumentsPower();
+
         return this.GetBendersPower() + increaseFactor;
     }
 
@@ -51,27 +53,30 @@ public class Nation
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"Benders:");
+
         if (this.benders.Count > 0)
         {
-            sb.Append("\n");
+            sb.Append(Environment.NewLine);
+
             foreach (var bender in this.benders)
             {
                 sb.AppendLine(bender.ToString());
             }
-            
         }
         else
         {
             sb.Append($" None");
-            sb.Append("\n");
+            sb.Append(Environment.NewLine);
         }
 
         sb.Append($"Monuments:");
+
         if (this.monuments.Count > 0)
         {
-            sb.Append("\n");
+            sb.Append(Environment.NewLine);
+
             foreach (var monument in this.monuments)
             {
                 sb.AppendLine(monument.ToString());
@@ -79,9 +84,10 @@ public class Nation
         }
         else
         {
-            sb.Append($" None");
-            sb.Append("\n");
+            sb.Append(" None");
+            sb.Append(Environment.NewLine);
         }
+
         return sb.ToString().Trim();
     }
 }

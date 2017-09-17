@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
+    using System;
+
     public class Truck : Vehicle
     {
         private const double AcConsumptionMod = 1.6;
@@ -19,7 +19,8 @@ namespace _01.Vehicles
             {
                 throw new ArgumentException("Fuel must be a positive number");
             }
-            var litersToRefill = FuelLossFactor * liters;
+
+            double litersToRefill = FuelLossFactor * liters;
             base.FuelQuantity += litersToRefill;
         }
     }

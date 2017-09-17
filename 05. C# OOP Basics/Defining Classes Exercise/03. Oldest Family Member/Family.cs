@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03.Oldest_Family_Member
+﻿namespace _03.Oldest_Family_Member
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Family
     {
         private List<Person> members = new List<Person>();
-
-        //public List<Person> Members
-        //{
-        //    get { return this.members; }
-        //    set { this.members = value; }
-        //}
 
         public void AddMember(Person currMember)
         {
@@ -23,8 +14,9 @@ namespace _03.Oldest_Family_Member
 
         public Person GetOldestMember()
         {
-            members = members.OrderByDescending(p => p.Age).ToList();
-            return members[0];
+            this.members = members.OrderByDescending(p => p.Age).ToList();
+
+            return this.members[0];
         }
     }
 }

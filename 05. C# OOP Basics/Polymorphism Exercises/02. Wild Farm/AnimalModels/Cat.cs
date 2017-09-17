@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text;
-
-namespace _02.Wild_Farm
+﻿namespace _02.Wild_Farm
 {
+    using System;
+    using System.Text;
+
     public class Cat : Felime
     {
         private string breed;
@@ -31,8 +31,9 @@ namespace _02.Wild_Farm
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append($"{base.Type}[{base.Name}, {this.Breed}, {base.Weight}, {base.LivingRegion}, {base.FoodEaten}]");
+
             return sb.ToString();
         }
     }

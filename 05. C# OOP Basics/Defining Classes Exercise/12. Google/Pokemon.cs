@@ -15,6 +15,7 @@
         {
             get { return this.name; }
         }
+
         public string Type
         {
             get { return this.type; }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _05.Pizza_Calories
+﻿namespace _05.Pizza_Calories
 {
+    using System;
+
     public class Dough
     {
         private string flourType;
@@ -18,8 +17,10 @@ namespace _05.Pizza_Calories
 
         public string Flour
         {
-            get { return this.flourType; }
-
+            get
+            {
+                return this.flourType;
+            }
             set
             {
                 if (!value.ToLower().Equals("white") 
@@ -27,14 +28,17 @@ namespace _05.Pizza_Calories
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
+
                 this.flourType = value;
             }
         }
 
         public string BakingTechnique
         {
-            get { return this.bakingTechnique; }
-
+            get
+            {
+                return this.bakingTechnique;
+            }
             set
             {
                 if (!value.ToLower().Equals("crispy") 
@@ -43,20 +47,24 @@ namespace _05.Pizza_Calories
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
+
                 this.bakingTechnique = value;
             }
         }
 
         public double Weight
         {
-            get { return this.weightInGrams; }
-
+            get
+            {
+                return this.weightInGrams;
+            }
             set
             {
                 if (value < 1 || value > 200)
                 {
                     throw new ArgumentException("Dough weight should be in the range [1..200].");
                 }
+
                 this.weightInGrams = value;
             }
         }
@@ -76,6 +84,7 @@ namespace _05.Pizza_Calories
                     return 1;
             }    
         }
+
         private double GetBakingMod()
         {
             switch (this.BakingTechnique.ToLower())

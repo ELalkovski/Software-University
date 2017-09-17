@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 public class CircuitRace : Race
@@ -13,7 +15,7 @@ public class CircuitRace : Race
 
     public override string GetWinners()
     {
-        var decreaseDurabilityFactor = this.Length * this.Length;
+        int decreaseDurabilityFactor = this.Length * this.Length;
 
         for (int i = 0; i < this.laps; i++)
         {
@@ -23,18 +25,19 @@ public class CircuitRace : Race
             }
         }
 
-        var winners = this.Participants
+        List<Car> winners = this.Participants
             .OrderByDescending(p => p.GetCasualOverallPoints())
             .Take(4)
             .ToList();
 
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.AppendLine($"{this.Route} - {this.Length * laps}");
-        var counter = 1;
+        int counter = 1;
 
         foreach (var winner in winners)
         {
             sb.Append($"{counter}. {winner.Brand} {winner.Model} {winner.GetCasualOverallPoints()}PP - $");
+
             if (counter == 1)
             {
                 sb.Append(this.PrizePool * 40 / 100);
@@ -51,7 +54,8 @@ public class CircuitRace : Race
             {
                 sb.Append(this.PrizePool * 10 / 100);
             }
-            sb.Append("\n");
+            
+            sb.Append(Environment.NewLine);
             counter++;
         }
 

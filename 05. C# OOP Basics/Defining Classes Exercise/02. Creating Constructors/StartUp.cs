@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _02.Creating_Constructors
+﻿namespace _02.Creating_Constructors
 {
+    using System;
+    using System.Reflection;
+
     public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             Type personType = typeof(Person);
             ConstructorInfo emptyCtor = personType.GetConstructor(new Type[] { });
             ConstructorInfo ageCtor = personType.GetConstructor(new[] { typeof(int) });
             ConstructorInfo nameAgeCtor = personType.GetConstructor(new[] { typeof(string), typeof(int) });
             bool swapped = false;
+
             if (nameAgeCtor == null)
             {
                 nameAgeCtor = personType.GetConstructor(new[] { typeof(int), typeof(string) });

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-
-namespace _04.Online_Radio_Database
+﻿namespace _04.Online_Radio_Database
 {
+    using System;
+
     public class InvalidSongException : Exception
     {
         private string exceptionMessage = "Invalid song.";

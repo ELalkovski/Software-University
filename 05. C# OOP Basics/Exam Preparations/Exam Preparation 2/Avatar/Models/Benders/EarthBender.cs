@@ -17,8 +17,9 @@ public class EarthBender : Bender
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Earth Bender: {this.Name}, Power: {this.Power}, Ground Saturation: {this.groundSaturation:f2}");
+
         return sb.ToString();
     }
 }

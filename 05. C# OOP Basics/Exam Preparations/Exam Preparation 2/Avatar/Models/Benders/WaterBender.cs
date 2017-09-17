@@ -17,8 +17,9 @@ public class WaterBender : Bender
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Water Bender: {this.Name}, Power: {this.Power}, Water Clarity: {this.waterClarity:f2}");
+
         return sb.ToString();
     }
 }

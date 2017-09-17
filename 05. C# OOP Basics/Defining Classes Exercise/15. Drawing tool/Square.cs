@@ -1,12 +1,14 @@
-﻿using System;
-
-namespace _15.Drawing_tool
+﻿namespace _15.Drawing_tool
 {
+    using System;
+
     public class Square : CorDraw
     {
         public Square(int width)
             : base(width)
-        { }
+        {
+            
+        }
 
         public void Draw()
         {

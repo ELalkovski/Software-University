@@ -7,7 +7,9 @@
         private double salary;
 
         public Company()
-        { }
+        {
+            
+        }
 
         public Company(string name, string department, double salary)
         {
@@ -20,14 +22,15 @@
         {
             get { return this.name; }
         }
+
         public string Department
         {
             get { return this.department; }
         }
+
         public double Salary
         {
             get { return this.salary; }
         }
-
     }
 }

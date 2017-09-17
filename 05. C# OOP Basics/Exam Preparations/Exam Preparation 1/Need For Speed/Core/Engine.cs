@@ -11,14 +11,14 @@ public class Engine
 
     public void Run()
     {
-        var input = Console.ReadLine();
+        string input = Console.ReadLine();
 
         while (input != "Cops Are Here")
         {
-            var data = input.Split(' ');
-            var command = data[0];
-            ExecuteCommand(command, data);
+            string[] data = input.Split(' ');
+            string command = data[0];
 
+            ExecuteCommand(command, data);
             input = Console.ReadLine();
         }
     }
@@ -34,17 +34,19 @@ public class Engine
             case "register":
                 carId = int.Parse(data[1]);
                 type = data[2];
-                var brand = data[3];
-                var model = data[4];
-                var yearOfProduction = int.Parse(data[5]);
-                var horsePower = int.Parse(data[6]);
-                var acceleration = int.Parse(data[7]);
-                var suspension = int.Parse(data[8]);
-                var durability = int.Parse(data[9]);
+                string brand = data[3];
+                string model = data[4];
+                int yearOfProduction = int.Parse(data[5]);
+                int horsePower = int.Parse(data[6]);
+                int acceleration = int.Parse(data[7]);
+                int suspension = int.Parse(data[8]);
+                int durability = int.Parse(data[9]);
+
                 this.carManager.Register(carId, type, brand, model, yearOfProduction, horsePower, acceleration, suspension, durability);
                 break;
             case "check":
                 carId = int.Parse(data[1]);
+
                 Console.WriteLine(this.carManager.Check(carId));
                 break;
             case "open":
@@ -52,19 +54,21 @@ public class Engine
                 {
                     raceId = int.Parse(data[1]);
                     type = data[2];
-                    var length = int.Parse(data[3]);
-                    var route = data[4];
-                    var prizePool = int.Parse(data[5]);
+                    int length = int.Parse(data[3]);
+                    string route = data[4];
+                    int prizePool = int.Parse(data[5]);
+
                     this.carManager.Open(raceId, type, length, route, prizePool);
                 }
                 else
                 {
                     raceId = int.Parse(data[1]);
                     type = data[2];
-                    var length = int.Parse(data[3]);
-                    var route = data[4];
-                    var prizePool = int.Parse(data[5]);
-                    var specialParameter = int.Parse(data[6]);
+                    int length = int.Parse(data[3]);
+                    string route = data[4];
+                    int prizePool = int.Parse(data[5]);
+                    int specialParameter = int.Parse(data[6]);
+
                     this.carManager.OpenSpecialRace(raceId, type, length, route, prizePool, specialParameter);
                 }
                 
@@ -72,23 +76,28 @@ public class Engine
             case "participate":
                 carId = int.Parse(data[1]);
                 raceId = int.Parse(data[2]);
+
                 this.carManager.Participate(carId, raceId);
                 break;
             case "start":
                 raceId = int.Parse(data[1]);
+
                 Console.WriteLine(this.carManager.Start(raceId));
                 break;
             case "park":
                 carId = int.Parse(data[1]);
+
                 this.carManager.Park(carId);
                 break;
             case "unpark":
                 carId = int.Parse(data[1]);
+
                 this.carManager.Unpark(carId);
                 break;
             case "tune":
-                var tuneIndex = int.Parse(data[1]);
-                var addOn = data[2];
+                int tuneIndex = int.Parse(data[1]);
+                string addOn = data[2];
+
                 this.carManager.Tune(tuneIndex, addOn);
                 break;
         }

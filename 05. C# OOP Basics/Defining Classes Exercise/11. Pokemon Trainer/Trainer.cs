@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace _11.Pokemon_Trainer
+﻿namespace _11.Pokemon_Trainer
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Trainer
     {
         private string name;
@@ -15,6 +15,7 @@ namespace _11.Pokemon_Trainer
             this.badgesAmount = 0;
             this.pokemons = new List<Pokemon>();
         }
+
         public string Name
         {
             get { return this.name; }
@@ -50,8 +51,8 @@ namespace _11.Pokemon_Trainer
 
         public void UpdatePokemons()
         {
-            var index = 0;
-            var indexesToRemove = new List<int>();
+            int index = 0;
+            List<int> indexesToRemove = new List<int>();
 
             foreach (var pokemon in this.pokemons)
             {
@@ -59,8 +60,10 @@ namespace _11.Pokemon_Trainer
                 {
                     indexesToRemove.Add(index);
                 }
+
                 index++;
             }
+
             if (indexesToRemove.Count > 0)
             {
                 foreach (var position in indexesToRemove.OrderByDescending(i => i))
@@ -71,7 +74,6 @@ namespace _11.Pokemon_Trainer
                     } 
                 }
             }
-            
         }
     }
 }

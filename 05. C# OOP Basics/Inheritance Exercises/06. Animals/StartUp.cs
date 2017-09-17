@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _06.Animals
+﻿namespace _06.Animals
 {
+    using System;
+    using System.Collections.Generic;
+
     public class StartUp
     {
         public static void Main()
         {
-            var animalType = Console.ReadLine();
-            var animals = new List<Animal>();
+            string animalType = Console.ReadLine();
+            List<Animal> animals = new List<Animal>();
 
             while (animalType != "Beast!")
             {
                 try
                 {
-                    var animalInfo = Console.ReadLine()
+                    string[] animalInfo = Console.ReadLine()
                         .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 
-                    var name = animalInfo[0];
-                    var age = int.Parse(animalInfo[1]);
-                    var gender = animalInfo[2];
+                    string name = animalInfo[0];
+                    int age = int.Parse(animalInfo[1]);
+                    string gender = animalInfo[2];
                     Animal currAnimal;
 
                     switch (animalType)
@@ -48,8 +48,6 @@ namespace _06.Animals
                             Console.WriteLine("Invalid input!");
                             break;
                     }
-
-                    
                 }
                 catch (Exception e)
                 {

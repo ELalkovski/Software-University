@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace _02.Wild_Farm
+﻿namespace _02.Wild_Farm
 {
+    using System;
+
     public abstract class Animal
     {
         private string name;

@@ -1,12 +1,13 @@
-﻿using Paw_Inc.Core;
-
-namespace Paw_Inc
+﻿namespace Paw_Inc
 {
+    using Paw_Inc.Core;
+
     public class StartUp
     {
         public static void Main()
         {
-            var engine = new Engine();
+            Engine engine = new Engine();
+
             engine.Run();
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace _02.Wild_Farm
+﻿namespace _02.Wild_Farm
 {
     public abstract class Mammal : Animal
     {
@@ -17,7 +15,5 @@ namespace _02.Wild_Farm
             get { return this.livingRegion; }
             set { this.livingRegion = value; }
         }
-
-        
     }
 }

@@ -1,28 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _11.Pokemon_Trainer
+﻿namespace _11.Pokemon_Trainer
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StartUp
     {
         public static void Main()
         {
-            var trainers = new List<Trainer>();
+            string trainersInput = Console.ReadLine();
 
-            var trainersInput = Console.ReadLine();
+            List<Trainer> trainers = new List<Trainer>();
 
             while (trainersInput != "Tournament")
             {
-                var trainersInfo = trainersInput.Split(' ');
-
-                var name = trainersInfo[0];
-                var pokemonName = trainersInfo[1];
-                var element = trainersInfo[2];
-                var health = int.Parse(trainersInfo[3]);
-
-                var pokemon = new Pokemon(pokemonName, element, health);
-                var trainer = new Trainer(name);
+                string[] trainersInfo = trainersInput.Split(' ');
+                string name = trainersInfo[0];
+                string pokemonName = trainersInfo[1];
+                string element = trainersInfo[2];
+                int health = int.Parse(trainersInfo[3]);
+                Pokemon pokemon = new Pokemon(pokemonName, element, health);
+                Trainer trainer = new Trainer(name);
 
                 if (!trainers.Any(t => t.Name == name))
                 {
@@ -37,7 +35,7 @@ namespace _11.Pokemon_Trainer
                 trainersInput = Console.ReadLine();
             }
 
-            var elementNeeded = Console.ReadLine();
+            string elementNeeded = Console.ReadLine();
 
             while (elementNeeded != "End")
             {

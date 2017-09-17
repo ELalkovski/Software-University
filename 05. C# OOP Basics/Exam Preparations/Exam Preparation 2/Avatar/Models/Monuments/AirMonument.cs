@@ -17,8 +17,9 @@ public class AirMonument : Monument
 
     public override string ToString()
     {
-        var sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.Append($"###Air Monument: {this.Name}, Air Affinity: {this.airAffinity}");
+
         return sb.ToString();
     }
 }

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _05.Pizza_Calories
+﻿namespace _05.Pizza_Calories
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Pizza
     {
         private string name;
@@ -24,27 +24,34 @@ namespace _05.Pizza_Calories
 
         public string Name
         {
-            get { return this.name; }
+            get
+            {
+                return this.name;
+            }
             set
             {
                 if (value.Length < 1 || value.Length > 15)
                 {
                     throw new ArgumentException("Pizza name should be between 1 and 15 symbols.");
                 }
+
                 this.name = value;
             }
         }
 
         public int NumberOfToppings
         {
-            get { return this.numberOfToppings; }
-
+            get
+            {
+                return this.numberOfToppings;
+            }
             set
             {
                 if (value < 0 || value > 10)
                 {
                     throw new ArgumentException("Number of toppings should be in range [0..10].");
                 }
+
                 this.numberOfToppings = value;
             }
         }
