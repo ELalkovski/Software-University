@@ -7,30 +7,27 @@
     {
         public static void Main()
         {
-
-            /*
-             
+            /*             
              This program reads a matrix from console and prints:
                 •	Count of rows
                 •	Count of columns
                 •	Sum of all matrix’s elements
-
              */
 
-            var matrixSizes = Console.ReadLine()
+            int[] matrixSizes = Console.ReadLine()
                 .Split(new []{", "}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
 
-            var rows = matrixSizes[0];
-            var cols = matrixSizes[1];
+            int rows = matrixSizes[0];
+            int cols = matrixSizes[1];
 
-            var matrix = new int[rows][];
-            var sum = 0;
+            int[][] matrix = new int[rows][];
+            int sum = 0;
 
             for (int currRow = 0; currRow < rows; currRow++)
             {
-                var rowElements = Console.ReadLine()
+                int[] rowElements = Console.ReadLine()
                     .Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();

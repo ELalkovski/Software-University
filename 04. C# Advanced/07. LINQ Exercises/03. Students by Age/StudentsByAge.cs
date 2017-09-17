@@ -1,23 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03.Students_by_Age
+﻿namespace _03.Students_by_Age
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StudentsByAge
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var allStudents = new Dictionary<string, int>();
+            string input = Console.ReadLine();
+
+            Dictionary<string, int> allStudents = new Dictionary<string, int>();
 
             while (input != "END")
             {
-                var tokens = input.Split(' ');
-                var name = $"{tokens[0]} {tokens[1]}";
-                var age = int.Parse(tokens[2]);
+                string[] tokens = input.Split(' ');
+                string name = $"{tokens[0]} {tokens[1]}";
+                int age = int.Parse(tokens[2]);
 
                 allStudents.Add(name, age);
 
@@ -28,7 +27,6 @@ namespace _03.Students_by_Age
             {
                 Console.WriteLine($"{student.Key} {student.Value}");
             }
-
         }
     }
 }

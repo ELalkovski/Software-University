@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _05.Applied_Arithmetics
+﻿namespace _05.Applied_Arithmetics
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class AppliedArithmetics
     {
-
         public static void Main()
         {
-            var numbers = Console.ReadLine()
+            List<int> numbers = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToList();
@@ -18,7 +17,8 @@ namespace _05.Applied_Arithmetics
             Func<int, int> add = n => n + 1;
             Func<int, int> multiply = n => n * 2;
             Func<int, int> substract = n => n - 1;
-            var command = Console.ReadLine();
+
+            string command = Console.ReadLine();
 
             while (command != "end")
             {
@@ -37,6 +37,7 @@ namespace _05.Applied_Arithmetics
                         print(numbers);
                         break;
                 }
+
                 command = Console.ReadLine();
             }
         }       

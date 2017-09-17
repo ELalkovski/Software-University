@@ -1,22 +1,19 @@
-﻿using System.Collections.Generic;
-
-namespace _02.SoftUni_Party
+﻿namespace _02.SoftUni_Party
 {
     using System;
+    using System.Collections.Generic;
 
     public class SoftUniParty
     {
         public static void Main()
         {
-            /*
-             
+            /*             
              There will be 2 command lines. First is "PARTY" - party is on and guests start coming. Second is "END" – then party is over and no more guest will come
              Output have to all guests, who didn't come to the party (VIP must be first)
-
              */
 
-            var input = Console.ReadLine();
-            var reservations = new SortedSet<string>();
+            string input = Console.ReadLine();
+            SortedSet<string> reservations = new SortedSet<string>();
 
             while (input != "END")
             {

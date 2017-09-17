@@ -1,13 +1,14 @@
-﻿using System;
-using System.Linq;
-
-namespace _07.Bounded_Numbers
+﻿namespace _07.Bounded_Numbers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class BoundedNumbers
     {
         public static void Main()
         {
-            var boundries = Console.ReadLine()
+            List<int> boundries = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToList();

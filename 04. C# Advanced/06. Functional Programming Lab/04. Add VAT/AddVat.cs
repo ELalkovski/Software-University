@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace _04.Add_VAT
+﻿namespace _04.Add_VAT
 {
+    using System;
+    using System.Linq;
+
     public class AddVat
     {
         public static void Main()
         {
-            var numbers = Console.ReadLine()
+            double[] numbers = Console.ReadLine()
                 .Split(new []{", "},StringSplitOptions.RemoveEmptyEntries)
                 .Select(double.Parse)
                 .Select(n => n + n * 0.2)

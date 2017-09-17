@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _09.List_of_Predicates
+﻿namespace _09.List_of_Predicates
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class ListOfPredicates
     {
         public static void Main()
         {
-            var range = int.Parse(Console.ReadLine());
-            var nums = new List<int>();
+            int range = int.Parse(Console.ReadLine());
+
+            List<int> nums = new List<int>();
 
             for (int i = 1; i <= range; i++)
             {
                 nums.Add(i);
             }
 
-            var divisibleNums = Console.ReadLine()
+            List<int> divisibleNums = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToList();
@@ -43,7 +42,6 @@ namespace _09.List_of_Predicates
                     Console.Write("{0} ", num);
                 }
             }
-
         }
     }
 }

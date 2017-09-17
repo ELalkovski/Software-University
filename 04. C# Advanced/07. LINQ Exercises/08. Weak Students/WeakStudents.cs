@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _08.Weak_Students
+﻿namespace _08.Weak_Students
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class WeakStudents
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var students = new Dictionary<string, List<int>>();
+            string input = Console.ReadLine();
+            Dictionary<string, List<int>> students = new Dictionary<string, List<int>>();
 
             while (input != "END")
             {
-                var tokens = input.Split(' ');
-                var name = $"{tokens[0]} {tokens[1]}";
-                var grades = new List<int>();
+                string[] tokens = input.Split(' ');
+                string name = $"{tokens[0]} {tokens[1]}";
+                List<int> grades = new List<int>();
 
                 for (int i = 2; i < tokens.Length; i++)
                 {

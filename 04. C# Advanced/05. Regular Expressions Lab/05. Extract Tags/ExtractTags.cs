@@ -1,25 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
-namespace _05.Extract_Tags
+﻿namespace _05.Extract_Tags
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class ExtractTags
     {
         public static void Main()
         {
-            var pattern = @"<.+?>";
-            var regex = new Regex(pattern);
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
+
+            string pattern = @"<.+?>";
+            Regex regex = new Regex(pattern);
 
             while (input != "END")
             {
-                var matches = regex.Matches(input);
+                MatchCollection matches = regex.Matches(input);
 
                 foreach (var match in matches)
                 {
                     Console.WriteLine(match);
                 }
+
                 input = Console.ReadLine();
             }
         }

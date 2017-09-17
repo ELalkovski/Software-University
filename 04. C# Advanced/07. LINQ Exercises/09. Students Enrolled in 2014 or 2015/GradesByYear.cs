@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _09.Students_Enrolled_in_2014_or_2015
+﻿namespace _09.Students_Enrolled_in_2014_or_2015
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class GradesByYear
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var students = new Dictionary<string, List<int>>();
+            string input = Console.ReadLine();
+
+            Dictionary<string, List<int>> students = new Dictionary<string, List<int>>();
 
             while (input != "END")
             {
-                var tokens = input.Split(' ');
-                var facultyNum = tokens[0];
-                var grades = new List<int>();
+                string[] tokens = input.Split(' ');
+                string facultyNum = tokens[0];
+                List<int> grades = new List<int>();
 
                 for (int i = 1; i < tokens.Length; i++)
                 {

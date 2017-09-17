@@ -3,26 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class LegendaryFarming
     {
-        private static void PrintResults(SortedDictionary<string, int> resources, SortedDictionary<string, int> junk)
-        {
-            foreach (var material in resources.OrderByDescending(r => r.Value))
-            {
-                Console.WriteLine($"{material.Key}: {material.Value}");
-            }
-            foreach (var material in junk)
-            {
-                Console.WriteLine($"{material.Key}: {material.Value}");
-            }
-        }
-
         public static void Main()
         {
-
             /*
              
             •	Shadowmourne – requires 250 Shards;
@@ -33,26 +18,26 @@
             At that point, prints the corresponding legendary obtained. 
             Then, prints the remaining shards, fragments, motes, ordered by quantity in descending order, each on a new line. 
             Finally, the program prints the collected junk items, in alphabetical order.
-
              */
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
-            var resources = new SortedDictionary<string, int>();
+            SortedDictionary<string, int> resources = new SortedDictionary<string, int>();
+            SortedDictionary<string, int> junk = new SortedDictionary<string, int>();
+
             resources.Add("shards", 0);
             resources.Add("fragments", 0);
             resources.Add("motes", 0);
-            var junk = new SortedDictionary<string, int>();
 
             while (true)
             {
-                var tokens = input
+                string[] tokens = input
                     .Split(' ');
 
                 for (int i = 0; i < tokens.Length; i += 2)
                 {
-                    var materialQuantity = int.Parse(tokens[i]);
-                    var currMaterial = tokens[i + 1].ToLower();
+                    int materialQuantity = int.Parse(tokens[i]);
+                    string currMaterial = tokens[i + 1].ToLower();
 
                     if (currMaterial != "shards" && currMaterial != "fragments" && currMaterial != "motes")
                     {
@@ -73,30 +58,48 @@
                     if (resources.ContainsKey("shards") && resources["shards"] >= 250)
                     {
                         Console.WriteLine("Shadowmourne obtained!");
-                        var leftOvers = resources["shards"];
+
+                        int leftOvers = resources["shards"];
                         resources["shards"] = (leftOvers - 250);
                         PrintResults(resources, junk);
-                        return;
 
+                        return;
                     }
                     if (resources.ContainsKey("fragments") && resources["fragments"] >= 250)
                     {
                         Console.WriteLine("Valanyr obtained!");
-                        var leftOvers = resources["fragments"];
+
+                        int leftOvers = resources["fragments"];
                         resources["fragments"] = (leftOvers - 250);
                         PrintResults(resources, junk);
+
                         return;
                     }
                     if (resources.ContainsKey("motes") && resources["motes"] >= 250)
                     {
                         Console.WriteLine("Dragonwrath obtained!");
-                        var leftOvers = resources["motes"];
+
+                        int leftOvers = resources["motes"];
                         resources["motes"] = (leftOvers - 250);
                         PrintResults(resources, junk);
+
                         return;
                     }
                 }
+
                 input = Console.ReadLine();
+            }
+        }
+
+        private static void PrintResults(SortedDictionary<string, int> resources, SortedDictionary<string, int> junk)
+        {
+            foreach (var material in resources.OrderByDescending(r => r.Value))
+            {
+                Console.WriteLine($"{material.Key}: {material.Value}");
+            }
+            foreach (var material in junk)
+            {
+                Console.WriteLine($"{material.Key}: {material.Value}");
             }
         }
     }

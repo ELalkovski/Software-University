@@ -1,12 +1,12 @@
-﻿using System;
-
-namespace _02.String_Length
+﻿namespace _02.String_Length
 {
+    using System;
+
     public class StringLength
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             if (input.Length < 20)
             {
@@ -18,9 +18,9 @@ namespace _02.String_Length
                 {
                     Console.Write(input[i]);
                 }
+
                 Console.WriteLine();
             }
-            
         }
     }
 }

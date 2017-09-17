@@ -13,17 +13,17 @@
              Prints the collection on the console in order of insertion:
              */
 
-            var n = int.Parse(Console.ReadLine());
-            var hashSet = new HashSet<string>();
+            int linesCount = int.Parse(Console.ReadLine());
+            HashSet<string> usernames = new HashSet<string>();
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < linesCount; i++)
             {
                 var username = Console.ReadLine();
 
-                hashSet.Add(username);
+                usernames.Add(username);
             }
 
-            foreach (var username in hashSet)
+            foreach (string username in usernames)
             {
                 Console.WriteLine(username);
             }

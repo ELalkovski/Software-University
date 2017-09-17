@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _12.Inferno_III
+﻿namespace _12.Inferno_III
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Inferno
     {
         public static void Main()
         {
-            var gems = Console.ReadLine()
+            List<int> gems = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToList();
+            string input = Console.ReadLine();
 
-            var markedGems = new bool[gems.Count];
-
-            var input = Console.ReadLine(); 
+            bool[] markedGems = new bool[gems.Count];
 
             while (input != "Forge")
             {
-                var inputTokens = input.Split(';');
-                var command = inputTokens[0];
-                var criteria = inputTokens[1];
-                var boundry = int.Parse(inputTokens[2]);
+                string[] inputTokens = input.Split(';');
+                string command = inputTokens[0];
+                string criteria = inputTokens[1];
+                int boundry = int.Parse(inputTokens[2]);
 
                 ExcludeOrReverse(gems, markedGems, command, criteria, boundry);
 
@@ -55,13 +54,12 @@ namespace _12.Inferno_III
         {
             Func<int, int, bool> sumLeftOrRight = (n1, n2) => { return n1 + n2 == boundry; };
             Func<int, int, int, bool> sumLeftAndRight = (n1, n2, n3) => { return n1 + n2 + n3 == boundry; };
-            var leftNum = 0;
-            var rightNum = 0;
+            int leftNum = 0;
+            int rightNum = 0;
 
             switch (criteria)
             {
                 case "Sum Left":
-
                     for (int i = 0; i < gems.Count; i++)
                     {
                         var currNum = gems[i];
@@ -76,6 +74,7 @@ namespace _12.Inferno_III
                         }
 
                     }
+
                     break;
                 case "Sum Right":
 
@@ -96,6 +95,7 @@ namespace _12.Inferno_III
                             MarkAndUnmarkGems(command, markedGems, i);
                         }
                     }
+
                     break;
                 case "Sum Left Right":
                     for (int i = 0; i < gems.Count; i++)
@@ -119,6 +119,7 @@ namespace _12.Inferno_III
                             MarkAndUnmarkGems(command, markedGems, i);
                         }
                     }
+
                     break;
             }
         }

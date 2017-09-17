@@ -11,18 +11,18 @@
              This program finds the difference between the sums of the square matrix diagonals (absolute value).
              */
 
-            var rows = int.Parse(Console.ReadLine());
-            var leftDiagonalSum = 0;
-            var leftCounter = 0;
-            var rightDiagonalSum = 0;
+            int rows = int.Parse(Console.ReadLine());
+            int leftDiagonalSum = 0;
+            int leftCounter = 0;
+            int rightDiagonalSum = 0;
             
 
-                var colElements = Console.ReadLine()
-                    .Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries)
+                int[] colElements = Console.ReadLine()
+                    .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
 
-            var rightCounter = colElements.Length - 1;
+            int rightCounter = colElements.Length - 1;
 
             for (int currRow = 0; currRow < rows; currRow++)
             {   
@@ -38,7 +38,7 @@
                 }
 
                 colElements = Console.ReadLine()
-                    .Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Split(new [] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
             }

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _04.Sort_Students
+﻿namespace _04.Sort_Students
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class SortStudents
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var allStudents = new List<List<string>>();
+            string input = Console.ReadLine();
+            List<List<string>> allStudents = new List<List<string>>();
 
             while (input != "END")
             {

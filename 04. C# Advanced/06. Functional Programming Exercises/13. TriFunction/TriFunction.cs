@@ -1,26 +1,25 @@
-﻿using System;
-
-namespace _13.TriFunction
+﻿namespace _13.TriFunction
 {
+    using System;
+
     public class TriFunction
     {
         public static void Main()
         {
-            var boundryLength = int.Parse(Console.ReadLine());
-            var words = Console.ReadLine().Split(' ');
+            int boundryLength = int.Parse(Console.ReadLine());
+            string[] words = Console.ReadLine().Split(' ');
 
             Func<int, int, bool> isResult = (sum, boundry) => { return sum >= boundry; };
 
-            Console.WriteLine(FindResult(boundryLength, words, isResult));    
-
+            Console.WriteLine(FindResult(boundryLength, words, isResult));
         }
 
         private static string FindResult(int boundryLength, string[] words, Func<int, int, bool> isResult)
         {
             for (int i = 0; i < words.Length; i++)
             {
-                var currWord = words[i];
-                var sumOfChars = 0;
+                string currWord = words[i];
+                int sumOfChars = 0;
 
                 foreach (char letter in currWord)
                 {
@@ -32,6 +31,7 @@ namespace _13.TriFunction
                     return currWord;
                 }
             }
+
             return "";
         }
     }

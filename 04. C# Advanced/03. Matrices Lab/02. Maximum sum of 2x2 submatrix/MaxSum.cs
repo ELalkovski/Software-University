@@ -14,23 +14,23 @@
              On next "rows" lines recieves arrays in format "number, number, ....columns - 1"
              */
 
-            var matrixSizes = Console.ReadLine()
+            int[] matrixSizes = Console.ReadLine()
                 .Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
 
-            var rows = matrixSizes[0];
-            var cols = matrixSizes[1];
+            int rows = matrixSizes[0];
+            int cols = matrixSizes[1];
 
-            var matrix = new int[rows][];
+            int[][] matrix = new int[rows][];
 
-            var bestRow = 0;
-            var bestCol = 0;
-            var maxSum = int.MinValue;
+            int bestRow = 0;
+            int bestCol = 0;
+            int maxSum = int.MinValue;
 
             for (int currRow = 0; currRow < matrix.Length; currRow++)
             {
-                var rowElements = Console.ReadLine()
+                int[] rowElements = Console.ReadLine()
                     .Split(new[] { ", " }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
@@ -47,7 +47,7 @@
             {
                 for (int currCol = 1; currCol < matrix[currRow].Length; currCol++)
                 {
-                    var currSum = (matrix[currRow][currCol - 1] + matrix[currRow][currCol] +
+                    int currSum = (matrix[currRow][currCol - 1] + matrix[currRow][currCol] +
                                   matrix[currRow + 1][currCol - 1] + matrix[currRow + 1][currCol]);
 
                     if (currSum > maxSum)
@@ -56,9 +56,7 @@
                         bestRow = currRow;
                         bestCol = currCol;
                     }
-
                 }
-                
             }
 
             for (int currRow = bestRow; currRow <= bestRow + 1; currRow++)
@@ -67,8 +65,10 @@
                 {
                     Console.Write($"{matrix[currRow][currCol]} ");
                 }
+
                 Console.WriteLine();
             }
+
             Console.WriteLine(maxSum);
         }
     }

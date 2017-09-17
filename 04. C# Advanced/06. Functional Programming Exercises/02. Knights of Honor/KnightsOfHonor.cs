@@ -1,13 +1,14 @@
-﻿using System;
-using System.Linq;
-
-namespace _02.Knights_of_Honor
+﻿namespace _02.Knights_of_Honor
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class KnightsOfHonor
     {
         public static void Main()
         {
-            var inputNames = Console.ReadLine()
+            List<string> inputNames = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 

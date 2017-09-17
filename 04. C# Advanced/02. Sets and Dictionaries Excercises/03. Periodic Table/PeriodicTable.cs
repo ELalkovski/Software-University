@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace _03.Periodic_Table
+﻿namespace _03.Periodic_Table
 {
     using System;
+    using System.Collections.Generic;
 
     public class PeriodicTable
     {
@@ -13,12 +12,12 @@ namespace _03.Periodic_Table
              This program keeps track of all chemical elements used in the compounds and at the end prints all unique ones in ascending order.
              */
 
-            var loopLength = int.Parse(Console.ReadLine());
-            var elementsSet = new SortedSet<string>();
+            int loopLength = int.Parse(Console.ReadLine());
+            SortedSet<string> elementsSet = new SortedSet<string>();
 
             for (int i = 0; i < loopLength; i++)
             {
-                var tokens = Console.ReadLine()
+                string[] tokens = Console.ReadLine()
                     .Split(' ');
 
                 foreach (var element in tokens)

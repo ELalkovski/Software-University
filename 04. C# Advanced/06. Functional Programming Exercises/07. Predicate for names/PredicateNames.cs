@@ -1,14 +1,15 @@
-﻿using System;
-using System.Linq;
-
-namespace _07.Predicate_for_names
+﻿namespace _07.Predicate_for_names
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class PredicateNames
     {
         public static void Main()
         {
-            var wordLengthBoundry = int.Parse(Console.ReadLine());
-            var inputNames = Console.ReadLine()
+            int wordLengthBoundry = int.Parse(Console.ReadLine());
+            List<string> inputNames = Console.ReadLine()
                 .Split(new []{" "}, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 

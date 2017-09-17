@@ -17,24 +17,24 @@
              Each of the next n lines holds a log information in format <IP> <user> <duration>. 
              */
 
-            var inputCount = int.Parse(Console.ReadLine());
+            int inputCount = int.Parse(Console.ReadLine());
 
-            var usersLogs = new SortedDictionary<string, SortedDictionary<string, int>>();
-
-
+            SortedDictionary<string, SortedDictionary<string, int>> usersLogs = new SortedDictionary<string, SortedDictionary<string, int>>();
+            
             for (int i = 0; i < inputCount; i++)
             {
-                var tokens = Console.ReadLine()
+                string[] tokens = Console.ReadLine()
                     .Split(' ');
 
-                var ipAdress = tokens[0];
-                var username = tokens[1];
-                var duration = int.Parse(tokens[2]);
+                string ipAdress = tokens[0];
+                string username = tokens[1];
+                int duration = int.Parse(tokens[2]);
 
                 if (!usersLogs.ContainsKey(username))
                 {
                     usersLogs[username] = new SortedDictionary<string, int>();
                 }
+
                 if (!usersLogs[username].ContainsKey(ipAdress))
                 {
                     usersLogs[username].Add(ipAdress, duration);
@@ -43,7 +43,6 @@
                 {
                     usersLogs[username][ipAdress] += duration;
                 }
-
             }
 
             foreach (var user in usersLogs)
@@ -54,7 +53,6 @@
                 Console.Write("]");
                 Console.WriteLine();
             }
-
         }
     }
 }

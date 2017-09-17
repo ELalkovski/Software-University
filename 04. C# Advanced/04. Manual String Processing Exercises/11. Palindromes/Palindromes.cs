@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _11.Palindromes
+﻿namespace _11.Palindromes
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Palindromes
     {
         public static void Main()
         {
-            var input = Console.ReadLine()
-                .Split(new[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries)
-                .ToArray();
+            string[] input = Console.ReadLine()
+                .Split(new[] {' ', ',', '.', '!', '?'}, StringSplitOptions.RemoveEmptyEntries);
 
-            var palindromes = new List<string>();
+            List<string> palindromes = new List<string>();
             bool isPalindrome = false;
 
             for (int i = 0; i < input.Length; i++)
             {
-                var currWord = input[i];
-                var startCounter = 0;
-                var endCounter = currWord.Length - 1;
+                string currWord = input[i];
+                int startCounter = 0;
+                int endCounter = currWord.Length - 1;
 
                 for (int j = 0; j < currWord.Length / 2; j++)
                 {
@@ -32,6 +31,7 @@ namespace _11.Palindromes
                     else
                     {
                         isPalindrome = false;
+
                         break;
                     }
                 }
@@ -39,10 +39,10 @@ namespace _11.Palindromes
                 {
                     palindromes.Add(currWord);
                 }
+
                 isPalindrome = false;
-
-
             }
+
             Console.WriteLine("[{0}]", string.Join(", ", palindromes.Distinct().OrderBy(w => w)));
         }
     }

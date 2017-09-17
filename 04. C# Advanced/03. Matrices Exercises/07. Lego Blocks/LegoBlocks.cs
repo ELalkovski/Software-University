@@ -12,29 +12,29 @@
              After that it reverses the second jagged array and then checks if it would fit perfectly in the first jagged array. 
              */
 
-            var rows = int.Parse(Console.ReadLine());
+            int rows = int.Parse(Console.ReadLine());
 
-            var firstMatrix = new int[rows][];
-            var secondMatrix = new int[rows][];
+            int[][] firstMatrix = new int[rows][];
+            int[][] secondMatrix = new int[rows][];
 
             for (int currRow = 0; currRow < rows; currRow++)
             {
-                var elements = Console.ReadLine()
-                    .Split(new []{' '},StringSplitOptions.RemoveEmptyEntries)
+                int[] elements = Console.ReadLine()
+                    .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
 
-                    firstMatrix[currRow] = new int[elements.Length];
+                firstMatrix[currRow] = new int[elements.Length];
 
-                    for (int currCol = 0; currCol < elements.Length; currCol++)
-                    {
-                        firstMatrix[currRow][currCol] = elements[currCol];
-                    }               
+                for (int currCol = 0; currCol < elements.Length; currCol++)
+                {
+                    firstMatrix[currRow][currCol] = elements[currCol];
+                }
             }
 
             for (int currRow = 0; currRow < rows; currRow++)
             {
-                var elements = Console.ReadLine()
+                int[] elements = Console.ReadLine()
                     .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
@@ -47,8 +47,8 @@
                 }
             }
 
-            var combinedMatrix = new int[rows][];
-            var totalCols = 0;
+            int[][] combinedMatrix = new int[rows][];
+            int totalCols = 0;
 
             for (int currRow = 0; currRow < rows; currRow++)
             {
@@ -59,16 +59,16 @@
                     combinedMatrix[currRow][mFirstCol] = firstMatrix[currRow][mFirstCol];
                 }
 
-                var reversedIndex = secondMatrix[currRow].Length - 1;
+                int reversedIndex = secondMatrix[currRow].Length - 1;
 
                 for (int mSecondCol = 0; mSecondCol < secondMatrix[currRow].Length; mSecondCol++)
                 {
-                    var continueIndex = firstMatrix[currRow].Length + mSecondCol;
+                    int continueIndex = firstMatrix[currRow].Length + mSecondCol;
                     combinedMatrix[currRow][continueIndex] = secondMatrix[currRow][reversedIndex];
                     reversedIndex--;
                 }
+
                 totalCols += combinedMatrix[currRow].Length;
-                
             }
 
             if (totalCols % combinedMatrix[0].Length == 0)

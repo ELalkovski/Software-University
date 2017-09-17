@@ -1,17 +1,20 @@
-﻿using System;
-using System.Linq;
-
-namespace _03.First_Name
+﻿namespace _03.First_Name
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class FirstName
     {
         public static void Main()
         {
-            var names = Console.ReadLine().Split().ToList();
-            var inputLetters = Console.ReadLine()
+            List<string> names = Console.ReadLine()
+                .Split()
+                .ToList();
+            IOrderedEnumerable<string> inputLetters = Console.ReadLine()
                 .Split(' ').OrderBy(w => w);
 
-            var result = string.Empty;
+            string result = string.Empty;
 
             foreach (var letter in inputLetters)
             {
@@ -22,9 +25,11 @@ namespace _03.First_Name
                 if (result != null)
                 {
                     Console.WriteLine(result);
+
                     return;
                 }
             }
+
             Console.WriteLine("No match");
         }
     }

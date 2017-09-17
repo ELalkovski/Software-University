@@ -1,20 +1,21 @@
-﻿using System;
-
-namespace _03.Formatting_Numbers
+﻿namespace _03.Formatting_Numbers
 {
+    using System;
+
     public class FormattingNumbers
     {
         public static void Main()
         {
-            var input = Console.ReadLine()
+            string[] input = Console.ReadLine()
                 .Split(new[] {' ', '\t'}, StringSplitOptions.RemoveEmptyEntries);
 
-            var a = int.Parse(input[0]);
-            var b = double.Parse(input[1]);
-            var c = double.Parse(input[2]);
+            int a = int.Parse(input[0]);
+            double b = double.Parse(input[1]);
+            double c = double.Parse(input[2]);
 
-            var hexaResult = string.Format("{0, -10:X}", a);
-            var binaryResult = Convert.ToString(a, 2);
+            string hexaResult = string.Format("{0, -10:X}", a);
+            string binaryResult = Convert.ToString(a, 2);
+
             if (binaryResult.Length > 10)
             {
                 binaryResult = binaryResult.Substring(0, 10);

@@ -1,16 +1,18 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _03.Non_Digit_Count
+﻿namespace _03.Non_Digit_Count
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class NonDigitCount
     {
         public static void Main()
         {
-            var pattern = @"\D";
-            var regex = new Regex(pattern);
-            var input = Console.ReadLine();
-            var matches = regex.Matches(input);
+            string input = Console.ReadLine();
+
+            string pattern = @"\D";
+            Regex regex = new Regex(pattern);
+            MatchCollection matches = regex.Matches(input);
+
             Console.WriteLine($"Non-digits: {matches.Count}");
         }
     }

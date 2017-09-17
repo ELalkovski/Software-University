@@ -18,40 +18,45 @@
                 •	S6 = 2*S2 + 1
                 •	S7 = S2 + 2
                 •	…
-
              */
 
 
-            var n = long.Parse(Console.ReadLine());
-            var queue = new Queue<long>();
-            var counter = 1;
+            long number = long.Parse(Console.ReadLine());
+            Queue<long> queue = new Queue<long>();
+            int counter = 1;
 
-            queue.Enqueue(n);
+            queue.Enqueue(number);
+
             Console.Write(queue.Peek() + " ");
 
             for (int i = 1; i < 50; i++)
             {           
                 if (counter == 1)
                 {
-                    var s1 = queue.Peek();
+                    long s1 = queue.Peek();
                     queue.Enqueue(s1 + 1);
+
                     Console.Write((s1 + 1) + " ");
                 }
                 else if (counter == 2)
                 {
-                    var s1 = queue.Peek();
+                    long s1 = queue.Peek();
                     queue.Enqueue(2 *s1 + 1);
+
                     Console.Write((2 *s1 + 1) + " ");
                 }
                 else
                 {
-                    var currNum = queue.Dequeue() + 2;
+                    long currNum = queue.Dequeue() + 2;
                     queue.Enqueue(currNum);
+
                     Console.Write(currNum + " ");
                     counter = 0;
                 }
+
                 counter++;
             }
+
             Console.WriteLine();
         }
     }

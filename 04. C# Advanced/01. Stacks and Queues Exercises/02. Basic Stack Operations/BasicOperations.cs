@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class BasicOperations
     {
@@ -19,24 +17,24 @@
 
         public static void Main()
         {
-            var actionNums = Console.ReadLine()
+            int[] actionNums = Console.ReadLine()
+                .Trim()
+                .Split(' ') 
+                .Select(int.Parse)
+                .ToArray();
+
+            int pushQuantity = actionNums[0];
+            int popQuantity = actionNums[1];
+            int checkNum = actionNums[2];
+
+            int[] inputNums = Console.ReadLine()
                 .Trim()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var pushQuantity = actionNums[0];
-            var popQuantity = actionNums[1];
-            var checkNum = actionNums[2];
-
-            var inputNums = Console.ReadLine()
-                .Trim()
-                .Split(' ')
-                .Select(int.Parse)
-                .ToArray();
-
-            var stack = new Stack<int>();
-            var minNum = int.MaxValue;
+            Stack<int> stack = new Stack<int>();
+            int minNum = int.MaxValue;
 
             for (int i = 0; i < pushQuantity; i++)
             {
@@ -48,6 +46,7 @@
                 if (i < popQuantity)
                 {
                     stack.Pop();
+
                     if (stack.Count == 0)
                     {
                         Console.WriteLine(0);
@@ -60,18 +59,17 @@
                         Console.WriteLine("true");
                         break;
                     }
-                    else
-                    {
-                        if (stack.Peek() < minNum)
-                        {
-                            minNum = stack.Peek();
-                        }
-                        stack.Pop();
 
-                        if (i == pushQuantity - 1)
-                        {
-                            Console.WriteLine(minNum);
-                        }
+                    if (stack.Peek() < minNum)
+                    {
+                        minNum = stack.Peek();
+                    }
+
+                    stack.Pop();
+
+                    if (i == pushQuantity - 1)
+                    {
+                        Console.WriteLine(minNum);
                     }
                 }
             }

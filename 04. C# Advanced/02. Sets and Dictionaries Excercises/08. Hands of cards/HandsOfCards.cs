@@ -19,15 +19,15 @@
                 Types are mapped to multipliers in the following way (S -> 4, H-> 3, D -> 2, C -> 1).
              */
 
-            var input = Console.ReadLine()
-                .Split(new char []{':', ','}, StringSplitOptions.RemoveEmptyEntries);
+            string[] input = Console.ReadLine()
+                .Split(new  []{':', ','}, StringSplitOptions.RemoveEmptyEntries);
 
-            var playerPoints = new Dictionary<string, HashSet<string>>();
+            Dictionary<string, HashSet<string>> playerPoints = new Dictionary<string, HashSet<string>>();
 
             while (input[0] != "JOKER")
             {
-                var name = input[0];
-                var currCards = new HashSet<string>();             
+                string name = input[0];
+                HashSet<string> currCards = new HashSet<string>();             
 
                 for (int i = 1; i < input.Length; i++)
                 {
@@ -44,24 +44,25 @@
                 }
 
                 input = Console.ReadLine()
-                    .Split(new char[] { ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    .Split(new [] { ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
             }
 
             foreach (var player in playerPoints)
             {
-                var currPlayerPoints = CalculatePoints(player.Value);
+                int currPlayerPoints = CalculatePoints(player.Value);
+
                 Console.WriteLine($"{player.Key}: {currPlayerPoints}");
             }
         }
 
         private static int CalculatePoints(HashSet<string> playerCards)
         {
-            var summedPoints = 0;
+            int summedPoints = 0;
 
             foreach (var card in playerCards)
             {
-                var cardPower = 0;
-                var cardType = 0;
+                int cardPower = 0;
+                int cardType = 0;
 
                 foreach (char symbol in card)
                 {
@@ -136,8 +137,10 @@
                             break;
                     }
                 }
+
                 summedPoints += (cardPower * cardType);
             }
+
             return summedPoints;
         }
     }

@@ -1,32 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace _09.Query_Mess
+﻿namespace _09.Query_Mess
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
     public class QueryMess
     {
         public static void Main()
         {
-            var input = Console.ReadLine()
+            string[] input = Console.ReadLine()
                 .Split(new[] { '&', '?' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var regex = new Regex(@"(?<key>[^&?]+)\s*=\s*(?<value>[^&?]+)");
-            var spacePattern = new Regex(@"%20|\+");
+            Regex regex = new Regex(@"(?<key>[^&?]+)\s*=\s*(?<value>[^&?]+)");
+            Regex spacePattern = new Regex(@"%20|\+");
 
-            var fields = new Dictionary<string, List<string>>();
-            var results = new List<string>();
-            var sb = new StringBuilder();
+            Dictionary<string, List<string>> fields = new Dictionary<string, List<string>>();
+            List<string> results = new List<string>();
+            StringBuilder sb = new StringBuilder();
 
             while (input[0] != "END")
             {
                 for (int i = 0; i < input.Length; i++)
                 {
-                    var currField = input[i];
+                    string currField = input[i];
+
                     if (spacePattern.IsMatch(currField))
                     {
-                        var matches = spacePattern.Matches(currField);
+                        MatchCollection matches = spacePattern.Matches(currField);
+
                         foreach (var match in matches)
                         {
                             currField = currField.Replace(match.ToString(), " ");
@@ -34,12 +36,12 @@ namespace _09.Query_Mess
                     }
                     if (regex.IsMatch(currField))
                     {
-                        var key = regex.Match(currField).Groups["key"].Value.Trim();
-                        var value = regex.Match(currField).Groups["value"].Value.Trim();
+                        string key = regex.Match(currField).Groups["key"].Value.Trim();
+                        string value = regex.Match(currField).Groups["value"].Value.Trim();
 
                         try
                         {
-                            var tokensOfValue = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] tokensOfValue = value.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             value = string.Join(" ", tokensOfValue);
                         }
                         catch (Exception)
@@ -61,6 +63,7 @@ namespace _09.Query_Mess
                     sb.Append(string.Join(", ", field.Value));
                     sb.Append("]");
                 }
+
                 results.Add(sb.ToString());
                 sb.Clear();
                 fields = new Dictionary<string, List<string>>();

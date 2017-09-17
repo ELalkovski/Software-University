@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _10.Predicate_Party_
+﻿namespace _10.Predicate_Party_
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class PredicateParty
     {
         private static Predicate<string> findPerson;
@@ -15,15 +15,14 @@ namespace _10.Predicate_Party_
             people = Console.ReadLine()
                     .Split(' ')
                     .ToList();
-
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "Party!")
             {
-                var tokens = input.Split(' ');
-                var command = tokens[0];
-                var criteria = tokens[1];
-                var criteriaBoundry = tokens[2];
+                string[] tokens = input.Split(' ');
+                string command = tokens[0];
+                string criteria = tokens[1];
+                string criteriaBoundry = tokens[2];
 
                 if (command == "Remove")
                 {

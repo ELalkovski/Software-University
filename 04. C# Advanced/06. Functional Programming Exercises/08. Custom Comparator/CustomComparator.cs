@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace _08.Custom_Comparator
+﻿namespace _08.Custom_Comparator
 {
+    using System;
+    using System.Linq;
+
     public class CustomComparator
     {
         public static void Main()
         {
-            var inputNums = Console.ReadLine()
+            int[] inputNums = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
@@ -25,7 +25,5 @@ namespace _08.Custom_Comparator
 
             Console.WriteLine(string.Join(" ", inputNums));
         }
-
-        
     }
 }

@@ -6,31 +6,31 @@
     {
         private static long[] fibNumbers;
 
-        public static long GetFibonacciNumber(int n)
-        {
-
-            if (n < 2)
-            {
-                return n;
-            }
-            if (fibNumbers[n - 1] != 0)
-            {
-                return fibNumbers[n - 1];
-            }
-            return fibNumbers[n - 1] = GetFibonacciNumber(n - 1) + GetFibonacciNumber(n - 2);
-        }
-
         public static void Main()
         {
             /*
              Prints Nth Fibonacci number using recursion and memoization.
              */
 
-            var n = int.Parse(Console.ReadLine());
-            fibNumbers = new long[n];
-            var result = GetFibonacciNumber(n);
+            int number = int.Parse(Console.ReadLine());
+            fibNumbers = new long[number];
+            long result = GetFibonacciNumber(number);
+
             Console.WriteLine(result);
         }
-  
+
+        private static long GetFibonacciNumber(int number)
+        {
+            if (number < 2)
+            {
+                return number;
+            }
+            if (fibNumbers[number - 1] != 0)
+            {
+                return fibNumbers[number - 1];
+            }
+
+            return fibNumbers[number - 1] = GetFibonacciNumber(number - 1) + GetFibonacciNumber(number - 2);
+        }
     }
 }

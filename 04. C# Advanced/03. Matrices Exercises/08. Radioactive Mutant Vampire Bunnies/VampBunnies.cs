@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace TechFundamentalsExam
+﻿namespace TechFundamentalsExam
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public sealed class Startup
     {
         public static bool isDead;
 
-        public static void Main(string[] args)
+        public static void Main()
         {
             int[] dimension = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
+
             char[][] area = new char[dimension[0]][];
 
             for (int row = 0; row < area.Length; row++)
@@ -117,6 +118,7 @@ namespace TechFundamentalsExam
                     area[playerRow][playerCol] = '.';
                     SpreadBunnies(area);
                     PrintArea(area);
+
                     Console.WriteLine($"won: {playerRow} {playerCol}");
                     break;
                 }
@@ -124,6 +126,7 @@ namespace TechFundamentalsExam
                 if (isDead)
                 {
                     PrintArea(area);
+
                     Console.WriteLine($"dead: {playerRow} {playerCol}");
                     break;
                 }
@@ -154,6 +157,7 @@ namespace TechFundamentalsExam
                     {
                         isDead = true;
                     }
+
                     area[row - 1][col] = 'B';
                 }
 
@@ -163,6 +167,7 @@ namespace TechFundamentalsExam
                     {
                         isDead = true;
                     }
+
                     area[row + 1][col] = 'B';
                 }
 
@@ -172,6 +177,7 @@ namespace TechFundamentalsExam
                     {
                         isDead = true;
                     }
+
                     area[row][col - 1] = 'B';
                 }
 
@@ -181,6 +187,7 @@ namespace TechFundamentalsExam
                     {
                         isDead = true;
                     }
+
                     area[row][col + 1] = 'B';
                 }
             }

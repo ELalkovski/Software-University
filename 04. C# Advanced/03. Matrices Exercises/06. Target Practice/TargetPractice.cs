@@ -7,27 +7,27 @@
     {
         public static void Main()
         {
-            var matrixSizes = Console.ReadLine()
+            int[] matrixSizes = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var rows = matrixSizes[0];
-            var cols = matrixSizes[1];
+            int rows = matrixSizes[0];
+            int cols = matrixSizes[1];
 
-            var matrix = new char[rows][];
-            var snake = Console.ReadLine();
+            char[][] matrix = new char[rows][];
+            string snake = Console.ReadLine();
 
             FillMatrix(matrix, snake, cols);          
 
-            var impactTokens = Console.ReadLine()
+            int[] impactTokens = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var impactRow = impactTokens[0];
-            var impactCol = impactTokens[1];
-            var impactRadius = impactTokens[2];
+            int impactRow = impactTokens[0];
+            int impactCol = impactTokens[1];
+            int impactRadius = impactTokens[2];
 
             KillSnakes(impactRow, impactCol, impactRadius, matrix);
             RearangeMatrix(matrix);
@@ -42,6 +42,7 @@
                 {
                     Console.Write(matrix[currRow][currCol]);
                 }
+
                 Console.WriteLine();
             }
         }
@@ -52,8 +53,8 @@
             {
                 for (int currCol = 0; currCol < matrix[currRow].Length; currCol++)
                 {
-                    var currElement = matrix[currRow][currCol];
-                    var downElement = matrix[currRow + 1][currCol];
+                    char currElement = matrix[currRow][currCol];
+                    char downElement = matrix[currRow + 1][currCol];
 
                     if (currElement != ' ' && downElement == ' ')
                     {
@@ -72,7 +73,7 @@
             {
                 for (int currCol = 0; currCol < matrix[currRow].Length; currCol++)
                 {
-                    var distance = Math.Sqrt(Math.Pow(currRow - impactRow, 2) + Math.Pow(currCol - impactCol, 2));
+                    double distance = Math.Sqrt(Math.Pow(currRow - impactRow, 2) + Math.Pow(currCol - impactCol, 2));
 
                     if (distance <= impactRadius)
                     {
@@ -84,8 +85,8 @@
 
         private static void FillMatrix(char[][] matrix, string snake, int cols)
         {
-            var snakeIndex = 0;
-            var zigZagCounter = 1;
+            int snakeIndex = 0;
+            int zigZagCounter = 1;
 
             for (int currRow = matrix.Length - 1; currRow >= 0; currRow--)
             {
@@ -117,6 +118,7 @@
                         snakeIndex++;
                     }
                 }
+
                 zigZagCounter++;
             }
         }

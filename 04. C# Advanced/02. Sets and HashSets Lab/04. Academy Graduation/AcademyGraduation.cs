@@ -19,15 +19,15 @@
 
              */
 
-            var inputLinesCount = int.Parse(Console.ReadLine());
-            var students = new SortedDictionary<string, List<double>>();
-            var grades = new List<double>();
+            int inputLinesCount = int.Parse(Console.ReadLine());
+            SortedDictionary<string, List<double>> students = new SortedDictionary<string, List<double>>();
+            List<double> grades = new List<double>();
 
             for (int i = 0; i < inputLinesCount; i++)
             {
-                var studentName = Console.ReadLine();
+                string studentName = Console.ReadLine();
 
-                var studentGrades = Console.ReadLine()
+                List<double> studentGrades = Console.ReadLine()
                     .Split(new char [] {' '}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(double.Parse)
                     .ToList();

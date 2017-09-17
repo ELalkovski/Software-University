@@ -1,13 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace _02.Sum_Numbers
+﻿namespace _02.Sum_Numbers
 {
+    using System;
+    using System.Linq;
+
     public class SumNumbers
     {
         public static void Main()
         {
-            var numbers = Console.ReadLine()
+            int[] numbers = Console.ReadLine()
                 .Split(new []{", "}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();

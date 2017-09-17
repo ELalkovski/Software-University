@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace _04.Count_Symbols
+﻿namespace _04.Count_Symbols
 {
     using System;
+    using System.Collections.Generic;
 
     public class CountSymbols
     {
@@ -13,8 +12,8 @@ namespace _04.Count_Symbols
              Prints the results in alphabetical (lexicographical) order. 
              */
 
-            var inputText = Console.ReadLine();
-            var symbolOccurences = new SortedDictionary<char, int>();
+            string inputText = Console.ReadLine();
+            SortedDictionary<char, int> symbolOccurences = new SortedDictionary<char, int>();
 
             for (int i = 0; i < inputText.Length; i++)
             {

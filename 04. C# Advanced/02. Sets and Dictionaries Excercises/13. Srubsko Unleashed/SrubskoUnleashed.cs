@@ -16,20 +16,22 @@
              Finnaly prints the results on the console.
              */
 
-            var input = Console.ReadLine();
-            var singersDetails = new Dictionary<string, Dictionary<string, int>>();
+            string input = Console.ReadLine();
+            Dictionary<string, Dictionary<string, int>> singersDetails = new Dictionary<string, Dictionary<string, int>>();
 
             while (input != "End")
             {
-                var tokens = input.Split(new []{" @"}, StringSplitOptions.RemoveEmptyEntries);
+                string[] tokens = input
+                    .Split(new []{" @"}, StringSplitOptions.RemoveEmptyEntries);
+
                 if (tokens.Length > 1)
                 {
-                    var singerName = tokens[0];
-                    var otherTokens = tokens[1]
+                    string singerName = tokens[0];
+                    string[] otherTokens = tokens[1]
                         .Split(' ');
 
-                    var ticketPrice = 0;
-                    var ticketsBought = 0;
+                    int ticketPrice = 0;
+                    int ticketsBought = 0;
 
                     try
                     {
@@ -39,18 +41,19 @@
                     catch (Exception e)
                     {
                         input = Console.ReadLine();
+
                         continue;
-                        
                     }
 
-                    var townName = "";
+                    string townName = "";
+
                     for (int i = 0; i < otherTokens.Length - 2; i++)
                     {
                         townName += otherTokens[i];
                         townName += " ";
                     }
 
-                    var moneyEarned = ticketPrice * ticketsBought;
+                    int moneyEarned = ticketPrice * ticketsBought;
 
                     if (!singersDetails.ContainsKey(townName))
                     {

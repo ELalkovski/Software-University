@@ -17,15 +17,14 @@
                     {
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
+
+                    return false;
                 }
                 // Note:
                 // ... This version was changed to test the square.
                 // ... Original version tested against the square root.
                 // ... Also we exclude 1 at the end.
+
                 for (int i = 3; (i * i) <= candidate; i += 2)
                 {
                     if ((candidate % i) == 0)
@@ -33,15 +32,18 @@
                         return false;
                     }
                 }
+
                 return candidate != 1;
             }
         }
 
         public static void Main()
         {
-            var input = Console.ReadLine().Split(' ').ToArray();
-            var counter = int.Parse(Console.ReadLine());
-            var queue = new Queue<string>(input);
+            string[] input = Console.ReadLine()
+                .Split(' ')
+                .ToArray();
+            int counter = int.Parse(Console.ReadLine());
+            Queue<string> queue = new Queue<string>(input);
             int cycles = 1;
 
             while (queue.Count > 1)
@@ -57,12 +59,12 @@
                 }
                 else
                 {
-                    
                     Console.WriteLine("Removed {0}", queue.Dequeue());
                 }
-                cycles++;
 
+                cycles++;
             }
+
             Console.WriteLine("Last is {0}", queue.Dequeue());
         }
     }

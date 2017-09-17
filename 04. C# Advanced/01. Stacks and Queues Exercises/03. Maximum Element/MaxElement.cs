@@ -18,23 +18,24 @@
              */
 
 
-            var sequenceLength = int.Parse(Console.ReadLine());
-            var stack = new Stack<int>();
-            var maxNumsStack = new Stack<int>();
-            var currNum = 0;
-            var maxNum = 0;
+            int sequenceLength = int.Parse(Console.ReadLine());
+            Stack<int> stack = new Stack<int>();
+            Stack<int> maxNumsStack = new Stack<int>();
+            int currNum = 0;
+            int maxNum = 0;
 
             for (int i = 0; i < sequenceLength; i++)
             {
-                var inputAction = Console.ReadLine();
+                string inputAction = Console.ReadLine();
 
                 if (inputAction == "2")
                 {
-                    var poppedItem = stack.Pop();
+                    int poppedItem = stack.Pop();
 
                     if (poppedItem == maxNum)
                     {
                         maxNumsStack.Pop();
+
                         if (maxNumsStack.Count > 0)
                         {
                             maxNum = maxNumsStack.Peek();
@@ -44,7 +45,6 @@
                         {
                             maxNum = 0;
                         }
-                        
                     }
                 }
                 else if (inputAction == "3")
@@ -53,7 +53,7 @@
                 }
                 else
                 {
-                    var addNumAction = inputAction.Trim()
+                    int[] addNumAction = inputAction.Trim()
                         .Split()
                         .Select(int.Parse)
                         .ToArray();

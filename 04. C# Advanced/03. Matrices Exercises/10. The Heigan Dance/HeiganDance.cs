@@ -12,24 +12,23 @@
 
         public static void Main()
         {
-            var playerPos = new int[] {ChamberSize / 2, ChamberSize / 2};
-            var playerPoints = PlayerHealth;
-            var heiganPoints = HeiganHealth;
-            var isHeiganDead = false;
-            var isPlayerDead = false;
-            var hasCloud = false;
-            var deathCause = "";
-            var damageToHeigan = double.Parse(Console.ReadLine());
+            int[] playerPos = new [] {ChamberSize / 2, ChamberSize / 2};
+            int playerPoints = PlayerHealth;
+            double heiganPoints = HeiganHealth;
+            bool isHeiganDead = false;
+            bool isPlayerDead = false;
+            bool hasCloud = false;
+            string deathCause = "";
+            double damageToHeigan = double.Parse(Console.ReadLine());
             
             while (true)
             {         
-
-                var spellTokens = Console.ReadLine()
+                string[] spellTokens = Console.ReadLine()
                     .Split(new []{' '},StringSplitOptions.RemoveEmptyEntries);
 
-                var spell = spellTokens[0];
-                var spellRow = int.Parse(spellTokens[1]);
-                var spellCol = int.Parse(spellTokens[2]);
+                string spell = spellTokens[0];
+                int spellRow = int.Parse(spellTokens[1]);
+                int spellCol = int.Parse(spellTokens[2]);
 
                 heiganPoints -= damageToHeigan;
                 isHeiganDead = heiganPoints <= 0;
@@ -40,10 +39,12 @@
                     hasCloud = false;
                     isPlayerDead = playerPoints <= 0;
                 }
+
                 if (isHeiganDead || isPlayerDead)
                 {
                     break;
                 }
+
                 if (IsInDamageArea(playerPos, spellRow, spellCol))
                 {
                     if (!PlayerTryToEscape(playerPos, spellRow, spellCol))
@@ -63,12 +64,13 @@
                         }
                     }
                 }
+
                 isPlayerDead = playerPoints <= 0;
+
                 if (isPlayerDead)
                 {
                     break;
                 }
-
             }
 
             PrintResult(playerPos, heiganPoints, playerPoints, deathCause);
@@ -84,6 +86,7 @@
             {
                 Console.WriteLine("Heigan: {0:f2}", heiganPoints);
             }
+
             if (playerPoints <= 0)
             {
                 Console.WriteLine($"Player: Killed by {deathCause}");
@@ -103,17 +106,20 @@
                 playerPos[0]--;
                 return true;
             }
-            else if (playerPos[1] + 1 < ChamberSize && playerPos[1] + 1 > spellCol + 1)
+
+            if (playerPos[1] + 1 < ChamberSize && playerPos[1] + 1 > spellCol + 1)
             {
                 playerPos[1]++;
                 return true;
             }
-            else if (playerPos[0] + 1 < ChamberSize && playerPos[0] + 1 > spellRow + 1)
+
+            if (playerPos[0] + 1 < ChamberSize && playerPos[0] + 1 > spellRow + 1)
             {
                 playerPos[0]++;
                 return true;
             }
-            else if (playerPos[1] - 1 >= 0 && playerPos[1] - 1 < spellCol - 1)
+
+            if (playerPos[1] - 1 >= 0 && playerPos[1] - 1 < spellCol - 1)
             {
                 playerPos[1]--;
                 return true;

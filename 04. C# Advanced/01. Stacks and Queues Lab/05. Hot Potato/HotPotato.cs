@@ -8,9 +8,11 @@
     {
         public static void Main()
         {
-            var input = Console.ReadLine().Split(' ').ToArray();
-            var counter = int.Parse(Console.ReadLine());
-            var queue = new Queue<string>(input);
+            string[] input = Console.ReadLine()
+                .Split(' ')
+                .ToArray();
+            int counter = int.Parse(Console.ReadLine());
+            Queue<string> queue = new Queue<string>(input);
 
             while (queue.Count > 1)
             {
@@ -19,8 +21,10 @@
                     string reminder = queue.Dequeue();
                     queue.Enqueue(reminder);
                 }
+
                 Console.WriteLine("Removed {0}", queue.Dequeue());
             }
+
             Console.WriteLine("Last is {0}", queue.Dequeue());
         }
     }

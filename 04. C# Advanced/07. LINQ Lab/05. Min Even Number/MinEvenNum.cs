@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace _05.Min_Even_Number
+﻿namespace _05.Min_Even_Number
 {
+    using System;
+    using System.Linq;
+
     public class MinEvenNum
     {
         public static void Main()
@@ -21,7 +21,6 @@ namespace _05.Min_Even_Number
             {
                 Console.WriteLine("No match");
             }
-            
         }
     }
 }

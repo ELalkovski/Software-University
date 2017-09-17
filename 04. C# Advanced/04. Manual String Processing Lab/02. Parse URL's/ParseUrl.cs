@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace _02.Parse_URL_s
+﻿namespace _02.Parse_URL_s
 {
+    using System;
+    using System.Linq;
+
     public class ParseUrl
     {
         public static void Main()

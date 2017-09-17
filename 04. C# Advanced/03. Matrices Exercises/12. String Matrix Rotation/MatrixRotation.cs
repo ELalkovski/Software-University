@@ -7,14 +7,14 @@
     {
         public static void Main()
         {
-            var rotationDirection = Console.ReadLine()
+            string[] rotationDirection = Console.ReadLine()
                 .Split(new []{'(', ')'}, StringSplitOptions.RemoveEmptyEntries);
-            var rotationDegrees = int.Parse(rotationDirection[1]);
+            string matrixWords = Console.ReadLine();
 
-            var matrixWords = Console.ReadLine();
-            var wordsList = new List<string>();
-            var rows = 0;
-            var cols = 0;
+            int rotationDegrees = int.Parse(rotationDirection[1]);
+            List<string> wordsList = new List<string>();
+            int rows = 0;
+            int cols = 0;
 
             while (matrixWords != "END")
             {
@@ -22,23 +22,24 @@
                 {
                     cols = matrixWords.Length;
                 }
+
                 rows++;
                 wordsList.Add(matrixWords);
-
                 matrixWords = Console.ReadLine();
             }
 
-            var matrix = new char[rows][];
+            char[][] matrix = new char[rows][];
 
             for (int currRow = 0; currRow < wordsList.Count; currRow++)
             {
-                var currWord = wordsList[currRow];
+                string currWord = wordsList[currRow];
                 matrix[currRow] = new char[cols];
 
                 for (int currCol = 0; currCol < currWord.Length; currCol++)
                 {
                     matrix[currRow][currCol] = currWord[currCol];
                 }
+
                 if (currWord.Length < cols)
                 {
                     for (int currCol = currWord.Length; currCol < cols; currCol++)
@@ -48,12 +49,12 @@
                 }
             }
 
-            var rotationCount = rotationDegrees / 90;
+            int rotationCount = rotationDegrees / 90;
 
             for (int i = 0; i < rotationCount; i++)
             {
                 matrix = RotateMatrix(matrix, rows, cols);
-                var temp = rows;
+                int temp = rows;
                 rows = cols;
                 cols = temp;
             }
@@ -76,8 +77,8 @@
 
         private static char[][] RotateMatrix(char[][] matrix, int rows, int cols)
         {
-            var rotatedMatrix = new char[cols][];
-            var colsCounter = 0;
+            char[][] rotatedMatrix = new char[cols][];
+            int colsCounter = 0;
 
             for (int newMatrixRow = 0; newMatrixRow < cols; newMatrixRow++)
             {

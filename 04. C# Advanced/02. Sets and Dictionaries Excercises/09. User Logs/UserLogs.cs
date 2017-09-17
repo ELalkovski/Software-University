@@ -18,21 +18,20 @@
                 Finally the program prints the results for every user.
              */
 
-            var input = Console.ReadLine();
-            var users = new SortedDictionary<string, Dictionary<string, int>>();
-            
+            string input = Console.ReadLine();
+            SortedDictionary<string, Dictionary<string, int>> users = new SortedDictionary<string, Dictionary<string, int>>();
 
             while (input != "end")
             {
-                var tokens = input.Split(' ')
+                string[] tokens = input.Split(' ')
                     .Select(a => a.Trim())
                     .ToArray();
 
-                var ipTokens = tokens[0].Split('=');
-                var userTokens = tokens[2].Split('=');
+                string[] ipTokens = tokens[0].Split('=');
+                string[] userTokens = tokens[2].Split('=');
 
-                var ipAdress = ipTokens[1];
-                var username = userTokens[1];
+                string ipAdress = ipTokens[1];
+                string username = userTokens[1];
 
                 if (!users.ContainsKey(username))
                 {
@@ -57,8 +56,9 @@
             foreach (KeyValuePair<string, Dictionary<string, int>> user in users)
             {
                 Console.WriteLine($"{user.Key}: ");
+
                 Dictionary<string, int> currUserAdresses = user.Value;
-                var count = currUserAdresses.Count - 1;
+                int count = currUserAdresses.Count - 1;
 
                 foreach (var adress in currUserAdresses)
                 {
@@ -70,8 +70,10 @@
                     {
                         Console.Write($"{adress.Key} => {adress.Value}.");
                     }
+
                     count--;
                 }
+
                 Console.WriteLine();
             }
         }

@@ -8,19 +8,17 @@
     {
         public static void Main()
         {
-            var plantsQuantity = int.Parse(Console.ReadLine());
-            var plants = Console.ReadLine()
+            int plantsQuantity = int.Parse(Console.ReadLine());
+            int[] plants = Console.ReadLine()
                 .Trim()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var days = new int[plantsQuantity];
-
-            var plantsIndices = new Stack<int>();
+            int[] days = new int[plantsQuantity];
+            Stack<int> plantsIndices = new Stack<int>();
 
             plantsIndices.Push(0);
-           
 
             for (int i = 1; i < plants.Length; i++)
             {
@@ -38,8 +36,8 @@
 
                 plantsIndices.Push(i);
             }
-            Console.WriteLine(days.Max());
 
+            Console.WriteLine(days.Max());
         }
     }
 }

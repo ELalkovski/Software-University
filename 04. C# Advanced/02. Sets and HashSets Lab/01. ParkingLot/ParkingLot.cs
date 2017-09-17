@@ -15,20 +15,18 @@
                 •	Input is string in format [command("IN" or "OUT"), carNumber]
                 •	input ends with string "END"
                 Finally it prints the output with all car numbers which left in the parking lot.
-
-
              */
 
-            var input = Console.ReadLine();
-            var cars = new SortedSet<string>();
+            string input = Console.ReadLine();
+            SortedSet<string> cars = new SortedSet<string>();
 
             while (input != "END")
             {
-                var tokens = input.Split(new char[] {',', ' '}, StringSplitOptions.RemoveEmptyEntries)
-                    .ToArray();
+                string[] tokens = input
+                    .Split(new[] {',', ' '}, StringSplitOptions.RemoveEmptyEntries);
 
-                var command = tokens[0];
-                var carNumber = tokens[1];
+                string command = tokens[0];
+                string carNumber = tokens[1];
 
                 if (command == "IN")
                 {

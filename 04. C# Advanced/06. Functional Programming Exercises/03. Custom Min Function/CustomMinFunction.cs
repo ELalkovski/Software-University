@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace _03.Custom_Min_Function
+﻿namespace _03.Custom_Min_Function
 {
+    using System;
+    using System.Linq;
+
     public class CustomMinFunction
     {
         public static void Main()
@@ -13,7 +13,6 @@ namespace _03.Custom_Min_Function
                 .ToArray()
                 .OrderBy(n => n)
                 .First(n => n < n));
-
         }
     }
 }

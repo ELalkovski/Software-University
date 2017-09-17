@@ -1,31 +1,30 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _07.Valid_Usernames
+﻿namespace _07.Valid_Usernames
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class ValidUsernames
     {
         public static void Main()
         {
-            var inputUsernames = Console.ReadLine()
+            string[] inputUsernames = Console.ReadLine()
                 .Split(new[] { '(', ')', '/', '\\', ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var regex = new Regex(@"\b[a-zA-Z][a-zA-Z0-9_]{2,24}\b");
-
-            var bestSum = 0;
-            var sum = 0;
-            var firstBestName = "";
-            var secondBestName = "";
+            Regex regex = new Regex(@"\b[a-zA-Z][a-zA-Z0-9_]{2,24}\b");
+            int bestSum = 0;
+            int sum = 0;
+            string firstBestName = "";
+            string secondBestName = "";
 
             for (int i = 0; i < inputUsernames.Length - 1; i++)
             {
-                var currUsername = inputUsernames[i];
+                string currUsername = inputUsernames[i];
 
                 if (regex.IsMatch(currUsername))
                 {
                     for (int j = i + 1; j < inputUsernames.Length; j++)
                     {
-                        var nextUsername = inputUsernames[j];
+                        string nextUsername = inputUsernames[j];
 
                         if (regex.IsMatch(nextUsername))
                         {
@@ -43,6 +42,7 @@ namespace _07.Valid_Usernames
                     }
                 }
             }
+
             Console.WriteLine(firstBestName);
             Console.WriteLine(secondBestName);
         }

@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace _05.Filter_by_Age
+﻿namespace _05.Filter_by_Age
 {
+    using System;
+    using System.Collections.Generic;
+
     public class Filter
     {
         private static Dictionary<string, int> people = new Dictionary<string, int>();  
 
         public static void Main()
         {
-            var n = int.Parse(Console.ReadLine());
+            int loopsCount = int.Parse(Console.ReadLine());
             
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < loopsCount; i++)
             {
-                var inputLine = Console.ReadLine()
+                string[] inputLine = Console.ReadLine()
                     .Split(new []{", "}, StringSplitOptions.RemoveEmptyEntries);
 
-                var name = inputLine[0];
-                var age = int.Parse(inputLine[1]);
+                string name = inputLine[0];
+                int age = int.Parse(inputLine[1]);
 
                 if (!people.ContainsKey(name))
                 {
@@ -29,12 +29,12 @@ namespace _05.Filter_by_Age
                 }
             }
 
-            var condition = Console.ReadLine();
-            var ageBarrier = int.Parse(Console.ReadLine());
-            var printFormat = Console.ReadLine();
+            string condition = Console.ReadLine();
+            int ageBarrier = int.Parse(Console.ReadLine());
+            string printFormat = Console.ReadLine();
 
-            var tester = CreateTester(condition, ageBarrier);
-            var printer = CreatePrinter(printFormat);
+            Func<int, bool> tester = CreateTester(condition, ageBarrier);
+            Action<KeyValuePair<string, int>> printer = CreatePrinter(printFormat);
 
             PrintResult(tester, printer);
         }

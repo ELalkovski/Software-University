@@ -1,8 +1,8 @@
-﻿using System;
-using System.Linq;
-
-namespace _01.Sort_Even_Numbers
+﻿namespace _01.Sort_Even_Numbers
 {
+    using System;
+    using System.Linq;
+
     public class SortEvenNumbers
     {
         public static void Main()

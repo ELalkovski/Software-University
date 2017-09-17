@@ -13,22 +13,23 @@ namespace _09.Stack_Fibonacci
              Prints Nth Fibonacci number using stack collection.
              */
 
-            var nthNumber = int.Parse(Console.ReadLine());  
-            var fibonacciStack = new Stack<long>();
+            int nthNumber = int.Parse(Console.ReadLine());  
+            Stack<long> fibonacciStack = new Stack<long>();
             fibonacciStack.Push(0);
             fibonacciStack.Push(1);
             fibonacciStack.Push(1);
 
-            var firstNum = fibonacciStack.Peek();
-            var secondNum = fibonacciStack.Peek();
+            long firstNum = fibonacciStack.Peek();
+            long secondNum = fibonacciStack.Peek();
 
             for (int i = 3; i <= nthNumber; i++)
             {
-                var currFibNum = firstNum + secondNum;
+                long currFibNum = firstNum + secondNum;
                 firstNum = fibonacciStack.Pop();
                 fibonacciStack.Push(currFibNum);
                 secondNum = fibonacciStack.Peek();
             }
+
             Console.WriteLine(fibonacciStack.Peek());
         }
     }

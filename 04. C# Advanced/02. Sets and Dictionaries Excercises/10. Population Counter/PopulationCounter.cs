@@ -16,17 +16,16 @@
              the cities are ordered by the same criterion. 
              */
 
-            var input = Console.ReadLine();
-            var countries = new Dictionary<string, Dictionary<string, long>>();
+            string input = Console.ReadLine();
+            Dictionary<string, Dictionary<string, long>> countries = new Dictionary<string, Dictionary<string, long>>();
 
             while (input != "report")
             {
-                var tokens = input
-                    .Split('|')
-                    .ToArray();
+                string[] tokens = input
+                    .Split('|');
 
-                var city = tokens[0];
-                var currCountry = tokens[1];
+                string city = tokens[0];
+                string currCountry = tokens[1];
                 long population = long.Parse(tokens[2]);
 
                 if (!countries.ContainsKey(currCountry))

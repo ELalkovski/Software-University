@@ -6,8 +6,8 @@
 
     public class TruckTour
     {
-        static int n;
-        static Queue<int[]> pumps;
+        private static int linesCount;
+        private static Queue<int[]> pumps;
 
         public static void Main()
         {
@@ -22,12 +22,12 @@
              */
 
 
-            n = int.Parse(Console.ReadLine());
+            linesCount = int.Parse(Console.ReadLine());
             pumps = new Queue<int[]>();
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < linesCount; i++)
             {
-                var currEntry = Console.ReadLine()
+                int[] currEntry = Console.ReadLine()
                     .Split(' ')
                     .Select(int.Parse)
                     .ToArray();
@@ -35,25 +35,26 @@
                 pumps.Enqueue(currEntry);
             }
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < linesCount; i++)
             {
-                if (isFirstTank())
+                if (IsFirstTank())
                 {
                     Console.WriteLine(i);
                     break;
                 }
+
                 pumps.Enqueue(pumps.Dequeue());
             }
         }
 
-        public static bool isFirstTank()
+        private static bool IsFirstTank()
         {
             bool isTrue = true;
-            var tankFuel = 0;
+            int tankFuel = 0;
 
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < linesCount; i++)
             {
-                var currPump = pumps.Dequeue();
+                int[] currPump = pumps.Dequeue();
                 tankFuel += currPump[0] - currPump[1];
 
                 if (tankFuel < 0)

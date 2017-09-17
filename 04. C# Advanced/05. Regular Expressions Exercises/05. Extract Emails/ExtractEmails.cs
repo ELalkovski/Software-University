@@ -1,15 +1,16 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _1.Extract_emails
+﻿namespace _1.Extract_emails
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class ExtractEmails
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var regex = new Regex(@"(?<= )[A-Za-z0-9]+[A-Za-z0-9._-]+\@[A-Za-z0-9]+[A-Za-z0-9._-]+\.[A-Za-z]{2,}");
-            var matches = regex.Matches(input);
+            string input = Console.ReadLine();
+
+            Regex regex = new Regex(@"(?<= )[A-Za-z0-9]+[A-Za-z0-9._-]+\@[A-Za-z0-9]+[A-Za-z0-9._-]+\.[A-Za-z]{2,}");
+            MatchCollection matches = regex.Matches(input);
 
             foreach (Match match in matches)
             {

@@ -3,12 +3,13 @@ using System.Linq;
 
 namespace _02.Upper_Strings
 {
+    using System.Collections.Generic;
+
     public class UpperStrings
     {
         public static void Main()
         {
-           
-                var words = Console.ReadLine()
+           List<string> words = Console.ReadLine()
                 .Split()
                 .ToList();
 

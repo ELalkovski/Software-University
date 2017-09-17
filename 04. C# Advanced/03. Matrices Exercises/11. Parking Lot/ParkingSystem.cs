@@ -12,7 +12,7 @@
 
         public static void Main()
         {
-            var parkingDimensions = Console.ReadLine()
+            int[] parkingDimensions = Console.ReadLine()
                 .Split(new []{' '},StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
@@ -21,32 +21,31 @@
              cols = parkingDimensions[1];
 
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "stop")
             {
-                var parkingTokens = input
+                int[] parkingTokens = input
                     .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
 
-                var entryRow = parkingTokens[0];
-                var wantedRow = parkingTokens[1];
-                var wantedCol = parkingTokens[2];
+                int entryRow = parkingTokens[0];
+                int wantedRow = parkingTokens[1];
+                int wantedCol = parkingTokens[2];
 
-                var spotCoordinates = string.Format("{0},{1}", wantedRow, wantedCol);
+                string spotCoordinates = string.Format("{0},{1}", wantedRow, wantedCol);
 
                 if (!parkedSpots.Contains(spotCoordinates))
                 {
                     parkedSpots.Add(spotCoordinates);
                     PrintResult(true, entryRow, wantedRow, wantedCol);
-
                 }
                 else
                 {
                     bool found = false;
-                    var loops = Math.Max(wantedCol - 1, cols - wantedCol);
-                    var newCol = 0;
+                    int loops = Math.Max(wantedCol - 1, cols - wantedCol);
+                    int newCol = 0;
 
                     for (int i = 1; i < loops; i++)
                     {
@@ -58,13 +57,16 @@
                             newCol = wantedCol - i;
                             found = true;
                             parkedSpots.Add(leftSpot);
+
                             break;
                         }
+
                         if (!parkedSpots.Contains(rightSpot) && wantedCol + i < cols)
                         {
                             newCol = wantedCol + i;
                             found = true;
                             parkedSpots.Add(rightSpot);
+
                             break;
                         }
                     }
@@ -80,7 +82,7 @@
         {
             if (found)
             {
-                var distance = CalculateDistane(entryRow, wantedRow, wantedCol);
+                int distance = CalculateDistane(entryRow, wantedRow, wantedCol);
                 Console.WriteLine(distance);
             }
             else

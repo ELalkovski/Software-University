@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Numerics;
-
-namespace _04.Convert_from_base_10_to_base_N
+﻿namespace _04.Convert_from_base_10_to_base_N
 {
+    using System;
+    using System.Numerics;
+    using System.Text;
+
     public class ConvertFromBase10
     {
         public static void Main()
         {
-            var inputNums = Console.ReadLine()
+            string[] inputNums = Console.ReadLine()
                 .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var baseN = int.Parse(inputNums[0]);
-            var decimalNum = BigInteger.Parse(inputNums[1]);
+            int baseN = int.Parse(inputNums[0]);
+            BigInteger decimalNum = BigInteger.Parse(inputNums[1]);
             BigInteger remainder = 0;
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             if (baseN >= 2 && baseN <= 10)
             {

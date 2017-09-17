@@ -10,16 +10,15 @@
              This program recieves integer number and prints the pascal triangle for it.
              */
 
-            var n = int.Parse(Console.ReadLine());
+            int dimension = int.Parse(Console.ReadLine());
 
-            var pascal = new long[n][];
+            long[][] pascal = new long[dimension][];
             pascal[0] = new long[1];
             pascal[0][0] = 1;
-            var cols = 2;
+            int cols = 2;
 
-            for (int currRow = 1; currRow < n; currRow++)
+            for (int currRow = 1; currRow < dimension; currRow++)
             {
-                
                 pascal[currRow] = new long[cols];
                 pascal[currRow][0] = 1;
                 pascal[currRow][cols - 1] = 1;
@@ -29,6 +28,7 @@
                     pascal[currRow][currCol] = pascal[currRow - 1][currCol - 1] +
                                                pascal[currRow - 1][currCol];
                 }
+
                 cols++;
             }
 
@@ -38,6 +38,7 @@
                 {
                     Console.Write($"{pascal[currRow][currCol]} ");
                 }
+
                 Console.WriteLine();
             }
         }

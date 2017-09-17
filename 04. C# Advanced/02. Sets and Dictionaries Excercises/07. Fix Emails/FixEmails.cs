@@ -15,14 +15,15 @@
 
              */
 
-            var input = Console.ReadLine();
-            var usersWithEmails = new Dictionary<string, string>();
-            var firstRestriction = ".us";
-            var secondRestriction = ".uk";
+            string input = Console.ReadLine();
+            Dictionary<string, string> usersWithEmails = new Dictionary<string, string>();
+            string firstRestriction = ".us";
+            string secondRestriction = ".uk";
 
             while (input != "stop")
             {
-                var email = Console.ReadLine();
+                string email = Console.ReadLine();
+
                 if (!email.Contains(firstRestriction) && !email.Contains(secondRestriction))
                 {
                     if (!usersWithEmails.ContainsKey(input))
@@ -34,6 +35,7 @@
                         usersWithEmails[input] = email;
                     }
                 }
+
                 input = Console.ReadLine();
             }
 

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _06.Filter_Students_by_Phone
+﻿namespace _06.Filter_Students_by_Phone
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class FilterByPhone
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var allStudents = new List<List<string>>();
+            string input = Console.ReadLine();
+            List<List<string>> allStudents = new List<List<string>>();
 
             while (input != "END")
             {

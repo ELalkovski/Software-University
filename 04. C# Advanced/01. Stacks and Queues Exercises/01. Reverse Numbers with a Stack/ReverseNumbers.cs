@@ -11,15 +11,19 @@
             /* Write a program that reads N integers from the console and reverses them using a stack. Use the Stack<int> class. 
             Just put the input numbers in the stack and pop them. */
 
+            int[] inputNums = Console.ReadLine()
+                .Trim()
+                .Split(' ')
+                .Select(int.Parse)
+                .ToArray();
 
-            var inputNums = Console.ReadLine().Trim().Split(' ').Select(int.Parse).ToArray();
-
-            var stack = new Stack<int>(inputNums);
+            Stack<int> stack = new Stack<int>(inputNums);
 
             for (int i = stack.Count; i != 0; i = stack.Count)
             {
                 Console.Write("{0} ", stack.Pop()); 
             }
+              
             Console.WriteLine();
         }
     }

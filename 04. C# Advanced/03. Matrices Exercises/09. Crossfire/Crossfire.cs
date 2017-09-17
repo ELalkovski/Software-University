@@ -17,29 +17,28 @@
              The input ends when the command “Nuke it from orbit” is recieved.
 
              */
-            var dimensions = Console.ReadLine()
+            int[] dimensions = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
-            var rows = dimensions[0];
-            var cols = dimensions[1];
+            int rows = dimensions[0];
+            int cols = dimensions[1];
 
-            var matrix = FillMatrix(rows, cols);
+            List<List<int>> matrix = FillMatrix(rows, cols);
 
-            var inputParams = Console.ReadLine();
+            string inputParams = Console.ReadLine();
 
             while (inputParams != "Nuke it from orbit")
             {
-                var coordinates = inputParams
+                int[] coordinates = inputParams
                     .Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries)
                     .Select(int.Parse)
                     .ToArray();
 
-                var impactRow = coordinates[0];
-                var impactCol = coordinates[1];
-                var radius = coordinates[2];
-                
+                int impactRow = coordinates[0];
+                int impactCol = coordinates[1];
+                int radius = coordinates[2];
 
                 for (int currRow = impactRow - radius; currRow <= impactRow + radius; currRow++)
                 {
@@ -56,8 +55,8 @@
                         matrix[impactRow][currCol] = -1;
                     }
                 }
-                DestroyCells(matrix);
 
+                DestroyCells(matrix);
                 inputParams = Console.ReadLine();
             }
 
@@ -74,7 +73,6 @@
 
         private static void DestroyCells(List<List<int>> matrix)
         {
-
             for (int currRow = matrix.Count - 1; currRow >= 0; currRow--)
             {
                 for (int currCol = matrix[currRow].Count - 1; currCol >= 0; currCol--)
@@ -85,6 +83,7 @@
                     }
                     
                 }
+
                 if (matrix[currRow].Count == 0)
                 {
                     matrix.RemoveAt(currRow);   
@@ -106,12 +105,12 @@
 
         private static List<List<int>> FillMatrix(int rows, int cols)
         {
-            var matrix = new List<List<int>>();
-            var element = 1;
+            List<List<int>> matrix = new List<List<int>>();
+            int element = 1;
 
             for (int curRow = 0; curRow < rows; curRow++)
             {
-                var row = new List<int>();
+                List<int> row = new List<int>();
                 matrix.Add(row);
 
                 for (int currCol = 0; currCol < cols; currCol++)

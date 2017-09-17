@@ -12,13 +12,13 @@
                 This program counts, in a given array of double values, the number of occurrences of each value. 
              */
 
-            var inputArr = Console.ReadLine()
+            double[] inputArr = Console.ReadLine()
                 .Trim()
                 .Split(' ')
                 .Select(double.Parse)
                 .ToArray();
 
-            var dict = new SortedDictionary<double, int>();
+            SortedDictionary<double, int> dict = new SortedDictionary<double, int>();
 
             for (int i = 0; i < inputArr.Length; i++)
             {
@@ -30,7 +30,6 @@
                 {
                      dict[inputArr[i]] = 1;
                 }
-               
             }
 
             foreach (var entry in dict)

@@ -8,9 +8,9 @@
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var openingBracketsStack = new Stack<char>();
-            var openSigns = new char[] { '(', '[', '{' };
+            string input = Console.ReadLine();
+            Stack<char> openingBracketsStack = new Stack<char>();
+            char[] openSigns = new [] { '(', '[', '{' };
 
             for (int i = 0; i < input.Length; i++)
             {

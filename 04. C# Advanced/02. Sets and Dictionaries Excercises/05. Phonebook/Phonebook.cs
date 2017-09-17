@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace _05.Phonebook
+﻿namespace _05.Phonebook
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class Phonebook
     {
@@ -15,14 +14,13 @@ namespace _05.Phonebook
              with it's phoneNumber.
              */
 
-            var input = Console.ReadLine()
+            string[] input = Console.ReadLine()
                 .Split(new char[] {'-', ' '}, StringSplitOptions.RemoveEmptyEntries)
                 .ToArray();
-            var phonebook = new Dictionary<string, string>();
+            Dictionary<string, string> phonebook = new Dictionary<string, string>();
 
             while (input[0] != "search")
             {
-
                 string currName = input[0];
                 string currPhoneNum = input[1];
 
@@ -34,16 +32,16 @@ namespace _05.Phonebook
                 {
                     phonebook[currName] = currPhoneNum;
                 }
+
                 input = Console.ReadLine()
-                    .Split(new char[] { '-', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Split(new [] { '-', ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .ToArray();
             }
 
-            var name = Console.ReadLine();
+            string name = Console.ReadLine();
 
             while (name != "stop")
             {
-
                 if (phonebook.ContainsKey(name))
                 {
                     Console.WriteLine($"{name} -> {phonebook[name]}");

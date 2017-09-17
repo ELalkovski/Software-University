@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _01.Students_by_Group
+﻿namespace _01.Students_by_Group
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class StudentsByGroup
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var allStudents = new List<List<string>>();
+            string input = Console.ReadLine();
+
+            List<List<string>> allStudents = new List<List<string>>();
 
             while (input != "END")
             {
-                var tokens = input.Split(' ').ToList();
-                var group = tokens[2];
+                List<string> tokens = input.Split(' ').ToList();
+                string group = tokens[2];
 
                 if (group == "2")
                 {

@@ -2,7 +2,6 @@
 {
     using System;
     using System.Linq;
-    using System.Text;
 
     public class Palindromes
     {
@@ -14,19 +13,19 @@
 
                 •	Rows define the first and the last letter: row 0 => ‘a’, row 1 => ‘b’, row 2 => ‘c’, …
                 •	Columns + rows define the middle letter: 
-
             */
-            var matrixSizes = Console.ReadLine()
-                .Split(new char[] {' ', ','}, StringSplitOptions.RemoveEmptyEntries)
+
+            int[] matrixSizes = Console.ReadLine()
+                .Split(new [] {' ', ','}, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
 
-            var rows = matrixSizes[0];
-            var cols = matrixSizes[1];
+            int rows = matrixSizes[0];
+            int cols = matrixSizes[1];
 
-            var matrix = new string[rows][];
+            string[][] matrix = new string[rows][];
 
-            var alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+            char[] alphabet = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
 
             for (int currRow = 0; currRow < matrix.Length; currRow++)
             {
@@ -44,6 +43,7 @@
                 {
                     Console.Write($"{matrix[currRow][currCol]} ");
                 }
+
                 Console.WriteLine();
             }
         }

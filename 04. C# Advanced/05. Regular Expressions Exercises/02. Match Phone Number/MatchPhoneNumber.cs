@@ -1,13 +1,13 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _02.Match_Phone_Number
+﻿namespace _02.Match_Phone_Number
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class MatchPhoneNumber
     {
         public static void Main()
         {
-            var inputNumber = Console.ReadLine();
+            string inputNumber = Console.ReadLine();
 
             while (inputNumber != "end")
             {

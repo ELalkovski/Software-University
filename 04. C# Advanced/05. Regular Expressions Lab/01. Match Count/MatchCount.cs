@@ -1,15 +1,17 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _01.Match_Count
+﻿namespace _01.Match_Count
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     public class MatchCount
     {
         public static void Main()
         {
-            var pattern = new Regex(Console.ReadLine());
-            var text = Console.ReadLine();
-            var matches = pattern.Matches(text);
+            Regex pattern = new Regex(Console.ReadLine());
+            string text = Console.ReadLine();
+
+            MatchCollection matches = pattern.Matches(text);
+
             Console.WriteLine(matches.Count);
         }
     }

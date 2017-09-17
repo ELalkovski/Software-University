@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _01.Students_Results
+﻿namespace _01.Students_Results
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StudentsResults
     {
         public static void Main()
         {
-            var inputCount = int.Parse(Console.ReadLine());
-            var students = new Dictionary<string, List<double>>();
+            int inputCount = int.Parse(Console.ReadLine());
+            Dictionary<string, List<double>> students = new Dictionary<string, List<double>>();
 
             for (int i = 0; i < inputCount; i++)
             {
-                var input = Console.ReadLine()
+                string[] input = Console.ReadLine()
                     .Split(new[]{' ', ',', '-'}, StringSplitOptions.RemoveEmptyEntries);
 
-                var name = input[0];
-                var firstResult = double.Parse(input[1]);
-                var secondResult = double.Parse(input[2]);
-                var thirdResult = double.Parse(input[3]);
+                string name = input[0];
+                double firstResult = double.Parse(input[1]);
+                double secondResult = double.Parse(input[2]);
+                double thirdResult = double.Parse(input[3]);
 
                 if (students.ContainsKey(name))
                 {
@@ -35,7 +35,6 @@ namespace _01.Students_Results
                     students[name].Add(thirdResult);
                 }
             }
-
             
             Console.WriteLine(string.Format("{0, -10}|{1, 7}|{2, 7}|{3, 7}|{4, 7}|", "Name", "CAdv", "COOP", "AdvOOP", "Average"));
 

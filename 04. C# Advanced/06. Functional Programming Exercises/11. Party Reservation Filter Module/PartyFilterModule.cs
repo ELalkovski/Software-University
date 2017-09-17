@@ -1,33 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _11.Party_Reservation_Filter_Module
+﻿namespace _11.Party_Reservation_Filter_Module
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class PartyFilterModule
     {
         public static void Main()
         {
-            var people = Console.ReadLine()
+            List<string> people = Console.ReadLine()
                 .Split(' ')
                 .ToList();
 
-            var mainState = new List<string>();
+            List<string> mainState = new List<string>();
             mainState.AddRange(people);
 
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "Print")
             {
-                var tokens = input.Split(';');
-                var command = tokens[0];
-                var criteria = tokens[1];
-                var boundry = tokens[2];
+                string[] tokens = input.Split(';');
+                string command = tokens[0];
+                string criteria = tokens[1];
+                string boundry = tokens[2];
+
                 if (command == "Add filter")
                 {
                     FilterPeople(people, criteria, boundry);
                 }
-                else if(command == "Remove filter")
+                else if (command == "Remove filter")
                 {
                     UnFilterPeople(people, mainState, criteria, boundry);
                 }
@@ -37,6 +38,7 @@ namespace _11.Party_Reservation_Filter_Module
 
             Predicate<string> empty = (person) => { return person == string.Empty; };
             people.RemoveAll(empty);
+
             Console.WriteLine(string.Join(" ", people));
         }
 
@@ -57,6 +59,7 @@ namespace _11.Party_Reservation_Filter_Module
                             people[i] = mainState[i];
                         }
                     }
+
                     break;
                 case "Ends with":
                     for (int i = 0; i < mainState.Count; i++)
@@ -66,6 +69,7 @@ namespace _11.Party_Reservation_Filter_Module
                             people[i] = mainState[i];
                         }
                     }
+
                     break;
                 case "Contains with":
                     for (int i = 0; i < mainState.Count; i++)
@@ -75,6 +79,7 @@ namespace _11.Party_Reservation_Filter_Module
                             people[i] = mainState[i];
                         }
                     }
+
                     break;
                 case "Length":
                     for (int i = 0; i < mainState.Count; i++)
@@ -84,6 +89,7 @@ namespace _11.Party_Reservation_Filter_Module
                             people[i] = mainState[i];
                         }
                     }
+
                     break;
             }
         }

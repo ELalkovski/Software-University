@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace _02.Sets_of_Elements
+﻿namespace _02.Sets_of_Elements
 {
     using System;
     using System.Collections.Generic;
@@ -16,43 +14,43 @@ namespace _02.Sets_of_Elements
              Finaly it finds all non-repeating elements that appear in both of them, and prints them at the console.
              */
 
-            var setsLength = Console.ReadLine()
+            string[] setsLength = Console.ReadLine()
                 .Trim()
                 .Split(' ')
                 .ToArray();
-            var n = int.Parse(setsLength[0]);
-            var m = int.Parse(setsLength[1]);
-            var firstSet = new HashSet<int>();
-            var secondSet = new HashSet<int>();
+            int firstCollectionNumbers = int.Parse(setsLength[0]);
+            int secondCollectionNumbers = int.Parse(setsLength[1]);
+            HashSet<int> firstCollection = new HashSet<int>();
+            HashSet<int> secondCollection = new HashSet<int>();
 
-            for (int i = 0; i < (n + m); i++)
+            for (int i = 0; i < (firstCollectionNumbers + secondCollectionNumbers); i++)
             {
                 var currNum = int.Parse(Console.ReadLine());
 
-                if (i < n)
+                if (i < firstCollectionNumbers)
                 {
-                    firstSet.Add(currNum);
+                    firstCollection.Add(currNum);
                 }
                 else
                 {
-                    secondSet.Add(currNum);
+                    secondCollection.Add(currNum);
                 }
             }
 
-            var loopLength = Math.Max(firstSet.Count, secondSet.Count);
-
-            var firstArr = firstSet.ToArray();
-            var repeatingElements = new HashSet<int>();
+            int loopLength = Math.Max(firstCollection.Count, secondCollection.Count);
+            int[] firstArr = firstCollection.ToArray();
+            HashSet<int> repeatingElements = new HashSet<int>();
 
             for (int i = 0; i < loopLength; i++)
             {
-                var currNum = firstArr[i];
-                if (secondSet.Contains(currNum))
+                int currNum = firstArr[i];
+
+                if (secondCollection.Contains(currNum))
                 {
                     repeatingElements.Add(currNum);
                 }
-                
             }
+
             Console.WriteLine(string.Join(" ", repeatingElements));
         }
     }

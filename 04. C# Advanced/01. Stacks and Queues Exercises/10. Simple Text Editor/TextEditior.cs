@@ -19,16 +19,15 @@
             Each of the following n lines contains the name of the operation followed by the command argument, 
             if any, separated by space in the following format CommandName Argument. 
 
-
              */
 
-            var operationsCount = int.Parse(Console.ReadLine());
+            int operationsCount = int.Parse(Console.ReadLine());
             string text = "";
-            var previousStateOfText = new Stack<string>();
+            Stack<string> previousStateOfText = new Stack<string>();
 
             for (int i = 0; i < operationsCount; i++)
             {
-                var inputTokens = Console.ReadLine()
+                string[] inputTokens = Console.ReadLine()
                     .Split()
                     .ToArray();
 
@@ -44,25 +43,23 @@
                         {
                             text += currText[index];
                         }
-                        
-                        
-                        break;
 
+                        break;
                     case "2":
-                        var countOfLastElements = int.Parse(inputTokens[1]);
+                        int countOfLastElements = int.Parse(inputTokens[1]);
                         previousStateOfText.Push(text);
 
                         if (countOfLastElements >= 0 && countOfLastElements <= text.Length)
                         {
-                            var indexToStop = text.Length - countOfLastElements;
+                            int indexToStop = text.Length - countOfLastElements;
+
                             for (int j = text.Length - 1; j >= indexToStop; j--)
                             {
                                 text = text.Remove(j, 1);
                             }
-                            
                         }
-                        break;
 
+                        break;
                     case "3":
                         var indexToPrint = int.Parse(inputTokens[1]);
                         for (int j = 0; j < indexToPrint; j++)
@@ -71,11 +68,12 @@
                             {
                                 Console.WriteLine(text[j]);
                             }
-                        }              
+                        } 
+                        
                         break;
-
                     case "4":
                         text = previousStateOfText.Pop();
+
                         break;
                 }
             }

@@ -11,7 +11,7 @@
              This program finds the count of 2 x 2 squares of equal chars in a matrix.
              */
 
-            var matrixSizes = Console.ReadLine()
+            int[] matrixSizes = Console.ReadLine()
                 .Split()
                 .Select(int.Parse)
                 .ToArray();
@@ -22,15 +22,15 @@
             }
             else
             {
-                var rows = matrixSizes[0];
-                var cols = matrixSizes[1];
+                int rows = matrixSizes[0];
+                int cols = matrixSizes[1];
 
-                var matrix = new char[rows][];
-                var squaresCount = 0;
+                char[][] matrix = new char[rows][];
+                int squaresCount = 0;
 
                 for (int currRow = 0; currRow < matrix.Length; currRow++)
                 {
-                    var elements = Console.ReadLine()
+                    char[] elements = Console.ReadLine()
                         .Split(new [] {' '}, StringSplitOptions.RemoveEmptyEntries)
                         .Select(char.Parse)
                         .ToArray();
@@ -47,7 +47,6 @@
                     {
                         matrix[currRow][currCol] = elements[currCol];
                     }
-
                 }
 
                 for (int currRow = 0; currRow < matrix.Length - 1; currRow++)
@@ -65,7 +64,6 @@
 
                 Console.WriteLine(squaresCount);
             }
-            
         }
     }
 }

@@ -1,30 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _08.Map_Districts
+﻿namespace _08.Map_Districts
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class MapDistricts
     {
         public static void Main()
         {
-            var cities = Console.ReadLine()
+            string[] cities = Console.ReadLine()
                 .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
+            long boundry = long.Parse(Console.ReadLine());
 
-            var boundry = long.Parse(Console.ReadLine());
-
-            var populations = new Dictionary<string, List<long>>();
+            Dictionary<string, List<long>> populations = new Dictionary<string, List<long>>();
 
             foreach (var city in cities)
             {
-                var tokens = city.Split(':');
-                var cityName = tokens[0];
-                var population = long.Parse(tokens[1]);
+                string[] tokens = city.Split(':');
+                string cityName = tokens[0];
+                long population = long.Parse(tokens[1]);
 
                 if (!populations.ContainsKey(cityName))
                 {
                     populations.Add(cityName, new List<long>());
                 }
+
                 populations[cityName].Add(population);
             }
 

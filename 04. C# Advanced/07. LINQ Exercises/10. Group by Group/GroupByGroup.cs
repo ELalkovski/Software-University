@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _10.Group_by_Group
+﻿namespace _10.Group_by_Group
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class Student
     {
         public string Name { get; set; }
@@ -15,13 +15,14 @@ namespace _10.Group_by_Group
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var studentsList = new List<Student>();
+            string input = Console.ReadLine();
+
+            List<Student> studentsList = new List<Student>();
 
             while (input != "END")
             {
-                var tokens = input.Split(' ');
-                var currStudent = new Student();
+                string[] tokens = input.Split(' ');
+                Student currStudent = new Student();
                 currStudent.Name = $"{tokens[0]} {tokens[1]}";
                 currStudent.Group = int.Parse(tokens[2]);
 
@@ -37,11 +38,13 @@ namespace _10.Group_by_Group
             foreach (var group in groupedStudents)
             {
                 Console.Write($"{group.Key} - ");
-                var namesList = new List<string>();
+                List<string> namesList = new List<string>();
+
                 foreach (var name in group)
                 {
                     namesList.Add(name.Name);
                 }
+
                 Console.Write(string.Join(", ", namesList));
                 Console.WriteLine();
             }

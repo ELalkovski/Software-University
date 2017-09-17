@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _02.Students_by_First_and_Last_Name
+﻿namespace _02.Students_by_First_and_Last_Name
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StudentsByFirst
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var allStudents = new List<List<string>>();
+            string input = Console.ReadLine();
+
+            List<List<string>> allStudents = new List<List<string>>();
 
             while (input != "END")
             {

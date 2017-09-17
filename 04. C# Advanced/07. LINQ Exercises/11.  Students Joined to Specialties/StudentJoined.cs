@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace _11.Students_Joined_to_Specialties
+﻿namespace _11.Students_Joined_to_Specialties
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class StudentSpecialty
     {
         public string SpeacialtyName { get; set; }
@@ -22,13 +22,13 @@ namespace _11.Students_Joined_to_Specialties
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
-            var spacialitiesList = new List<StudentSpecialty>();
+            string input = Console.ReadLine();
+            List<StudentSpecialty> spacialitiesList = new List<StudentSpecialty>();
 
             while (input != "Students:")
             {
-                var tokens = input.Split();
-                var currSpecialty = new StudentSpecialty();
+                string[] tokens = input.Split();
+                StudentSpecialty currSpecialty = new StudentSpecialty();
                 currSpecialty.SpeacialtyName = $"{tokens[0]} {tokens[1]}";
                 currSpecialty.FacultyNumber = tokens[2];
 
@@ -37,13 +37,14 @@ namespace _11.Students_Joined_to_Specialties
                 input = Console.ReadLine();
             }
 
-            var students = new List<Student>();
+            List<Student> students = new List<Student>();
+
             input = Console.ReadLine();
 
             while (input != "END")
             {
-                var tokens = input.Split();
-                var currStudent = new Student();
+                string[] tokens = input.Split();
+                Student currStudent = new Student();
                 currStudent.Name = $"{tokens[1]} {tokens[2]}";
                 currStudent.FacultyNumber = tokens[0];
 
