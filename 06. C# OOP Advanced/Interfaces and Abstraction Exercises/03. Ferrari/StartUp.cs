@@ -6,8 +6,8 @@
     {
         public static void Main()
         {
-            var driversName = Console.ReadLine();
-            var car = new Ferrari(driversName);
+            string driversName = Console.ReadLine();
+            ICar car = new Ferrari(driversName);
 
             Console.WriteLine(car);
         }

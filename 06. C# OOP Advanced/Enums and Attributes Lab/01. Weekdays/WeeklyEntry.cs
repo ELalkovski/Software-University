@@ -30,7 +30,7 @@ public class WeeklyEntry : IComparable<WeeklyEntry>
             return 1;
         }
 
-        var weekComparison = this.weekDay.CompareTo(other.weekDay);
+        int weekComparison = this.weekDay.CompareTo(other.weekDay);
 
         if (weekComparison != 0)
         {

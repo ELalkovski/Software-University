@@ -15,15 +15,14 @@
 
         public void Run()
         {
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "END")
             {
-                var data = input
+                List<string> data = input
                     .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries)
                     .ToList();
-                var command = data[0];
-                //data.RemoveAt(0);
+                string command = data[0];
 
                 ExecuteCommand(command, data);
                 input = Console.ReadLine();
@@ -35,11 +34,11 @@
             switch (command)
             {
                 case "Add":
-                    var element = data[1];
+                    string element = data[1];
                     this.customList.Add(element);
                     break;
                 case "Remove":
-                    var index = int.Parse(data[1]);
+                    int index = int.Parse(data[1]);
                     this.customList.Remove(index);
                     break;
                 case "Contains":
@@ -47,12 +46,12 @@
                     Console.WriteLine(this.customList.Contains(element));
                     break;
                 case "Swap":
-                    var firstIndex = int.Parse(data[1]);
-                    var secondIndex = int.Parse(data[2]);
+                    int firstIndex = int.Parse(data[1]);
+                    int secondIndex = int.Parse(data[2]);
                     this.customList.Swap(firstIndex, secondIndex);
                     break;
                 case "Greater":
-                    var border = data[1];
+                    string border = data[1];
                     Console.WriteLine(this.customList.CountGreaterThan(border));
                     break;
                 case "Max":

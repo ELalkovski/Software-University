@@ -17,7 +17,8 @@ public class Scale<T> where T : IComparable<T>
         {
             return this.left;
         }
-        else if (this.left.CompareTo(this.right) < 0)
+
+        if (this.left.CompareTo(this.right) < 0)
         {
             return this.right;
         }

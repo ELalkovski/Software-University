@@ -3,5 +3,7 @@
     public interface ICallable
     {
         string CallNumber(string number);
+
+        string BrowseTheWeb(string url);
     }
 }

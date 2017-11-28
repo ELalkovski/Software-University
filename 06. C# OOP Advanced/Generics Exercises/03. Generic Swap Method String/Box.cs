@@ -24,12 +24,13 @@
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             foreach (var element in this.elements)
             {
                 sb.AppendLine($"{element.GetType().FullName}: {element}");
             }
+
             return sb.ToString().Trim();
         }
 

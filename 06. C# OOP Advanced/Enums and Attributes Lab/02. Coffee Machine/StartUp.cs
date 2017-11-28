@@ -7,9 +7,11 @@ public class StartUp
         CoffeeMachine machine = new CoffeeMachine();
 
         string input;
+
         while ((input = Console.ReadLine()) != "End")
         {
             string[] inputArgs = input.Split();
+
             if (inputArgs.Length == 1)
             {
                 machine.InsertCoin(inputArgs[0]);
@@ -24,6 +26,5 @@ public class StartUp
         {
             Console.WriteLine(coffeeType);
         }
-
     }
 }

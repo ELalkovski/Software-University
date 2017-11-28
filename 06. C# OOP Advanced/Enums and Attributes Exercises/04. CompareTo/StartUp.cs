@@ -6,13 +6,14 @@
     {
         public static void Main()
         {
-            var rank = Console.ReadLine();
-            var suit = Console.ReadLine();
-            var firstCard = new Card(rank, suit);
+            string rank = Console.ReadLine();
+            string suit = Console.ReadLine();
+            Card firstCard = new Card(rank, suit);
 
             rank = Console.ReadLine();
             suit = Console.ReadLine();
-            var secondCard = new Card(rank, suit);
+
+            Card secondCard = new Card(rank, suit);
 
             if (firstCard.CompareTo(secondCard) == 1)
             {

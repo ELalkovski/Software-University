@@ -6,14 +6,14 @@ public class Tracker
 {
     public void PrintMethodsByAuthor()
     {
-        var type = typeof(StartUp);
-        var methods = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static);
+        Type type = typeof(StartUp);
+        MethodInfo[] methods = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static);
 
         foreach (var methodInfo in methods)
         {
             if (methodInfo.CustomAttributes.Any(n => n.AttributeType == typeof(SoftUniAttribute)))
             {
-                var attrs = methodInfo.GetCustomAttributes(false);
+                object[] attrs = methodInfo.GetCustomAttributes(false);
 
                 foreach (SoftUniAttribute attr in attrs)
                 {

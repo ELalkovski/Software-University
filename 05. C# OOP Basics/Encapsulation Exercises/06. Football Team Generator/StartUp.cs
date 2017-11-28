@@ -40,7 +40,7 @@
                         {
                             try
                             {
-                                team = teams.Where(t => t.Name == teamName).First();
+                                team = teams.First(t => t.Name == teamName);
                                 Player player = new Player(playerName, endurance, sprint, dribble, passing, shooting);
                                 team.AddPlayer(player);
                             }
@@ -52,7 +52,7 @@
                         break;
                     case "Remove":
                         teamName = tokens[1];
-                        team = teams.Where(t => t.Name == teamName).First();
+                        team = teams.First(t => t.Name == teamName);
                         playerName = tokens[2];
 
                         try
@@ -74,7 +74,7 @@
                         }
                         else
                         {
-                            team = teams.Where(t => t.Name == teamName).First();
+                            team = teams.First(t => t.Name == teamName);
                             Console.WriteLine("{0} - {1}", team.Name, team.Rating());
                         }
                         break;

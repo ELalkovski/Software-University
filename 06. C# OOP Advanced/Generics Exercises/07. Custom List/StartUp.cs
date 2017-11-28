@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            var interpreter = new CommandInterpreter();
+            CommandInterpreter interpreter = new CommandInterpreter();
             interpreter.Run();
         }
     }

@@ -8,12 +8,12 @@
     {
         public static void Main()
         {
-            var inputLines = Console.ReadLine();
-            var checkedCitizens = new List<IIdentificationable>();
+            string inputLines = Console.ReadLine();
+            List<IIdentificationable> checkedCitizens = new List<IIdentificationable>();
 
             while (inputLines != "End")
             {
-                var tokens = inputLines.Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
+                string[] tokens = inputLines.Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries);
 
                 if (tokens.Length == 3)
                 {
@@ -29,7 +29,7 @@
                 inputLines = Console.ReadLine();
             }
 
-            var fakeIdsLastDigits = Console.ReadLine();
+            string fakeIdsLastDigits = Console.ReadLine();
 
             checkedCitizens
                 .FindAll(c => c.IsIdFake(fakeIdsLastDigits))

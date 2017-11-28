@@ -6,9 +6,9 @@
     {
         public static void Main()
         {
-            var rank = Console.ReadLine();
-            var suit = Console.ReadLine();
-            var card = new Card(rank, suit);
+            string rank = Console.ReadLine();
+            string suit = Console.ReadLine();
+            Card card = new Card(rank, suit);
 
             Console.WriteLine(card);
         }

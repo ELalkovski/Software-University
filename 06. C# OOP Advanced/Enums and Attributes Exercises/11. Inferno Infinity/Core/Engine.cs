@@ -15,19 +15,18 @@
 
         public void Run()
         {
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
 
             while (input != "END")
             {
-                var data = input
+                List<string> data = input
                     .Split(';')
                     .ToList();
 
-                var command = data[0];
+                string command = data[0];
                 data.RemoveAt(0);
 
                 ExecuteCommand(command, data);
-
                 input = Console.ReadLine();
             }
         }
@@ -37,18 +36,18 @@
             switch (command)
             {
                 case "Create":
-                    var axeInfo = data[0].Split(' ');
-                    var rarity = axeInfo[0];
-                    var weaponType = axeInfo[1];
-                    var weaponName = data[1];
+                    string[] axeInfo = data[0].Split(' ');
+                    string rarity = axeInfo[0];
+                    string weaponType = axeInfo[1];
+                    string weaponName = data[1];
                     interpreter.Create(rarity, weaponType, weaponName);
                     break;
                 case "Add":
-                    var gemInfo = data[2].Split(' ');
+                    string[] gemInfo = data[2].Split(' ');
                     weaponName = data[0];
-                    var insertIndex = int.Parse(data[1]);
-                    var gemClarity = gemInfo[0];
-                    var gemType = gemInfo[1];
+                    int insertIndex = int.Parse(data[1]);
+                    string gemClarity = gemInfo[0];
+                    string gemType = gemInfo[1];
                     interpreter.Add(weaponName, insertIndex, gemClarity, gemType);
                     break;
                 case "Remove":

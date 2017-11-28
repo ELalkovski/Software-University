@@ -1,18 +1,17 @@
 ﻿namespace _05.Custom_Enum_Attribute
 {
     using System;
-    using System.Reflection;
 
     public class StartUp
     {
         public static void Main()
         {
-            var name = Console.ReadLine();
+            string name = Console.ReadLine();
 
             if (name.Equals("Rank"))
             {
-                var type = typeof(Rank);
-                var methods = type.GetCustomAttributes(false);
+                Type type = typeof(Rank);
+                object[] methods = type.GetCustomAttributes(false);
 
                 foreach (TypeAttribute method in methods)
                 {
@@ -21,8 +20,8 @@
             }
             else
             {
-                var type = typeof(Suit);
-                var methods = type.GetCustomAttributes(false);
+                Type type = typeof(Suit);
+                object[] methods = type.GetCustomAttributes(false);
 
                 foreach (TypeAttribute method in methods)
                 {

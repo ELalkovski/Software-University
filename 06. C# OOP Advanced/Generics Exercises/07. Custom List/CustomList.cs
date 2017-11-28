@@ -1,17 +1,16 @@
-﻿using System.Collections;
-
-namespace _07.Custom_List
+﻿namespace _07.Custom_List
 {
     using System;
-    using System.Linq;
+    using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
+
 
     public class CustomList<T> : ICustomList<T>, IEnumerable<T>
         where T : IComparable<T>
     {
         private static int count;
-
         private List<T> elements;
 
         public CustomList() : this(Enumerable.Empty<T>())
@@ -103,16 +102,15 @@ namespace _07.Custom_List
 
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             foreach (var element in this.elements)
             {
                 sb.AppendLine($"{element}");
             }
+
             return sb.ToString().Trim();
         }
-
-        
     }
 }
 

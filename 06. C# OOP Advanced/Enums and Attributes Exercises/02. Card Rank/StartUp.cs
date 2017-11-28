@@ -6,7 +6,7 @@
     {
         public static void Main()
         {
-            var input = Console.ReadLine();
+            string input = Console.ReadLine();
             Console.WriteLine(input + ":");
 
             foreach (var card in Enum.GetValues(typeof(CardRank)))

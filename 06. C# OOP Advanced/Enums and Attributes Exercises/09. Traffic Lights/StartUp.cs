@@ -8,11 +8,11 @@
     {
         public static void Main()
         {
-            var inputLights = Console.ReadLine()
+            List<string> inputLights = Console.ReadLine()
                 .Split(new []{' '}, StringSplitOptions.RemoveEmptyEntries)
                 .ToList();
 
-            var allTrafficLights = new List<TrafficLight>();
+            List<TrafficLight> allTrafficLights = new List<TrafficLight>();
 
             foreach (var light in inputLights)
             {
@@ -20,7 +20,7 @@
                 allTrafficLights.Add(new TrafficLight(currentLight));
             }
 
-            var numberOfLines = int.Parse(Console.ReadLine());
+            int numberOfLines = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < numberOfLines; i++)
             {
@@ -32,6 +32,5 @@
                 Console.WriteLine(string.Join(" ", allTrafficLights));
             }
         }
-
     }
 }

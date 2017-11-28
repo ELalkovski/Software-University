@@ -1,7 +1,6 @@
 ﻿namespace _07.Card_Game
 {
     using System;
-    using System.Runtime.CompilerServices;
 
     public class Card : IComparable<Card>
     {
@@ -25,8 +24,8 @@
 
         public int CompareTo(Card other)
         {
-            var firstCardPower = (int) this.cardRank + (int) this.cardSuit;
-            var secondCardPower = (int) other.cardRank + (int) other.cardSuit;
+            int firstCardPower = (int) this.cardRank + (int) this.cardSuit;
+            int secondCardPower = (int) other.cardRank + (int) other.cardSuit;
 
             return firstCardPower.CompareTo(secondCardPower);
         }

@@ -7,22 +7,22 @@
 
     public class CommandInterpreter
     {
-        private List<Weapon> weapons;
+        private List<IWeapon> weapons;
 
         public CommandInterpreter()
         {
-            this.weapons = new List<Weapon>();
+            this.weapons = new List<IWeapon>();
         }
 
         public void Create(string rarity, string type, string name)
         {
-            var weapon = new Weapon(rarity, type, name);
+            IWeapon weapon = new Weapon(rarity, type, name);
             this.weapons.Add(weapon);
         }
 
         public void Add(string name, int index, string clarity, string type)
         {
-            var gem = new Gem(clarity, type);
+            Gem gem = new Gem(clarity, type);
             this.weapons.First(w => w.Name.Equals(name)).AddGem(index, gem);
         }
 
@@ -33,9 +33,10 @@
 
         public void Print(string name)
         {
-            var weapon = this.weapons.First(w => w.Name.Equals(name));
+            IWeapon weapon = this.weapons.First(w => w.Name.Equals(name));
             weapon.CalculateMagicalStats();
             weapon.CalculateBaseStats();
+
             Console.WriteLine(weapon.ToString());
         }
     }

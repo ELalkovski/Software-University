@@ -6,16 +6,16 @@
     {
         public static void Main()
         {
-            var linesCount = int.Parse(Console.ReadLine());
-            var box = new Box<double>();
+            int linesCount = int.Parse(Console.ReadLine());
+            Box<double> box = new Box<double>();
 
             for (int i = 0; i < linesCount; i++)
             {
-                var floatingNum = double.Parse(Console.ReadLine());
+                double floatingNum = double.Parse(Console.ReadLine());
                 box.AddElement(floatingNum);
             }
 
-            var border = double.Parse(Console.ReadLine());
+            double border = double.Parse(Console.ReadLine());
 
             Console.WriteLine(box.GetBiggerValuesCount(border));
         }

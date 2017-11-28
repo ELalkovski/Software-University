@@ -4,6 +4,8 @@
 
     public interface IWeapon
     {
+        string Name { get; }
+
         void AddGem(int index, Gem gem);
 
         void RemoveGem(int index);

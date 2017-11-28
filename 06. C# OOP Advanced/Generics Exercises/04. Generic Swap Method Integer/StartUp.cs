@@ -7,21 +7,22 @@
     {
         public static void Main()
         {
-            var linesCount = int.Parse(Console.ReadLine());
-            var box = new Box<int>();
+            int linesCount = int.Parse(Console.ReadLine());
+            Box<int> box = new Box<int>();
 
             for (int i = 0; i < linesCount; i++)
             {
-                var integer = int.Parse(Console.ReadLine());
+                int integer = int.Parse(Console.ReadLine());
                 box.AddElement(integer);
             }
 
-            var indices = Console.ReadLine()
+            int[] indices = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
 
             box.SwapElements(indices[0], indices[1]);
+
             Console.WriteLine(box.ToString());
         }
     }

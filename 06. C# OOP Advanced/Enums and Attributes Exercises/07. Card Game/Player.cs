@@ -31,6 +31,7 @@
         public Card GetHighestCard()
         {
             var orderedCards = this.cards.OrderByDescending(c => c.GetCardPower());
+
             return orderedCards.First();
         }
 

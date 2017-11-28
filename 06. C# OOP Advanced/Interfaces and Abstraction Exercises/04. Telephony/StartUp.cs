@@ -1,19 +1,18 @@
 ﻿namespace _04.Telephony
 {
     using System;
-    using System.Linq;
 
     public class StartUp
     {
         public static void Main()
         {
-            var numbers = Console.ReadLine()
+            string[] numbers = Console.ReadLine()
                 .Split(' ');
 
-            var urls = Console.ReadLine()
+            string[] urls = Console.ReadLine()
                 .Split(' ');
 
-            var phone = new SmartPhone();
+            ICallable phone = new SmartPhone();
 
             foreach (var number in numbers)
             {

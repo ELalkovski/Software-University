@@ -8,8 +8,8 @@
     {
         public static void Main()
         {
-            var firstName = Console.ReadLine();
-            var secondName = Console.ReadLine();
+            string firstName = Console.ReadLine();
+            string secondName = Console.ReadLine();
 
             var firstPlayer = new Player(firstName);
             var secondPlayer = new Player(secondName);
