@@ -1,0 +1,37 @@
+<table border="1" id="customers">
+    <tr><th>Name</th><th>Email</th></tr>
+    <tr><td>Eve</td><td>eve@gmail.com</td></tr>
+    <tr><td>Nick</td><td>nick@yahooo.com</td></tr>
+    <tr><td>Didi</td><td>didi@didi.net</td></tr>
+    <tr><td>Tedy</td><td>tedy@tedy.com</td></tr>
+   </table>
+   Email: <input type="text" name="email" />
+   <button onclick="deleteByEmail()">Delete</button>
+   <div id="result" /></div>
+
+<script>
+    function deleteByEmail() {
+        let emails = document.querySelectorAll('#customers tr td:last-child')
+        console.log(emails)
+        let emailToBeDeleted = document.getElementsByName('email')[0]
+        let table = document.getElementById('customers')
+        let isDeleted = false
+
+        for (const email of emails) {
+            
+            if (email.textContent === emailToBeDeleted.value) {
+                isDeleted = true
+                email.parentNode.parentNode.removeChild(email.parentNode)
+                document.getElementsByName('email')[0].value = ''
+                break
+            }
+        }
+
+        if (!isDeleted) {
+            document.getElementById('result').textContent = 'Not found'
+            return
+        }
+
+        document.getElementById('result').textContent = 'Deleted'
+    }
+</script>

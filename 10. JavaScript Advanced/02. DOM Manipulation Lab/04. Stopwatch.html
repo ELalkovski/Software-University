@@ -1,0 +1,32 @@
+<div id="time" style="border:3px solid blue; text-align:center; font-size:2em; margin-bottom:10px">00:00</div>
+<button id="startBtn">Start</button>
+<button id="stopBtn" disabled="true">Stop</button>
+<script>
+window.onload = function() { 
+    let startBtn = document.getElementById('startBtn')
+    startBtn.addEventListener('click', start)
+    let stopBtn = document.getElementById('stopBtn')
+    stopBtn.addEventListener('click', stop)
+
+    let time, intervalId
+    
+    function start() {
+        startBtn.disabled = 'disabled'
+        stopBtn.disabled = ''
+        time = -1
+        incrementTime()
+        intervalId = setInterval(incrementTime, 1000)
+    }
+
+    function stop() {
+        startBtn.disabled = ''
+        stopBtn.disabled = 'disabled'
+        clearInterval(intervalId)
+    }
+
+    function incrementTime() {
+        time++
+        document.getElementById('time').textContent = ('0' + Math.trunc(time / 60)).slice(-2) + ':' + ('0' + (time % 60)).slice(-2) 
+    }
+ }
+</script>

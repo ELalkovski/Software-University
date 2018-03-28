@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Table Builder</title>
+    <style>
+        td,
+        th {
+            background: #DDD;
+            padding: 5px
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script>
+        function tableBuilder(selector) {
+            return {
+                createTable: function (columnNames) {
+                    let table = $('<table>')
+                    let tableHeadingsRow = $('<tr>')
+
+                    for (const name of columnNames) {
+                        let currentColumn = $('<th>').text(name)
+                        tableHeadingsRow.append(currentColumn)
+                    }
+
+                    tableHeadingsRow.append($('<th>').text('Action'))
+                    table.append(tableHeadingsRow)
+                    $(selector).html(table)
+                },
+
+                fillData: function (dataRows) {
+                    for (const row of dataRows) {
+
+                        let currentRow = $('<tr>')
+                        for (const colContent of row) {
+                            let currentCol = $('<td>').text(colContent)
+                            currentRow.append(currentCol)
+                        }
+                        let deleteBtn = $('<button>')
+                            .text('Delete')
+                            .click(function () {
+                                $(this).parent().parent().remove()
+                            })
+                        currentRow.append($('<td>').append(deleteBtn))
+                        $('table').append(currentRow)        
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        $(function () {
+            let builder = tableBuilder("#main");
+            builder.createTable(['Name', 'Town']);
+            builder.fillData([
+                ['Maria', 'Sofia'],
+                ['Kiril', 'Varna'],
+                ['Ani <new>', 'Ruse'],
+            ]);
+        });
+    </script>
+</body>
+
+</html>
