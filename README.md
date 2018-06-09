@@ -1,1 +1,1 @@
-Projects and exercises that I've made during my studies at the Software University.
+Projects and exercises that I've made during my courses at the Software University.
